@@ -39,51 +39,10 @@
                                 </div>
                             </div>
 
-                            {{-- @include('admin.includes.alerts.success') --}}
-                            {{-- @include('admin.includes.alerts.errors') --}}
-
+                           
                             <div class="card-content collapse show">
                                 <div class="card-body card-dashboard">
-                                    {{-- <table
-                                        class="table display nowrap table-striped table-bordered ">
-                                        <thead>
-                                        <tr>
-                                            <th> الاسم</th>
-                                            <th>الاختصار</th>
-                                            <th>العنوان</th>
-                                            <th>الإجراءات</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                                <tr>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td></td>
-
-                                                    <td>
-                                                        <div class="btn-group" role="group"
-                                                             aria-label="Basic example">
-                                                            <a href="{{route('admin.edit')}}"
-                                                               class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
-                                                            <button type="button"
-                                                                    value=""
-                                                                    onclick=""
-                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1"
-                                                                    data-toggle="modal"
-                                                                    data-target="#rotateInUpRight">
-                                                                حذف
-                                                            </button>
-
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-
-
-                                        </tbody>
-                                    </table> --}}
+                                   
                                     <img src="/admin/images/home/cow.jpg" alt="home page" width="100%">
 
                                     <div class="justify-content-center d-flex">
