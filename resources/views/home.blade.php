@@ -4,53 +4,82 @@
 
 <div class="app-content content">
     <div class="content-wrapper">
+        <!-- العنوان -->
         <div class="content-header row">
             <div class="content-header-left col-md-6 col-12 mb-2">
-                <h3 class="content-header-title"> الرئيسية </h3>
+                <h3 class="content-header-title font-weight-bold text-primary">لوحة التحكم</h3>
                 <div class="row breadcrumbs-top">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">الرئيسية</a>
-                            </li>
-                            <li class="breadcrumb-item active"> الرئيسية
-                            </li>
+                            <li class="breadcrumb-item"><a href="Repo">الرئيسية</a></li>
+                            <li class="breadcrumb-item active">الصفحة الرئيسية</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- المحتوى -->
         <div class="content-body">
-            <!-- DOM - jQuery events table -->
             <section id="dom">
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title"> الصفحة الرئيسية </h4>
-                                <a class="heading-elements-toggle"><i
-                                        class="la la-ellipsis-v font-medium-3"></i></a>
-                                <div class="heading-elements">
-                                    <ul class="list-inline mb-0">
-                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
 
-                           
-                            <div class="card-content collapse show">
-                                <div class="card-body card-dashboard">
-                                   
-                                    <img src="/admin/images/home/cow.jpg" alt="home page" width="100%">
+                        <!-- كروت الإحصائيات -->
+                        <div class="row text-center">
 
-                                    <div class="justify-content-center d-flex">
-
+                            <!-- عدد المرضى -->
+                            <div class="col-xl-4 col-md-6 col-sm-12 mb-3">
+                                <div class="card border-0 shadow-lg rounded-3">
+                                    <div class="card-body py-4">
+                                        <div class="d-flex justify-content-center align-items-center mb-2">
+                                            <div class="bg-primary text-white rounded-circle p-3">
+                                                <i class="ft-users font-large-2"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-primary font-weight-bold mb-1">عدد المرضى</h5>
+                                        <h2 class="font-weight-bolder text-dark">{{ $patientsCount ?? 0 }}</h2>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- عدد الأطباء -->
+                            <div class="col-xl-4 col-md-6 col-sm-12 mb-3">
+                                <div class="card border-0 shadow-lg rounded-3">
+                                    <div class="card-body py-4">
+                                        <div class="d-flex justify-content-center align-items-center mb-2">
+                                            <div class="bg-success text-white rounded-circle p-3">
+                                                <i class="ft-user font-large-2"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-success font-weight-bold mb-1">عدد الأطباء</h5>
+                                        <h2 class="font-weight-bolder text-dark">{{ $doctorsCount ?? 0 }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- عدد الجلسات -->
+                            <div class="col-xl-4 col-md-6 col-sm-12 mb-3">
+                                <div class="card border-0 shadow-lg rounded-3">
+                                    <div class="card-body py-4">
+                                        <div class="d-flex justify-content-center align-items-center mb-2">
+                                            <div class="bg-warning text-white rounded-circle p-3">
+                                                <i class="ft-activity font-large-2"></i>
+                                            </div>
+                                        </div>
+                                        <h5 class="text-warning font-weight-bold mb-1">عدد الجلسات</h5>
+                                        <h2 class="font-weight-bolder text-dark">{{ $sessionsCount ?? 0 }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+
+                        <!-- صورة تجميلية -->
+                        {{-- <div class="text-center mt-4">
+                            <img src="/admin/images/home/cow.jpg" alt="home" class="img-fluid rounded shadow-sm" style="max-width: 80%;">
+                        </div> --}}
+
                     </div>
                 </div>
             </section>
@@ -59,4 +88,3 @@
 </div>
 
 @endsection
-`

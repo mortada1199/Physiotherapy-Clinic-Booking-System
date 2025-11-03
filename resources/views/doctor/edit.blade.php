@@ -58,9 +58,9 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> التخصص </label>
+                                                            <label for="projectinput1"> سنوات الخبرة </label>
                                                             <input type="text" value="#" id="name"
-                                                                class="form-control" placeholder="ادخل اسم التخصص  "
+                                                                class="form-control" placeholder="ادخل سنوات الخبرة  "
                                                                 name="special">
                                                             <span class="text-danger"> </span>
                                                         </div>
@@ -90,27 +90,45 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="projectinput1"> % نسبة الطبيب </label>
-                                                        <input type="text" value="" id="nsba"
-                                                            class="form-control" placeholder="ادخل نسبة الطبيب"
-                                                            name="phone">
-                                                        @error('phone')
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> % نسبة استحقاق الطبيب </label>
+                                                            <input type="text" value="" id="persent"
+                                                                class="form-control" placeholder="ادخل نسبة الطبيب"
+                                                                name="persent">
+                                                            @error('persent')
+                                                                <small class="form-text text-danger">#</small>
+                                                            @enderror
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <label for="projectinput1"> البريد الالكتروني </label>
+                                                        <input type="text" value="" id="email"
+                                                            class="form-control" placeholder="ادخل البريد الالكتروني "
+                                                            name="email">
+                                                        @error('email')
                                                             <small class="form-text text-danger">#</small>
                                                         @enderror
+                                                        {{-- <span class="text-danger"> </span> --}}
+                                                    </div>
+
+                                                </div>
+                                            </div>
 
 
-                                                        <div class="form-actions">
-                                                            <button type="button" class="btn btn-warning mr-1"
-                                                                onclick="history.back();">
-                                                                <i class="ft-x"></i> تراجع
-                                                            </button>
+                                            <div class="form-actions">
+                                                <button type="button" class="btn btn-warning mr-1"
+                                                    onclick="history.back();">
+                                                    <i class="ft-x"></i> تراجع
+                                                </button>
 
-                                                            <button type="submit" class="btn btn-primary">
-                                                                <i class="la la-check-square-o"></i> حفظ
-                                                            </button>
-                                                        </div>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="la la-check-square-o"></i> حفظ
+                                                </button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

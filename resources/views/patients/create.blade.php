@@ -50,11 +50,11 @@
                                             @csrf
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات المريض </h4>
-<div class="row">
+                                                <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="blood_type" class="form-label">اسم الطبيب</label>
+                                                        <label for="blood_type" class="form-label"> الطبيب المحول</label>
                                                         <select id="blood_type" name="blood_type" class="form-select">
-                                                            <option value="" selected disabled>اختر اسم الطبيب
+                                                            <option value="" selected disabled>اختر اسم الطبيب المحول
                                                             </option>
                                                             <option value="A+">ali</option>
                                                             <option value="A-">mohamed</option>
@@ -64,9 +64,9 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <label for="blood_type" class="form-label">اسم التخصص</label>
+                                                        <label for="blood_type" class="form-label"> الجلسة</label>
                                                         <select id="blood_type" name="blood_type" class="form-select">
-                                                            <option value="" selected disabled>اختر اسم التخصص
+                                                            <option value="" selected disabled>اختر الجلسة
                                                             </option>
                                                             <option value="A+">عظام</option>
                                                             <option value="A-">راس</option>
@@ -74,6 +74,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -98,34 +99,32 @@
                                                 </div>
 
 
-                                                
+
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label class="form-label d-block">الجنس</label>
-                                                        <div class="btn-group" role="group" aria-label="Gender">
-                                                            <input type="radio" class="btn-check" name="gender"
-                                                                id="gender_m" value="male" autocomplete="off" checked>
-                                                            <label class="btn btn-outline-secondary"
-                                                                for="gender_m">ذكر</label>
+                                                        <label for="projectinput1"> الطبيب المنفذ</label>
+                                                        <select id="blood_type" name="blood_type" class="form-select">
+                                                            <option value="" selected disabled>اختر اسم الطبيب المنفذ
+                                                            </option>
+                                                            <option value="A+">ali</option>
+                                                            <option value="A-">mohamed</option>
+                                                            <option value="B+">khalid</option>
 
-                                                            <input type="radio" class="btn-check" name="gender"
-                                                                id="gender_f" value="female" autocomplete="off">
-                                                            <label class="btn btn-outline-secondary"
-                                                                for="gender_f">أنثى</label>
+                                                        </select>
 
-                                                            <input type="radio" class="btn-check" name="gender"
-                                                                id="gender_o" value="other" autocomplete="off">
-                                                            <label class="btn btn-outline-secondary"
-                                                                for="gender_o">أخرى</label>
-                                                        </div>
+                                                        @error('name')
+                                                            <small class="form-text text-danger"> # </small>
+                                                        @enderror
+
                                                     </div>
 
-                                                    <div class="col-md-6">
+
+                                                   <div class="col-md-6">
+                                                        <label for="projectinput1"> عدد الجلسات </label>
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> التشخيص</label>
                                                             <input type="text" value="" id="name"
-                                                                class="form-control" placeholder="ادخل  التشخيص     "
+                                                                class="form-control" placeholder="ادخل عدد الجلسات     "
                                                                 name="name">
 
                                                             @error('name')
@@ -134,59 +133,78 @@
 
                                                             {{-- <span class="text-danger"> </span> --}}
                                                         </div>
+
+
                                                     </div>
                                                 </div>
 
 
-                                                <div class="row">
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> العنوان </label>
-                                                            <input type="text" value="" id="name"
-                                                                class="form-control" placeholder="ادخل عنوان المريض     "
-                                                                name="addrees">
+                                             
 
-                                                            @error('addrees')
-                                                                <small class="form-text text-danger">#</small>
-                                                            @enderror
-                                                            {{-- <span class="text-danger"> </span> --}}
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput1"> العنوان </label>
+                                                                <input type="text" value="" id="name"
+                                                                    class="form-control"
+                                                                    placeholder="ادخل عنوان المريض     " name="addrees">
+
+                                                                @error('addrees')
+                                                                    <small class="form-text text-danger">#</small>
+                                                                @enderror
+                                                                {{-- <span class="text-danger"> </span> --}}
+                                                            </div>
                                                         </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput1"> رقم الهاتف </label>
+                                                                <input type="text" value="" id="name"
+                                                                    class="form-control" placeholder=" ادخل رقم الهاتف  " "
+                                                                                               name="phone">
+                                                                                               @error('phone')
+                                                                                               <small class="form-text text-danger">#</small>
+                                                                                                   @enderror
+                                                                                        {{-- <span class="text-danger"> </span> --}}
+                                                                                    </div>
+                                                           </div>
+
+                                                        </div>
+
+
+                                                           <div class="row">
+
+                                                   <div class="col-12">
+                                                        <label for="reason" class="form-label"> التشخيص <span
+                                                                class="text-danger">*</span></label>
+                                                        <textarea id="reason" name="reason" class="form-control" rows="3" required
+                                                            placeholder="اشرح التشخيص باختصار"></textarea>
+                                                        <div class="invalid-feedback">الرجاء كتابة  التشخيص.</div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> رقم الهاتف </label>
-                                                            <input type="text" value="" id="name"
-                                                                class="form-control" placeholder=" ادخل رقم الهاتف  " "
-                                                                                           name="phone">
-                                                                                           @error('phone')
-        <small class="form-text text-danger">#</small>
-    @enderror
-                                                                                    {{-- <span class="text-danger"> </span> --}}
-                                                                                </div>
-                                                                            </div>
+                                                </div>
 
+
+
+                                                                        <div class="form-actions">
+                                                                            <button type="button" class="btn btn-warning mr-1"
+                                                                                    onclick="history.back();">
+                                                                                <i class="ft-x"></i> تراجع
+                                                                            </button>
+                                                                            <button type="submit" class="btn btn-primary">
+                                                                                <i class="la la-check-square-o"></i> حفظ
+                                                                            </button>
                                                                         </div>
-
-
-                                                                    <div class="form-actions">
-                                                                        <button type="button" class="btn btn-warning mr-1"
-                                                                                onclick="history.back();">
-                                                                            <i class="ft-x"></i> تراجع
-                                                                        </button>
-                                                                        <button type="submit" class="btn btn-primary">
-                                                                            <i class="la la-check-square-o"></i> حفظ
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </section>
-                                        <!-- // Basic form layout section end -->
+                                            </section>
+                                            <!-- // Basic form layout section end -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 @endsection

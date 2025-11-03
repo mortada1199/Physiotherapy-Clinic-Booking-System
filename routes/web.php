@@ -9,6 +9,12 @@ Route::get('/login', function () {
     return view('login.login');
 });
 
+Route::get('/Repo', function () {
+    return view('home');
+});
+
+
+
 Route::get('/adddoctor', function () {
     return view('doctor.create');
 });
@@ -52,6 +58,7 @@ Route::get('/calldoctor', function () {
 Route::get('/dashboard', function () {
     return view('layouts.dashbord');
 });
-Route::get('/home', function () {
-    return view('home');
-});
+
+
+
+

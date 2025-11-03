@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <title>تسجيل الدخول</title>
@@ -127,12 +128,13 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="login-container">
         <h2>تسجيل الدخول</h2>
-
-        @if(Session::has('error'))
+        <h3>نظام ادارة العيادة</h3>
+        @if (Session::has('error'))
             <div class="alert">
                 {{ Session::get('error') }}
             </div>
@@ -165,4 +167,5 @@
     </footer>
 
 </body>
+
 </html>

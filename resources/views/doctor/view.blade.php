@@ -58,10 +58,11 @@
                                                 <tr>
                                                     <th> #</th>
                                                     <th> الاسم</th>
-                                                    <th>التخصص</th>
+                                                    <th>سنوات الخبرة </th>
                                                     <th>العنوان</th>
                                                     <th>رقم الهاتف </th>
                                                     <th> النسبة </th>
+                                                    <th> البريد الالكتروني </th>
                                                     <th>الإجراءات</th>
                                                 </tr>
                                             </thead>
@@ -75,6 +76,7 @@
                                                     <td>الخرطوم - ام درمان </td>
                                                     <td>24967789078</td>
                                                     <td>10 %</td>
+                                                    <td>test@gmail.com</td>
                                                     <td>
                                                         <div class="btn-group" role="group" aria-label="Basic example">
                                                             <a href="{{ url('/editdoctor') }}"
