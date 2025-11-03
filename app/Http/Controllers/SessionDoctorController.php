@@ -2,37 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSpecialRequest;
+use App\Models\SessionDoctor;
 use Illuminate\Http\Request;
 
 class SessionDoctorController extends Controller
 {
-   <?php
-
-namespace App\Http\Controllers;
-
-use App\Http\Requests\StoreDoctorRequest;
-use App\Models\Doctor;
-use Illuminate\Http\Request;
+ 
 
 
-
-class DoctorController extends Controller
-{
-
-
-    public function store(StoreDoctorRequest $request)
+    public function store(StoreSpecialRequest $request)
     {
 
         //insert
-        $doctor =  Doctor::create([
+        $sessions =  SessionDoctor::create([
             'name' => $request->name,
-            'experience' => $request->experience,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'persent' => $request->persent,
-            'email' => $request->email
+            'price' => $request->price,
         ]);
-        if ($doctor) {
+        if ($sessions) {
             return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
         } else {
             return redirect()->back()->with(['error' => 'هناك خطا ما يرجى المحاولة لاحقا']);
@@ -43,34 +30,30 @@ class DoctorController extends Controller
 
   public function getalldata(){
 
-            $doctors = Doctor::all();
-            return view('doctor.view',compact('doctors'));
+            $sessions = SessionDoctor::all();
+            return view('specialization.view',compact('sessions'));
       }
 
 
 
 
 
-   public function edit($doctorr_id){
-        $doctors = Doctor::find($doctorr_id);
-        if(!$doctors)
+   public function edit($session_id){
+        $sessions = SessionDoctor::find($session_id);
+        if(!$sessions)
         return redirect()->back();
-          return view('doctor.edit',compact('doctors'));
+          return view('specialization.edit',compact('sessions'));
 
       }
     public function update(Request $request, $id)
     {
-        $doctor = Doctor::where('id', $id)->first();
-        if (!$doctor) {
+        $sessions = SessionDoctor::where('id', $id)->first();
+        if (!$sessions) {
             return redirect()->back()->with(['error' => 'هناك خطا ما يرجى المحاولة لاحقا']);
         } else {
-            $doctor->update([
-                'name' => $request->name ?? $doctor->full_name,
-                'experience' => $request->experience ?? $doctor->experience,
-                'address' => $request->address ?? $doctor->address,
-                'phone' => $request->phone ?? $doctor->phone,
-                'persent' => $request->persent  ?? $doctor->persent,
-                'email' => $request->email ?? $doctor->email
+            $sessions->update([
+                'name' => $request->name ?? $sessions->name,
+                'price' => $request->price ?? $sessions->price,
             ]);
             return redirect()->back()->with(['success' => 'تم التحديث بنجاح']);
         }
@@ -80,21 +63,21 @@ class DoctorController extends Controller
 
 
 
-    public function delete($doctor_id){
+    public function delete($session_id){
         //check if offer id is exists
-        $offer = Doctor::find($doctor_id);
+        $session = SessionDoctor::find($session_id);
 
-        if(!$offer)
+        if(!$session)
         return redirect()
         ->back()
         ->with(['error' => 'العنصر غير موجود']);
 
 
-       $offer -> delete();
+       $session -> delete();
         return redirect()
         ->back()
         ->with(['successd' => 'تم الحذف بنجاح']);
       }
 }
 
-}
+

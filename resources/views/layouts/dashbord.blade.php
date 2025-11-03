@@ -178,7 +178,7 @@
                                 بيانات الجلسة </a>
                         </li> --}}
 
-                        <li><a class="menu-item" href="{{ url('/viewspecial') }}" data-i18n="nav.dash.ecommerce">
+                        <li><a class="menu-item" href="{{ url('/viewspetial') }}" data-i18n="nav.dash.ecommerce">
                                 عرض الكل </a>
                         </li>
                     </ul>

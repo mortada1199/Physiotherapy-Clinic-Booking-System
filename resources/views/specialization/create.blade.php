@@ -46,7 +46,7 @@
                                 <br>
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="#" method="POST" enctype="multipart/form-data">
+                                        <form class="form" action="{{ url('storespetial') }}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات الجلسة </h4>
@@ -68,11 +68,11 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="projectinput1"> المبلغ </label>
-                                                                <input type="text" value="" id="amount"
+                                                                <input type="text" value="" id="price"
                                                                     class="form-control" placeholder="ادخل المبلغ    "
-                                                                    name="amount">
+                                                                    name="price">
 
-                                                                @error('amount')
+                                                                @error('price')
                                                                     <small class="form-text text-danger"> # </small>
                                                                 @enderror
 

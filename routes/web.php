@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\SessionDoctorController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,20 +26,22 @@ Route::get('doctordelete/{doctorr_id}',[DoctorController::class,'delete']);
 Route::get('/addspecial', function () {
     return view('specialization.create');
 });
-Route::post('storedoctor', [DoctorController::class, 'store']);
-Route::get('viewdoctor' , [DoctorController::class, 'getalldata']);
-Route::post('updatedoctor/{id}' , [DoctorController::class, 'update']);
-Route::get('editdoctor/{doctorr_id}',[DoctorController::class,'edit']);
-Route::get('doctordelete/{doctorr_id}',[DoctorController::class,'delete']);
+Route::post('storespetial', [SessionDoctorController::class, 'store']);
+Route::get('viewspetial' , [SessionDoctorController::class, 'getalldata']);
+Route::post('updatespetial/{spetial_id}' , [SessionDoctorController::class, 'update']);
+Route::get('editspetial/{spetial_id}',[SessionDoctorController::class,'edit']);
+Route::get('deletespetial/{spetial_id}',[SessionDoctorController::class,'delete']);
 
 
-// Route::get('/editspecial', function () {
-//     return view('specialization.edit');
-// });
 
-// Route::get('/viewspecial', function () {
-//     return view('specialization.view');
-// });
+
+
+
+
+
+
+
+
 
 
 

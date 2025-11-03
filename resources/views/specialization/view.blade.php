@@ -62,24 +62,23 @@
                                             </thead>
 
                                             <tbody>
-                                                {{-- @foreach ($doctors as $val) --}}
-                                                <tr>
-                                                    <td>1 </td>
-                                                    <td>عظام </td>
-                                                    <td>1000 SDG </td>
-                                                    <td>
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ url('/editspecial') }}"
-                                                                class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                @foreach ($sessions as $val)
+                                                    <tr>
+                                                        <td>{{$val->id}} </td>
+                                                        <td>{{$val->name}}</td>
+                                                        <td>{{$val->price}}</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="Basic example">
+                                                                <a href="{{ url('editspetial',$val->id) }}"
+                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
-                                                            <a href="#"
-                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                {{-- 
-                                                @endforeach --}}
+                                                                <a href="{{ url('deletespetial',$val->id)}}"
+                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
 
                                         </table>

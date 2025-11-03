@@ -40,10 +40,22 @@
                                     </ul>
                                 </div>
                             </div>
-                         
+                          @if (Session::has('success'))
+                                    <div class="alert alert-success text-center" role="alert">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+
+
+                                 @if(Session::has('error'))
+                            <div class="alert alert-danger text-center" role="alert">
+                                {{Session::get('error')}}
+                              </div>
+                            @endif
+                            <br>
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="#" method="POST"
+                                    <form class="form" action="{{ url('updatespetial',$sessions->id) }}" method="POST"
                                           enctype="multipart/form-data">
                                           @csrf
                                         <div class="form-body">
@@ -53,7 +65,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="projectinput1"> اسم الجلسة </label>
-                                                        <input type="text" value="#" id="name"
+                                                        <input type="text" value="{{$sessions->name}}" id="name"
                                                                class="form-control"
                                                                placeholder="ادخل اسم الجلسة  "
                                                                name="name">
@@ -65,11 +77,11 @@
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="projectinput1"> المبلغ </label>
-                                                                <input type="text" value="" id="amount"
+                                                                <input type="text" value="{{$sessions->price}}" id="price"
                                                                     class="form-control" placeholder="ادخل المبلغ    "
-                                                                    name="amount">
+                                                                    name="price">
 
-                                                                @error('amount')
+                                                                @error('price')
                                                                     <small class="form-text text-danger"> # </small>
                                                                 @enderror
 

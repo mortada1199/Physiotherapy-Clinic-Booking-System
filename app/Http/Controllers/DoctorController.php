@@ -57,7 +57,7 @@ class DoctorController extends Controller
             return redirect()->back()->with(['error' => 'هناك خطا ما يرجى المحاولة لاحقا']);
         } else {
             $doctor->update([
-                'name' => $request->name ?? $doctor->full_name,
+                'name' => $request->name ?? $doctor->name,
                 'experience' => $request->experience ?? $doctor->experience,
                 'address' => $request->address ?? $doctor->address,
                 'phone' => $request->phone ?? $doctor->phone,
