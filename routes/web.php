@@ -33,9 +33,20 @@ Route::get('editspetial/{spetial_id}',[SessionDoctorController::class,'edit']);
 Route::get('deletespetial/{spetial_id}',[SessionDoctorController::class,'delete']);
 
 
+//patient routes
+
+Route::get('addpatient' , [SessionDoctorController::class, 'getalldata']);
 
 
 
+// Route::get('/addpatient', function () {
+//     return view('patients.create');
+// });
+
+
+Route::get('/viewpatient', function () {
+    return view('patients.view');
+});
 
 
 
@@ -52,14 +63,7 @@ Route::get('/Repo', function () {
 
 
 
-Route::get('/addpatient', function () {
-    return view('patients.create');
-});
 
-
-Route::get('/viewpatient', function () {
-    return view('patients.view');
-});
 
 Route::get('/calldoctor', function () {
     return view('callDoctor.create');

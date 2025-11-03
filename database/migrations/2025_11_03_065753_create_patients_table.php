@@ -13,6 +13,20 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('referingdoctor_id')->nullable(true)->references("id")->on("doctors")->restrictOnDelete();
+            $table->foreignId('session')->nullable(true)->references("id")->on("session_doctors")->restrictOnDelete();
+            $table->foreignId('exectingdoctor_id')->nullable(true)->references("id")->on("doctors")->restrictOnDelete();
+            $table->string('name');
+            $table->date('date')->nullable();
+            $table->string('numbersession')->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('dignosis')->nullable();  //تشخيص
+            $table->string('roomnumber')->nullable();
+            $table->string('importance')->nullable(); //اهمية الحالة
+            $table->string('orderby')->nullable(); //طلب بواسطة
+            $table->string('resson')->nullable(); //تشخيص السبب
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }
