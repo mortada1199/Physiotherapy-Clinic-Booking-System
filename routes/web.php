@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoctorController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,35 +10,41 @@ Route::get('/login', function () {
     return view('login.login');
 });
 
-Route::get('/Repo', function () {
-    return view('home');
-});
-
-
+//doctor routes
 
 Route::get('/adddoctor', function () {
     return view('doctor.create');
 });
+Route::post('storedoctor', [DoctorController::class, 'store']);
+Route::get('viewdoctor' , [DoctorController::class, 'getalldata']);
+Route::post('updatedoctor/{id}' , [DoctorController::class, 'update']);
+Route::get('editdoctor/{doctorr_id}',[DoctorController::class,'edit']);
+Route::get('doctordelete/{doctorr_id}',[DoctorController::class,'delete']);
 
-Route::get('/editdoctor', function () {
-    return view('doctor.edit');
-});
-
-Route::get('/viewdoctor', function () {
-    return view('doctor.view');
-});
-
-
+//specialization routes
 Route::get('/addspecial', function () {
     return view('specialization.create');
 });
+Route::post('storedoctor', [DoctorController::class, 'store']);
+Route::get('viewdoctor' , [DoctorController::class, 'getalldata']);
+Route::post('updatedoctor/{id}' , [DoctorController::class, 'update']);
+Route::get('editdoctor/{doctorr_id}',[DoctorController::class,'edit']);
+Route::get('doctordelete/{doctorr_id}',[DoctorController::class,'delete']);
 
-Route::get('/editspecial', function () {
-    return view('specialization.edit');
-});
 
-Route::get('/viewspecial', function () {
-    return view('specialization.view');
+// Route::get('/editspecial', function () {
+//     return view('specialization.edit');
+// });
+
+// Route::get('/viewspecial', function () {
+//     return view('specialization.view');
+// });
+
+
+
+
+Route::get('/Repo', function () {
+    return view('home');
 });
 
 

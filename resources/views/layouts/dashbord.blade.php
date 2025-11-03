@@ -150,9 +150,9 @@
                         <li><a class="menu-item" href="{{ url('/adddoctor') }}" data-i18n="nav.dash.crypto">أضافة
                                 بيانات طبيب </a>
                         </li>
-                        <li><a class="menu-item" href="{{ url('/editdoctor') }}" data-i18n="nav.dash.crypto">تعديل
+                        {{-- <li><a class="menu-item" href="{{ url('/editdoctor') }}" data-i18n="nav.dash.crypto">تعديل
                                 بيانات طبيب </a>
-                        </li>
+                        </li> --}}
 
                         <li><a class="menu-item" href="viewdoctor" data-i18n="nav.dash.ecommerce"> عرض الكل </a>
                         </li>
@@ -174,9 +174,9 @@
                         <li><a class="menu-item" href="{{ url('/addspecial') }}" data-i18n="nav.dash.crypto">أضافة
                                 بيانات الجلسة </a>
                         </li>
-                        <li><a class="menu-item" href="{{ url('/editspecial') }}" data-i18n="nav.dash.crypto">تعديل
+                        {{-- <li><a class="menu-item" href="{{ url('/editspecial') }}" data-i18n="nav.dash.crypto">تعديل
                                 بيانات الجلسة </a>
-                        </li>
+                        </li> --}}
 
                         <li><a class="menu-item" href="{{ url('/viewspecial') }}" data-i18n="nav.dash.ecommerce">
                                 عرض الكل </a>

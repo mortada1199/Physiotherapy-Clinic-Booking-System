@@ -68,28 +68,27 @@
                                             </thead>
 
                                             <tbody>
-                                                {{-- @foreach ($doctors as $val) --}}
-                                                <tr>
-                                                    <td>1 </td>
-                                                    <td>محمد </td>
-                                                    <td>عظام </td>
-                                                    <td>الخرطوم - ام درمان </td>
-                                                    <td>24967789078</td>
-                                                    <td>10 %</td>
-                                                    <td>test@gmail.com</td>
-                                                    <td>
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ url('/editdoctor') }}"
-                                                                class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                @foreach ($doctors as $val)
+                                                    <tr>
+                                                        <td>{{ $val->id }}</td>
+                                                        <td>{{ $val->name }} </td>
+                                                        <td>{{ $val->experience }} </td>
+                                                        <td>{{ $val->address }} </td>
+                                                        <td>{{ $val->phone }}</td>
+                                                        <td>{{ $val->persent }}</td>
+                                                        <td>{{ $val->email }}</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group"
+                                                                aria-label="Basic example">
+                                                                <a href="{{ url('editdoctor', $val->id)}}"
+                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
 
-                                                            <a href="#"
-                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-
-                                                {{-- 
-                                                @endforeach --}}
+                                                                <a href="{{ url('doctordelete',$val->id)}}"
+                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
 
                                         </table>

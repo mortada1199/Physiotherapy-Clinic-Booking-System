@@ -38,9 +38,24 @@
                                     </div>
                                 </div>
 
+                                @if (Session::has('success'))
+                                    <div class="alert alert-success text-center" role="alert">
+                                        {{ Session::get('success') }}
+                                    </div>
+                                @endif
+
+
+                                 @if(Session::has('error'))
+                            <div class="alert alert-danger text-center" role="alert">
+                                {{Session::get('error')}}
+                              </div>
+                            @endif
+
+                            <br>
+
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="#" method="POST" enctype="multipart/form-data">
+                                        <form class="form" action="{{ url('updatedoctor',$doctors ->id)}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات الطبيب </h4>
@@ -49,7 +64,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> اسم الطبيب </label>
-                                                            <input type="text" value="#" id="name"
+                                                            <input type="text" value="{{$doctors -> name}}" id="name"
                                                                 class="form-control" placeholder="ادخل اسم الطبيب  "
                                                                 name="name">
                                                             <span class="text-danger"> </span>
@@ -59,9 +74,9 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> سنوات الخبرة </label>
-                                                            <input type="text" value="#" id="name"
+                                                            <input type="text" value="{{$doctors -> experience}}" id="experience"
                                                                 class="form-control" placeholder="ادخل سنوات الخبرة  "
-                                                                name="special">
+                                                                name="experience">
                                                             <span class="text-danger"> </span>
                                                         </div>
                                                     </div>
@@ -73,18 +88,18 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> العنوان </label>
-                                                            <input type="text" value="#" id="name"
+                                                            <input type="text" value="{{$doctors -> address}}" id="address"
                                                                 class="form-control" placeholder="ادخل العنوان      "
-                                                                name="addrees">
+                                                                name="address">
                                                             <span class="text-danger"> </span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> رقم الهاتف </label>
-                                                            <input type="text" value="#" id="name"
+                                                            <input type="text" value="{{$doctors -> phone}}" id="phone"
                                                                 class="form-control" placeholder="كلمة السر "
-                                                                name="password">
+                                                                name="phone">
                                                             <span class="text-danger"> </span>
                                                         </div>
                                                     </div>
@@ -94,7 +109,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> % نسبة استحقاق الطبيب </label>
-                                                            <input type="text" value="" id="persent"
+                                                            <input type="text" value="{{$doctors -> persent}}" id="persent"
                                                                 class="form-control" placeholder="ادخل نسبة الطبيب"
                                                                 name="persent">
                                                             @error('persent')
@@ -106,7 +121,7 @@
                                                     <div class="col-md-6">
 
                                                         <label for="projectinput1"> البريد الالكتروني </label>
-                                                        <input type="text" value="" id="email"
+                                                        <input type="email" value="{{$doctors -> email}}" id="email"
                                                             class="form-control" placeholder="ادخل البريد الالكتروني "
                                                             name="email">
                                                         @error('email')
