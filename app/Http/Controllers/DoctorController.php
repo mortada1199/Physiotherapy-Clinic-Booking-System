@@ -13,20 +13,19 @@ class DoctorController extends Controller
      */
     public function store(StoreDoctorRequest $request)
     {
-        // Insert doctor
         $doctor = Doctor::create($request->validated());
 
         if ($doctor) {
-            return redirect()->back()->with('success', 'تم الإضافة بنجاح');
+            return redirect()->back()->with(['success' => 'تم الإضافة بنجاح']);
         }
 
-        return redirect()->back()->with('error', 'حدث خطأ، يرجى المحاولة لاحقاً');
+        return redirect()->back()->with(['error' => 'حدث خطأ، يرجى المحاولة لاحقاً']);
     }
 
     /**
-     * Display a listing of doctors.
+     * Get all doctors and display them.
      */
-    public function index()
+    public function getalldata()
     {
         $doctors = Doctor::all();
         return view('doctor.view', compact('doctors'));
@@ -35,16 +34,16 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified doctor.
      */
-    public function edit(int $id)
+    public function edit($doctorr_id)
     {
-        $doctor = Doctor::findOrFail($id);
-        return view('doctor.edit', compact('doctor'));
+        $doctors = Doctor::findOrFail($doctorr_id);
+        return view('doctor.edit', compact('doctors'));
     }
 
     /**
      * Update the specified doctor in storage.
      */
-    public function update(Request $request, int $id)
+    public function update(Request $request, $id)
     {
         $doctor = Doctor::findOrFail($id);
 
@@ -57,17 +56,17 @@ class DoctorController extends Controller
             'email'      => $request->email ?? $doctor->email,
         ]);
 
-        return redirect()->back()->with('success', 'تم التحديث بنجاح');
+        return redirect('/viewdoctor')->with(['success' => 'تم التحديث بنجاح']);
     }
 
     /**
-     * Remove the specified doctor from storage.
+     * Delete the specified doctor from storage.
      */
-    public function destroy(int $id)
+    public function delete($doctor_id)
     {
-        $doctor = Doctor::findOrFail($id);
+        $doctor = Doctor::findOrFail($doctor_id);
         $doctor->delete();
 
-        return redirect()->back()->with('success', 'تم الحذف بنجاح');
+        return redirect()->back()->with(['successd' => 'تم الحذف بنجاح']);
     }
 }

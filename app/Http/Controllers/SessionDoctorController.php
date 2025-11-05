@@ -8,17 +8,14 @@ use Illuminate\Http\Request;
 
 class SessionDoctorController extends Controller
 {
- 
+
 
 
     public function store(StoreSpecialRequest $request)
     {
 
         //insert
-        $sessions =  SessionDoctor::create([
-            'name' => $request->name,
-            'price' => $request->price,
-        ]);
+        $sessions =  SessionDoctor::create($request->validated());
         if ($sessions) {
             return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
         } else {
@@ -28,23 +25,22 @@ class SessionDoctorController extends Controller
 
 
 
-  public function getalldata(){
+    public function getalldata()
+    {
 
-            $sessions = SessionDoctor::all();
-            return view('specialization.view',compact('sessions'));
-      }
-
-
-
+        $sessions = SessionDoctor::all();
+        return view('specialization.view', compact('sessions'));
+    }
 
 
-   public function edit($session_id){
-        $sessions = SessionDoctor::find($session_id);
-        if(!$sessions)
-        return redirect()->back();
-          return view('specialization.edit',compact('sessions'));
 
-      }
+
+
+    public function edit($session_id)
+    {
+        $sessions = SessionDoctor::findOrFail($session_id);
+        return view('specialization.edit', compact('sessions'));
+    }
     public function update(Request $request, $id)
     {
         $sessions = SessionDoctor::where('id', $id)->first();
@@ -54,8 +50,10 @@ class SessionDoctorController extends Controller
             $sessions->update([
                 'name' => $request->name ?? $sessions->name,
                 'price' => $request->price ?? $sessions->price,
+                'numbersession' => $request->numbersession ?? $sessions->numbersession,
+
             ]);
-            return redirect()->back()->with(['success' => 'تم التحديث بنجاح']);
+            return redirect('/viewspetial')->with(['success' => 'تم التحديث بنجاح']);
         }
     }
 
@@ -63,21 +61,12 @@ class SessionDoctorController extends Controller
 
 
 
-    public function delete($session_id){
+    public function delete($session_id)
+    {
         //check if offer id is exists
-        $session = SessionDoctor::find($session_id);
+        $session = SessionDoctor::findOrFail($session_id);
+        $session->delete();
 
-        if(!$session)
-        return redirect()
-        ->back()
-        ->with(['error' => 'العنصر غير موجود']);
-
-
-       $session -> delete();
-        return redirect()
-        ->back()
-        ->with(['successd' => 'تم الحذف بنجاح']);
-      }
+        return redirect()->back()->with(['successd' => 'تم الحذف بنجاح']);
+    }
 }
-
-
