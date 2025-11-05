@@ -23,15 +23,23 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
+
+                                {{-- <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title mb-0">بيانات الاطباء</h4>
+                                    <a href="{{ url('addspecial') }}" class="btn btn-primary btn-glow px-3">
+                                        <i class="la la-plus"></i> إضافة جلسة
+                                    </a>    
+                                </div> --}}
+
                                 <div class="card-header">
-                                    <h4 class="card-title">بيانات التخصصات </h4>
+                                    <h4 class="card-title">بيانات الجلسة </h4>
+
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                            <a href="{{ url('addspecial') }}" class="btn btn-primary btn-glow px-3">
+                                                <i class="la la-plus"></i> إضافة جلسة
+                                            </a>
                                         </ul>
                                     </div>
                                 </div>
@@ -56,6 +64,7 @@
                                                 <tr>
                                                     <th> #</th>
                                                     <th> الجلسة</th>
+                                                    <th> رقم الجلسة</th>
                                                     <th> المبلغ</th>
                                                     <th>الإجراءات</th>
                                                 </tr>
@@ -64,18 +73,28 @@
                                             <tbody>
                                                 @foreach ($sessions as $val)
                                                     <tr>
-                                                        <td>{{$val->id}} </td>
-                                                        <td>{{$val->name}}</td>
-                                                        <td>{{$val->price}}</td>
+                                                        <td>{{ $val->id }} </td>
+                                                        <td>{{ $val->name }}</td>
+                                                        <td>5522</td>
+                                                        <td>{{ $val->price }}</td>
                                                         <td>
+
+
+
                                                             <div class="btn-group" role="group"
                                                                 aria-label="Basic example">
-                                                                <a href="{{ url('editspetial',$val->id) }}"
-                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                                <a href="{{ url('editspetial', $val->id) }}"
+                                                                    class="btn btn-outline-primary btn-sm" title="تعديل">
+                                                                    <i class="la la-edit"></i> تعديل
+                                                                </a>
 
-                                                                <a href="{{ url('deletespetial',$val->id)}}"
-                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                                <a href="{{ url('deletespetial', $val->id) }}"
+                                                                    class="btn btn-outline-danger btn-sm" title="حذف"
+                                                                    onclick="return confirm('هل أنت متأكد من حذف هذا الطبيب؟');">
+                                                                    <i class="la la-trash"></i> حذف
+                                                                </a>
                                                             </div>
+
                                                         </td>
                                                     </tr>
                                                 @endforeach

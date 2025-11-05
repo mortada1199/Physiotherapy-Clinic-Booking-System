@@ -26,7 +26,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> استدعاء طبيب </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> اضافة جلسة </h4>
                                     <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
                                         <ul class="list-inline mb-0">
@@ -53,7 +53,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="blood_type" class="form-label">اسم الطبيب</label>
+                                                        <label for="blood_type" class="form-label">اسم الطبيب المنفذ</label>
                                                         <select id="blood_type" name="blood_type" class="form-select">
                                                             <option value="" selected disabled>اختر اسم الطبيب
                                                             </option>
@@ -85,9 +85,9 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> رقم الغرفة / القسم </label>
+                                                            <label for="projectinput1"> رقم الجلسة </label>
                                                             <input type="text" value="" id="room_number"
-                                                                class="form-control" placeholder="ادخل رقم الغرفة / القسم "
+                                                                class="form-control" placeholder="ادخل رقم الجلسة  "
                                                                 name="room_number">
 
                                                             @error('room_number')
@@ -98,38 +98,47 @@
                                                     </div>
 
                                                     <div class="col-md-6">
-                                                        <label for="priority" class="form-label">درجة الأهمية</label>
-                                                        <select id="priority" name="priority" class="form-select">
-                                                            <option value="normal">عادية</option>
-                                                            <option value="urgent">عاجلة</option>
-                                                            <option value="emergency">طارئة</option>
-                                                        </select>
+                                                        <label for="projectinput1"> اسم الجلسة </label>
+                                                        <input type="text" value="" id="room_number"
+                                                            class="form-control" placeholder="ادخل اسم الجلسة  "
+                                                            name="room_number">
+
+                                                        @error('room_number')
+                                                            <small class="form-text text-danger">#</small>
+                                                        @enderror
+                                                        {{-- <span class="text-danger"> </span> --}}
                                                     </div>
                                                 </div>
+
 
 
 
 
 
                                                 <div class="row">
-
-                                                    <div class="col-md-12">
-                                                        <label for="requested_by" class="form-label">تم الطلب بواسطة</label>
-                                                        <input type="text" id="requested_by" name="requested_by"
-                                                            class="form-control" placeholder="اسم الممرض أو الموظف">
-                                                    </div>
-
                                                     <div class="col-12">
-                                                        <label for="reason" class="form-label">سبب الاستدعاء <span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea id="reason" name="reason" class="form-control" rows="3" required
-                                                            placeholder="اشرح سبب الاستدعاء باختصار"></textarea>
-                                                        <div class="invalid-feedback">الرجاء كتابة سبب الاستدعاء.</div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="call_doctor_checkbox">
+                                                            <label class="form-check-label" for="call_doctor_checkbox">
+                                                                استدعاء
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 mt-2" id="call_location_container"
+                                                        style="display:none;">
+                                                        <label for="requested_by" class="form-label">مكان الاستدعاء</label>
+                                                        <input type="text" id="requested_by" name="requested_by"
+                                                            class="form-control" placeholder="ادخل مكان الاستدعاء">
                                                     </div>
                                                 </div>
 
 
-                                                 <div class="row">
+
+
+
+
+                                                {{-- <div class="row">
 
                                                     <div class="col-md-12">
                                                         <label for="amount" class="form-label">المبلغ  </label>
@@ -137,7 +146,7 @@
                                                             class="form-control" placeholder="  المبلغ  ">
                                                     </div>
 
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="form-actions">
                                                     <button type="button" class="btn btn-warning mr-1"
@@ -160,3 +169,17 @@
         </div>
     </div>
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('call_doctor_checkbox');
+        const locationField = document.getElementById('call_location_container');
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                locationField.style.display = 'block';
+            } else {
+                locationField.style.display = 'none';
+            }
+        });
+    });
+</script>

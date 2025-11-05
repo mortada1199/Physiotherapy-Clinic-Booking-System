@@ -36,12 +36,16 @@
                                     </div>
                                 </div>
 
-                                {{-- @include('admin.includes.alerts.success') --}}
-                                {{-- @include('admin.includes.alerts.errors') --}}
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title mb-0">بيانات المرضى</h4>
+                                    <a href="{{ url('addpatient') }}" class="btn btn-primary btn-glow px-3">
+                                        <i class="la la-plus"></i> إضافة مريض
+                                    </a>
+                                </div>
 
-                                @if (Session::has('successd'))
+                                @if (Session::has('success'))
                                     <div class="alert alert-success text-center" role="alert">
-                                        {{ Session::get('successd') }}
+                                        {{ Session::get('success') }}
                                     </div>
                                 @endif
 
@@ -53,51 +57,56 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
-                                        <table class="table display nowrap table-striped scroll-horizontal table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th> #</th>
-                                                    <th> الاسم</th>
-                                                    <th>اسم الطبيب المحول  </th>
-                                                    <th>اسم الطبيب المنفذ </th>
-                                                    <th>العنوان</th>
-                                                    <th>رقم الهاتف </th>
-                                                    {{-- <th>التخصص  </th> --}}
-                                                     <th>التشخيص   </th>
-                                                    <th> تاريخ الميلاد </th>
-                                                    <th>الإجراءات</th>
-                                                </tr>
-                                            </thead>
+                                        <table class="table display nowrap table-striped scroll-horizontal table-bordered" >
 
-                                            <tbody>
-                                                {{-- @foreach ($doctors as $val) --}}
-                                                <tr>
-                                                    <td>1 </td>
-                                                    <td>محمد </td>
-                                                    <td>احمد </td>
-                                                    <td>علي</td>
-                                                    <td>الخرطوم - ام درمان </td>
-                                                    <td>0967789078</td>
-                                                    {{-- <td>عظام</td> --}}
-                                                    <td>كسر</td>
-                                                    <td>2025-12-1</td>
-                                                    <td>
-                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>الاسم</th>
+                                                        <th>اسم الطبيب المحول</th>
+                                                        <th>اسم الطبيب المنفذ</th>
+                                                        {{-- <th>العنوان</th> --}}
+                                                        <th>رقم الهاتف</th>
+                                                        <th>الإجراءات</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($patients as $val)
+                                                        <tr>
+                                                            <td>{{ $val->id }}</td>
+                                                            <td>{{ $val->name }}</td>
+                                                            <td>{{ $val->referingdoctor_name }}</td>
+                                                            <td>{{ $val->exectingdoctor_name }}</td>
+                                                            {{-- <td>{{ $val->address }}</td> --}}
+                                                            <td>{{ $val->phone }}</td>
+                                                            <td>
+                                                                <div class="btn-group" role="group">
+                                                                    <a href="{{ url('deletespetial', $val->id) }}"
+                                                                        class="btn btn-outline-danger btn-sm"
+                                                                        onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
+                                                                        <i class="la la-trash"></i> حذف
+                                                                    </a>
 
-                                                            <a href="#"
-                                                                class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                                    <a href="{{ url('editdoctor', $val->id) }}"
+                                                                        class="btn btn-outline-primary btn-sm">
+                                                                        <i class="la la-edit"></i> تعديل
+                                                                    </a>
 
-                                                {{-- 
-                                                @endforeach --}}
-                                            </tbody>
+                                                                    <a href="{{ url('calldoctor') }}"
+                                                                        class="btn btn-outline-success btn-sm">
+                                                                        <i class="la la-plus"></i> إضافة جلسة
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
 
-                                        </table>
-                                        <div class="justify-content-center d-flex">
+                                            <div class="justify-content-center d-flex">
 
-                                        </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

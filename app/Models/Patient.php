@@ -7,19 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     protected $fillable = [
-        'referingdoctor_id',
-        'session',
-        'exectingdoctor_id',
+        'session_name',
+        'sessionprice',
+        'referingdoctor_name',
+        'exectingdoctor_name',
+        'persent',
         'name',
         'date',
         'numbersession',
         'address',
         'phone',
         'dignosis',
-        'roomnumber',
-        'importance',
-        'orderby',
-        'resson',
-        'price',
+        
     ];
 }

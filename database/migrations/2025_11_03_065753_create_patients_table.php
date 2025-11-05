@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('referingdoctor_id')->nullable(true)->references("id")->on("doctors")->restrictOnDelete();
-            $table->foreignId('session')->nullable(true)->references("id")->on("session_doctors")->restrictOnDelete();
-            $table->foreignId('exectingdoctor_id')->nullable(true)->references("id")->on("doctors")->restrictOnDelete();
+            $table->string('session_name')->nullable();
+            $table->string('sessionprice')->nullable();
+            $table->string('referingdoctor_name')->nullable();
+            $table->string('exectingdoctor_name')->nullable();
+            $table->string('persent')->nullable();
             $table->string('name');
             $table->date('date')->nullable();
             $table->string('numbersession')->nullable();
@@ -26,7 +28,7 @@ return new class extends Migration
             $table->string('importance')->nullable(); //اهمية الحالة
             $table->string('orderby')->nullable(); //طلب بواسطة
             $table->string('resson')->nullable(); //تشخيص السبب
-            $table->string('price')->nullable();
+            // $table->string('price')->nullable();
             $table->timestamps();
         });
     }

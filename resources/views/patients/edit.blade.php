@@ -10,7 +10,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ url('/home') }}">الرئيسية </a></li>
                             <li class="breadcrumb-item"><a href=""> المرضى </a></li>
-                            <li class="breadcrumb-item active">إضافة مريض</li>
+                            <li class="breadcrumb-item active">تعديل مريض</li>
                         </ol>
                     </div>
                 </div>
@@ -18,13 +18,12 @@
         </div>
 
         <div class="content-body">
-            <!-- Basic form layout section start -->
             <section id="basic-form-layouts">
                 <div class="row match-height">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title" id="basic-layout-form"> إضافة مريض </h4>
+                                <h4 class="card-title"> تعديل مريض </h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -45,8 +44,9 @@
 
                             <div class="card-content collapse show">
                                 <div class="card-body">
-                                    <form class="form" action="{{ url('storepatient') }}" method="POST" enctype="multipart/form-data">
+                                    <form class="form" action="{{ url('updatepatient/'.$patient->id) }}" method="POST">
                                         @csrf
+                                        @method('PUT')
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="ft-home"></i> بيانات المريض </h4>
 
@@ -55,7 +55,8 @@
                                                     <div class="form-group">
                                                         <label for="referingdoctor_id"> اسم الطبيب المحول </label>
                                                         <input type="text" id="referingdoctor_id" class="form-control"
-                                                            placeholder="ادخل اسم الطبيب المحول" name="referingdoctor_id" value="{{ old('referingdoctor_id') }}">
+                                                            placeholder="ادخل اسم الطبيب المحول"
+                                                            name="referingdoctor_id" value="{{ old('referingdoctor_id', $patient->referingdoctor_id) }}">
                                                         @error('referingdoctor_id')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
@@ -66,7 +67,8 @@
                                                     <div class="form-group">
                                                         <label for="name"> اسم المريض </label>
                                                         <input type="text" id="name" class="form-control"
-                                                            placeholder="ادخل اسم المريض" name="name" value="{{ old('name') }}">
+                                                            placeholder="ادخل اسم المريض"
+                                                            name="name" value="{{ old('name', $patient->name) }}">
                                                         @error('name')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
@@ -76,11 +78,14 @@
 
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label for="session_id" class="form-label"> التخصص</label>
+                                                    <label for="session_id"> التخصص</label>
                                                     <select id="session_id" name="session_id" class="form-select" required>
-                                                        <option value="" selected disabled>اختر التخصص</option>
+                                                        <option value="" disabled>اختر التخصص</option>
                                                         @foreach ($sessions as $val)
-                                                            <option value="{{ $val->id }}">{{ $val->name }}</option>
+                                                            <option value="{{ $val->id }}"
+                                                                {{ $patient->session_id == $val->id ? 'selected' : '' }}>
+                                                                {{ $val->name }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -89,7 +94,8 @@
                                                     <div class="form-group">
                                                         <label for="numbersession"> عدد الجلسات </label>
                                                         <input type="text" id="numbersession" class="form-control"
-                                                            placeholder="ادخل عدد الجلسات" name="numbersession" value="{{ old('numbersession') }}">
+                                                            placeholder="ادخل عدد الجلسات"
+                                                            name="numbersession" value="{{ old('numbersession', $patient->numbersession) }}">
                                                         @error('numbersession')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
@@ -102,7 +108,8 @@
                                                     <div class="form-group">
                                                         <label for="address"> العنوان </label>
                                                         <input type="text" id="address" class="form-control"
-                                                            placeholder="ادخل عنوان المريض" name="address" value="{{ old('address') }}">
+                                                            placeholder="ادخل عنوان المريض"
+                                                            name="address" value="{{ old('address', $patient->address) }}">
                                                         @error('address')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
@@ -113,7 +120,8 @@
                                                     <div class="form-group">
                                                         <label for="phone"> رقم الهاتف </label>
                                                         <input type="text" id="phone" class="form-control"
-                                                            placeholder="ادخل رقم الهاتف" name="phone" value="{{ old('phone') }}">
+                                                            placeholder="ادخل رقم الهاتف"
+                                                            name="phone" value="{{ old('phone', $patient->phone) }}">
                                                         @error('phone')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
@@ -125,7 +133,7 @@
                                                 <div class="col-12">
                                                     <label for="dignosis" class="form-label"> التشخيص <span class="text-danger">*</span></label>
                                                     <textarea id="dignosis" name="dignosis" class="form-control" rows="3" required
-                                                        placeholder="اشرح التشخيص باختصار">{{ old('dignosis') }}</textarea>
+                                                        placeholder="اشرح التشخيص باختصار">{{ old('dignosis', $patient->dignosis) }}</textarea>
                                                     @error('dignosis')
                                                         <small class="form-text text-danger">{{ $message }}</small>
                                                     @enderror
@@ -149,7 +157,6 @@
                     </div>
                 </div>
             </section>
-            <!-- // Basic form layout section end -->
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SessionDoctorController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,40 +36,29 @@ Route::get('deletespetial/{spetial_id}',[SessionDoctorController::class,'delete'
 
 //patient routes
 
-Route::get('addpatient' , [SessionDoctorController::class, 'getalldata']);
+Route::get('addpatient' , [PatientController::class, 'add']);
+Route::post('storepatient', [PatientController::class, 'store']);
+Route::get('viewpatient' , [PatientController::class, 'getalldata']);
+Route::get('deletespetial/{spetial_id}',[PatientController::class,'delete']);
 
 
 
-// Route::get('/addpatient', function () {
-//     return view('patients.create');
-// });
 
-
-Route::get('/viewpatient', function () {
-    return view('patients.view');
+// call doctor route
+Route::get('/calldoctor', function () {
+    return view('callDoctor.create');
 });
 
 
 
-
-
-
-
-
-
+//report route
 
 Route::get('/Repo', function () {
     return view('home');
 });
 
 
-
-
-
-Route::get('/calldoctor', function () {
-    return view('callDoctor.create');
-});
-
+//dashboard route
 Route::get('/dashboard', function () {
     return view('layouts.dashbord');
 });

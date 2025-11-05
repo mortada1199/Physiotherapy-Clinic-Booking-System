@@ -4,40 +4,32 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> الاطباء </h3>
+                    <h3 class="content-header-title">الاطباء</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{ url('/home') }}">الرئيسية</a>
-                                </li>
-                                <li class="breadcrumb-item active"> عرض الاطباء
-                                </li>
+                                <li class="breadcrumb-item"><a href="{{ url('/home') }}">الرئيسية</a></li>
+                                <li class="breadcrumb-item active">عرض الاطباء</li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="content-body">
                 <!-- DOM - jQuery events table -->
                 <section id="dom">
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">بيانات الاطباء </h4>
-                                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                                    <div class="heading-elements">
-                                        <ul class="list-inline mb-0">
-                                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                                            <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                                            <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                        </ul>
-                                    </div>
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h4 class="card-title mb-0">بيانات الاطباء</h4>
+                                    <a href="{{ url('adddoctor') }}" class="btn btn-primary btn-glow px-3">
+                                        <i class="la la-plus"></i> إضافة طبيب
+                                    </a>
                                 </div>
 
-                                {{-- @include('admin.includes.alerts.success') --}}
-                                {{-- @include('admin.includes.alerts.errors') --}}
+
 
                                 @if (Session::has('successd'))
                                     <div class="alert alert-success text-center" role="alert">
@@ -54,47 +46,51 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table class="table display nowrap table-striped scroll-horizontal table-bordered">
+
+
                                             <thead>
                                                 <tr>
-                                                    <th> #</th>
-                                                    <th> الاسم</th>
-                                                    <th>سنوات الخبرة </th>
+                                                    <th>#</th>
+                                                    <th>الاسم</th>
+                                                    {{-- <th>سنوات الخبرة</th> --}}
                                                     <th>العنوان</th>
-                                                    <th>رقم الهاتف </th>
-                                                    <th> النسبة </th>
-                                                    <th> البريد الالكتروني </th>
+                                                    <th>رقم الهاتف</th>
+                                                    <th>النسبة</th>
+                                                    {{-- <th>البريد الالكتروني</th> --}}
                                                     <th>الإجراءات</th>
                                                 </tr>
                                             </thead>
-
                                             <tbody>
                                                 @foreach ($doctors as $val)
                                                     <tr>
                                                         <td>{{ $val->id }}</td>
-                                                        <td>{{ $val->name }} </td>
-                                                        <td>{{ $val->experience }} </td>
-                                                        <td>{{ $val->address }} </td>
+                                                        <td>{{ $val->name }}</td>
+                                                        {{-- <td>{{ $val->experience }}</td> --}}
+                                                        <td>{{ $val->address }}</td>
                                                         <td>{{ $val->phone }}</td>
                                                         <td>{{ $val->persent }}</td>
-                                                        <td>{{ $val->email }}</td>
+                                                        {{-- <td>{{ $val->email }}</td> --}}
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                 aria-label="Basic example">
-                                                                <a href="{{ url('editdoctor', $val->id)}}"
-                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">تعديل</a>
+                                                                <a href="{{ url('editdoctor', $val->id) }}"
+                                                                    class="btn btn-outline-primary btn-sm" title="تعديل">
+                                                                    <i class="la la-edit"></i> تعديل
+                                                                </a>
 
-                                                                <a href="{{ url('doctordelete',$val->id)}}"
-                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">حذف</a>
+                                                                <a href="{{ url('doctordelete', $val->id) }}"
+                                                                    class="btn btn-outline-danger btn-sm" title="حذف"
+                                                                    onclick="return confirm('هل أنت متأكد من حذف هذا الطبيب؟');">
+                                                                    <i class="la la-trash"></i> حذف
+                                                                </a>
                                                             </div>
                                                         </td>
+
+
                                                     </tr>
                                                 @endforeach
                                             </tbody>
-
                                         </table>
-                                        <div class="justify-content-center d-flex">
-
-                                        </div>
                                     </div>
                                 </div>
                             </div>
