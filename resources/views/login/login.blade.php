@@ -172,138 +172,156 @@
 
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تسجيل الدخول</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #7b3dbf 0%, #b17fe6 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>تسجيل الدخول</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #7b3dbf 0%, #b17fe6 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .login-card {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      width: 380px;
-      padding: 40px 35px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+        .login-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            padding: 40px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .login-card::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 150px;
-      height: 150px;
-      background: rgba(123,61,191,0.1);
-      border-radius: 50%;
-    }
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 150px;
+            height: 150px;
+            background: rgba(123, 61, 191, 0.1);
+            border-radius: 50%;
+        }
 
-    .logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 25px;
-      border: 3px solid #7b3dbf;
-      box-shadow: 0 4px 12px rgba(123,61,191,0.2);
-    }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 25px;
+            border: 3px solid #7b3dbf;
+            box-shadow: 0 4px 12px rgba(123, 61, 191, 0.2);
+        }
 
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    h2 {
-      color: #4a2678;
-      margin-bottom: 25px;
-      font-size: 22px;
-      font-weight: 700;
-    }
+        h2 {
+            color: #4a2678;
+            margin-bottom: 25px;
+            font-size: 22px;
+            font-weight: 700;
+        }
 
-    label {
-      display: block;
-      text-align: right;
-      color: #5c3c8b;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
+        label {
+            display: block;
+            text-align: right;
+            color: #5c3c8b;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
 
-    input[type="text"],
-    input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 18px;
-      border: 1px solid #c9a9ef;
-      border-radius: 10px;
-      font-family: 'Cairo', sans-serif;
-      direction: rtl;
-      transition: all 0.3s ease;
-    }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #c9a9ef;
+            border-radius: 10px;
+            font-family: 'Cairo', sans-serif;
+            direction: rtl;
+            transition: all 0.3s ease;
+        }
 
-    input:focus {
-      outline: none;
-      border-color: #7b3dbf;
-      box-shadow: 0 0 6px rgba(123,61,191,0.3);
-    }
+        input:focus {
+            outline: none;
+            border-color: #7b3dbf;
+            box-shadow: 0 0 6px rgba(123, 61, 191, 0.3);
+        }
 
-    button {
-      
-      padding: 12px;
-      background: #7b3dbf;
-      border: none;
-      border-radius: 10px;
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 4px 12px rgba(123,61,191,0.3);
-    }
+        button {
 
-    button:hover {
-      background: #692fa8;
-      box-shadow: 0 6px 20px rgba(123,61,191,0.4);
-    }
+            padding: 12px;
+            background: #7b3dbf;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 12px rgba(123, 61, 191, 0.3);
+        }
 
-    .footer-text {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #777;
-    }
-  </style>
+        button:hover {
+            background: #692fa8;
+            box-shadow: 0 6px 20px rgba(123, 61, 191, 0.4);
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="login-card">
-    <div class="logo">
-      <img src="WhatsApp Image 2025-11-05 at 7.53.23 AM (1).jpeg" alt="شعار الموقع">
+
+    @if (Session::has('success'))
+        <div class="alert alert-success text-center" role="alert">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+
+    @if (Session::has('error'))
+        <div class="alert alert-danger text-center" role="alert">
+            {{ Session::get('error') }}
+        </div>
+    @endif
+
+
+    <div class="login-card">
+        <div class="logo">
+            <img src="/admin/images/logo/one.jpeg" alt="شعار الموقع">
+        </div>
+
+        <h2>تسجيل الدخول إلى النظام</h2>
+
+        <form action="check" method="POST" enctype="multipart/form-data">
+            @csrf
+            <label for="username">اسم المستخدم</label>
+            <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم">
+
+            <label for="password">كلمة المرور</label>
+            <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور">
+
+            <button type="submit">تسجيل دخول</button>
+        </form>
+
+        <div class="footer-text">© 2025 جميع الحقوق محفوظة</div>
     </div>
-
-    <h2>تسجيل الدخول إلى النظام</h2>
-
-    <form>
-      <label for="username">اسم المستخدم</label>
-      <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم">
-
-      <label for="password">كلمة المرور</label>
-      <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور">
-
-      <button type="submit">تسجيل دخول</button>
-    </form>
-
-    <div class="footer-text">© 2025 جميع الحقوق محفوظة</div>
-  </div>
 </body>
+
 </html>

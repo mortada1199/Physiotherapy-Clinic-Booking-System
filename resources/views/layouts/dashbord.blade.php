@@ -12,8 +12,8 @@
     <meta name="author" content="PIXINVENT">
     <title>@yield('title')</title>
 
-    <link rel="apple-touch-icon" href="{{ asset('admin/images/ico/logo.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/ico/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('admin/images/ico/logo.jpeg') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin/images/ico/logo.jpeg') }}">
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
         rel="stylesheet">
@@ -71,7 +71,7 @@
                                 class="ft-menu font-large-1"></i></a></li>
                     <li class="nav-item">
                         <a class="navbar-brand" href="">
-                            <img class="brand-logo" alt="admin logo" src="/admin/images/logo/one.png">
+                            <img class="brand-logo" alt="admin logo" src="/admin/images/logo/one.jpeg">
                             <h3 class="brand-text"> Hospital </h3>
                         </a>
                     </li>
@@ -94,13 +94,13 @@
                         <li class="dropdown dropdown-user nav-item">
                             <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                                 <span class="avatar avatar-online">
-                                    <img class="brand-logo" style="height:40px;" src="/admin/images/logo/two.png"
+                                    <img class="brand-logo" style="height:40px;" src="/admin/images/logo/one.jpeg"
                                         alt="Livestock"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i
                                         class="ft-user"></i> تعديل الملف الشحصي </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="ft-power"></i> تسجيل الخروج</a>
+                                <a class="dropdown-item" href="logout"><i class="ft-power"></i> تسجيل الخروج</a>
                             </div>
                         </li>
                     </ul>
@@ -124,12 +124,12 @@
                 </li>
                 <li class="nav-item"><a href="viewspetial"><i class="la la-group"></i>
                         <span class="menu-title">الجلسة</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\Doctor::count()}}</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\SessionDoctor::count()}}</span>
                     </a>
                 </li>
                 <li class="nav-item"><a href="viewpatient"><i class="la la-group"></i>
                         <span class="menu-title">المرضى</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\Doctor::count()}}</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\Patient::count()}}</span>
                     </a>
                 </li>
                 <li class="nav-item"><a href=""><i class="la la-home"></i>
@@ -153,7 +153,7 @@
     <footer class="footer footer-static footer-light navbar-border navbar-shadow">
         <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
             <span class="float-md-left d-block d-md-inline-block">Copyright &copy; {{ date('Y') }} <a href=""
-                    target="_blank">murtada abd algalil</a> </span>
+                    target="_blank">###</a> </span>
             <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block"> done <i
                     class="ft-heart pink"></i></span>
         </p>

@@ -22,8 +22,9 @@ class StoreSpecialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
+            'name' => 'required|max:255|unique:session_doctors,name',
             'price' => 'required',
+            'numbersession' => 'required',
         ];
     }
 }

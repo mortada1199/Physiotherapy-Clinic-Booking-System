@@ -38,7 +38,7 @@
                                             </div>
                                         </div>
                                         <h5 class="text-primary font-weight-bold mb-1">عدد المرضى</h5>
-                                        <h2 class="font-weight-bolder text-dark">{{ $patientsCount ?? 0 }}</h2>
+                                        <h2 class="font-weight-bolder text-dark">{{App\Models\Patient::count() ?? 0}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                         <h5 class="text-success font-weight-bold mb-1">عدد الأطباء</h5>
-                                        <h2 class="font-weight-bolder text-dark">{{ $doctorsCount ?? 0 }}</h2>
+                                        <h2 class="font-weight-bolder text-dark">{{App\Models\Doctor::count() ?? 0}}</h2>
                                     </div>
                                 </div>
                             </div>
@@ -68,17 +68,14 @@
                                             </div>
                                         </div>
                                         <h5 class="text-warning font-weight-bold mb-1">عدد الجلسات</h5>
-                                        <h2 class="font-weight-bolder text-dark">{{ $sessionsCount ?? 0 }}</h2>
+                                        <h2 class="font-weight-bolder text-dark">{{App\Models\SessionDoctor::count() ?? 0}}</h2>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
 
-                        <!-- صورة تجميلية -->
-                        {{-- <div class="text-center mt-4">
-                            <img src="/admin/images/home/cow.jpg" alt="home" class="img-fluid rounded shadow-sm" style="max-width: 80%;">
-                        </div> --}}
+                     
 
                     </div>
                 </div>

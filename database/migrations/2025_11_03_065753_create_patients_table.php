@@ -13,22 +13,18 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->string('session_name')->nullable();
-            $table->string('sessionprice')->nullable();
             $table->string('referingdoctor_name')->nullable();
-            $table->string('exectingdoctor_name')->nullable();
-            $table->string('persent')->nullable();
             $table->string('name');
-            $table->date('date')->nullable();
-            $table->string('numbersession')->nullable();
+            $table->string('dignosis')->nullable();  //تشخيص
+            $table->string('session_name')->nullable();
+            $table->string('countsession')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            $table->string('dignosis')->nullable();  //تشخيص
+            $table->string('exectingdoctor_name')->nullable();
+            $table->string('numbersession')->nullable();
             $table->string('roomnumber')->nullable();
-            $table->string('importance')->nullable(); //اهمية الحالة
-            $table->string('orderby')->nullable(); //طلب بواسطة
-            $table->string('resson')->nullable(); //تشخيص السبب
-            // $table->string('price')->nullable();
+            $table->string('sessionprice')->nullable();
+            $table->string('persent')->nullable();
             $table->timestamps();
         });
     }
