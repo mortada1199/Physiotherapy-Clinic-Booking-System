@@ -111,38 +111,69 @@
     <!-- END HEADER -->
 
     <!-- SIDEBAR -->
-    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
-        <div class="main-menu-content">
-            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="nav-item active"><a href="Repo"><i class="la la-mouse-pointer"></i><span
-                            class="menu-title">الرئيسية</span></a>
-                </li>
-                <li class="nav-item"><a href="viewdoctor"><i class="la la-group"></i>
-                        <span class="menu-title">الاطباء</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\Doctor::count()}}</span>
-                    </a>
-                </li>
-                <li class="nav-item"><a href="viewspetial"><i class="la la-group"></i>
-                        <span class="menu-title">الجلسة</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\SessionDoctor::count()}}</span>
-                    </a>
-                </li>
-                <li class="nav-item"><a href="viewpatient"><i class="la la-group"></i>
-                        <span class="menu-title">المرضى</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">{{App\Models\Patient::count()}}</span>
-                    </a>
-                </li>
-                <li class="nav-item"><a href=""><i class="la la-home"></i>
-                        <span class="menu-title">عرض التقارير</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">1</span>
-                    </a>
-                    <ul class="menu-content">
-                        <li><a class="menu-item" href="#">عرض الكل</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+   <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            
+            <!-- الرئيسية -->
+            <li class="nav-item active">
+                <a href="Repo">
+                    <i class="la la-dashboard"></i>
+                    <span class="menu-title">الرئيسية</span>
+                </a>
+            </li>
+
+            <!-- الأطباء -->
+            <li class="nav-item">
+                <a href="viewdoctor">
+                    <i class="la la-user-md"></i>
+                    <span class="menu-title">الأطباء</span>
+                    <span class="badge badge-info badge-pill float-right mr-2">
+                        {{ App\Models\Doctor::count() ?? 0}}
+                    </span>
+                </a>
+            </li>
+
+            <!-- الجلسات -->
+            <li class="nav-item">
+                <a href="viewspetial">
+                    <i class="la la-stethoscope"></i>
+                    <span class="menu-title">الجلسة</span>
+                    <span class="badge badge-info badge-pill float-right mr-2">
+                        {{ App\Models\SessionDoctor::count() ?? 0 }}
+                    </span>
+                </a>
+            </li>
+
+            <!-- المرضى -->
+            <li class="nav-item">
+                <a href="viewpatient">
+                    <i class="la la-wheelchair"></i>
+                    <span class="menu-title">المرضى</span>
+                    <span class="badge badge-info badge-pill float-right mr-2">
+                        {{ App\Models\Patient::count() ?? 0 }}
+                    </span>
+                </a>
+            </li>
+
+            <!-- التقارير -->
+            <li class="nav-item">
+                <a href="#">
+                    <i class="la la-bar-chart"></i>
+                    <span class="menu-title">عرض التقارير</span>
+                    <span class="badge badge-info badge-pill float-right mr-2">1</span>
+                </a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="#">عرض الكل</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
     </div>
+</div>
+
 
     <!-- MAIN CONTENT -->
     <div class="py-4">
