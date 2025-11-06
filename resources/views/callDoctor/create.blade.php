@@ -46,9 +46,12 @@
                                 <br>
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="{{ url('storesession/' . $patient->id) }}"
-                                            method="POST" enctype="multipart/form-data">
+
+                                        <form action="{{ url('updatesession', $patient->id) }}" method="POST"
+                                            enctype="multipart/form-data">
                                             @csrf
+
+
 
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات المريض </h4>
@@ -85,7 +88,7 @@
                                                 </div>
 
 
-                                                <div class="row">
+                                                {{-- <div class="row">
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -97,7 +100,6 @@
                                                             @error('numbersession')
                                                                 <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
-                                                            {{-- <span class="text-danger"> </span> --}}
                                                         </div>
                                                     </div>
 
@@ -110,9 +112,8 @@
                                                         @error('session_name')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
-                                                        {{-- <span class="text-danger"> </span> --}}
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-check">
@@ -123,7 +124,7 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12 mt-2" id="call_location_container"
+                                                    <div class="col-12 mt-2" id="roomnumber"
                                                         style="display:none;">
                                                         <label for="roomnumber" class="form-label">مكان الاستدعاء</label>
                                                         <input type="text" id="roomnumber" name="roomnumber"
@@ -156,7 +157,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const checkbox = document.getElementById('call_doctor_checkbox');
-        const locationField = document.getElementById('call_location_container');
+        const locationField = document.getElementById('roomnumber');
 
         checkbox.addEventListener('change', function() {
             if (checkbox.checked) {

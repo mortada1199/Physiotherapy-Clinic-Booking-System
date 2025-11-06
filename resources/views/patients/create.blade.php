@@ -120,6 +120,33 @@
                                                 </div>
                                             </div>
 
+                                             <div class="row">
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> رقم الجلسة </label>
+                                                            <input type="text" value="" id="numbersession"
+                                                                class="form-control" placeholder="ادخل رقم الجلسة  "
+                                                                name="numbersession">
+
+                                                            @error('numbersession')
+                                                                <small class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <label for="projectinput1"> اسم الجلسة </label>
+                                                        <input type="text" value="" id="session_name"
+                                                            class="form-control" placeholder="ادخل اسم الجلسة  "
+                                                            name="session_name">
+
+                                                        @error('session_name')
+                                                            <small class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
                                             <div class="row">
                                                 <div class="col-12">
                                                     <label for="dignosis" class="form-label"> التشخيص <span class="text-danger">*</span></label>

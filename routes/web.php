@@ -44,7 +44,8 @@ Route::middleware(['authcheck'])->group(function () {
     Route::get('editpatient/{id}', [PatientController::class, 'edit'])->name('editpatient');
     // Call doctor
     Route::get('calldoctor/{id}', [PatientController::class, 'addsession'])->name('calldoctor');
-    Route::post('storesession/{id}', [PatientController::class, 'sessionstore'])->name('storesession');
+
+    Route::post('updatesession/{id}', [PatientController::class, 'sessionstore'])->name('updatesession');
 
 
     // Route::get('/calldoctor', fn() => view('callDoctor.create'));

@@ -21,11 +21,22 @@ class PatientController extends Controller
 
     public function store(StorePatientRequest $request)
     {
-        // $referingdoctor = Doctor::findOrFail($request['referingdoctor_id']);
+
         // $exectingdoctor = Doctor::findOrFail($request['exectingdoctor_id']);
-        // $session = SessionDoctor::findOrFail($request['session_id']);
-        //insert
-        $patient = Patient::create($request->validated());
+        //insert $request->validated());
+        $session = SessionDoctor::findOrFail($request['numbersession']);
+        $patient = Patient::create([
+            'referingdoctor_name' => $request->referingdoctor_name,
+            'name' => $request->name,
+            'major' => $request->major,
+            'numbersession' => $request->numbersession,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            // 'numbersession' => $request->numbersession,
+            'dignosis' => $request->dignosis,
+            'session_name' => $request->session_name,
+            'sessionprice' => $session->price,
+        ]);
         if ($patient) {
             return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
         } else {
@@ -84,6 +95,8 @@ class PatientController extends Controller
             'address' => $request->address ?? $patient->address,
             'phone' => $request->phone ?? $patient->phone,
             'dignosis' => $request->dignosis ?? $patient->dignosis,
+            'numbersession' => $request->numbersession ?? $patient->numbersession,
+            'session_name' => $request->session_name ?? $patient->session_name,
         ]);
 
         return redirect('/viewpatient')->with(['success' => 'تم التحديث بنجاح']);
@@ -103,10 +116,11 @@ class PatientController extends Controller
 
     public function sessionstore(StorePatientRequest $request, $id)
     {
-
         $patient = Patient::findOrFail($id);
-        $doctor = Doctor::findOrFail($request['exectingdoctor_name']);
+        $doctor = Doctor::where('name', $request->exectingdoctor_name)->first();
 
+
+        // $patient = Patient::create([
         $patient->update([
             'exectingdoctor_name'   => $request->exectingdoctor_name ?? $patient->exectingdoctor_name,
             'name' => $request->name ?? $patient->name,
@@ -120,14 +134,12 @@ class PatientController extends Controller
             'address' => $request->address ?? $patient->address,
             'phone' => $request->phone ?? $patient->phone,
             'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
-            'major' => $request->major ?? $patient->major,
-
-
+            'major' => $request->major ?? $patient->major
         ]);
         if ($patient) {
-            return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
+            return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
         } else {
-            return redirect('/viewpatient')->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
+            return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
         }
     }
 }
