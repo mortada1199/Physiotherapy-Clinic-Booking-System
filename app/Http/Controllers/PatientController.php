@@ -116,7 +116,7 @@ class PatientController extends Controller
     public function sessionstore(StorePatientRequest $request, $id)
     {
         $patient = Patient::findOrFail($id);
-        $doctor = Doctor::where('name', $request->exectingdoctor_name)->first();
+        $doctor = Doctor::where('name', $request['exectingdoctor_name'])->first();
 
 
         // $patient = Patient::create([
