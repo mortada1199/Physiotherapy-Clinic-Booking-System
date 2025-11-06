@@ -21,21 +21,20 @@ class PatientController extends Controller
 
     public function store(StorePatientRequest $request)
     {
-
-        // $exectingdoctor = Doctor::findOrFail($request['exectingdoctor_id']);
-        //insert $request->validated());
-        $session = SessionDoctor::findOrFail($request['numbersession']);
+      
+       
+        $session = SessionDoctor::where('numbersession',$request['numbersession'])->first();
         $patient = Patient::create([
-            'referingdoctor_name' => $request->referingdoctor_name,
-            'name' => $request->name,
-            'major' => $request->major,
-            'numbersession' => $request->numbersession,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            // 'numbersession' => $request->numbersession,
-            'dignosis' => $request->dignosis,
-            'session_name' => $request->session_name,
-            'sessionprice' => $session->price,
+            'referingdoctor_name' => $request['referingdoctor_name'],
+            'name' => $request['name'],
+            'major' => $request['major'],
+            'numbersession' => $request['numbersession'],
+            'address' => $request['address'],
+            'phone' => $request['phone'],
+            'dignosis' => $request['dignosis'],
+            'session_name' => $request['session_name'],
+            'sessionprice' => $session['price'],
+            'countsession' => $request['countsession'],
         ]);
         if ($patient) {
             return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);

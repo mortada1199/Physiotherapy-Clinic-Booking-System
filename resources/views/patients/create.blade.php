@@ -86,10 +86,10 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="numbersession"> عدد الجلسات </label>
-                                                        <input type="text" id="numbersession" class="form-control"
-                                                            placeholder="ادخل عدد الجلسات" name="numbersession" value="{{ old('numbersession') }}">
-                                                        @error('numbersession')
+                                                        <label for="countsession"> عدد الجلسات </label>
+                                                        <input type="text" id="countsession" class="form-control"
+                                                            placeholder="ادخل عدد الجلسات" name="countsession" value="{{ old('countsession') }}">
+                                                        @error('countsession')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
                                                     </div>
