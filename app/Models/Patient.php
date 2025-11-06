@@ -19,6 +19,7 @@ class Patient extends Model
         'roomnumber',
         'sessionprice',
         'persent',
+        'major',
     ];
 
     

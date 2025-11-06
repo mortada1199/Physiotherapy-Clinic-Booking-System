@@ -50,7 +50,7 @@ class SessionDoctorController extends Controller
             $sessions->update([
                 'name' => $request->name ?? $sessions->name,
                 'price' => $request->price ?? $sessions->price,
-                'numbersession' => $request->numbersessioncount ?? $sessions->numbersessioncount,
+                'numbersession' => $request->numbersession ?? $sessions->numbersession,
 
             ]);
             return redirect('/viewspetial')->with(['success' => 'تم التحديث بنجاح']);

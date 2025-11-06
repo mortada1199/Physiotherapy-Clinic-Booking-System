@@ -46,33 +46,37 @@
                                 <br>
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form class="form" action="#" method="POST" enctype="multipart/form-data">
+                                        <form class="form" action="{{ url('storesession/' . $patient->id) }}"
+                                            method="POST" enctype="multipart/form-data">
                                             @csrf
+
                                             <div class="form-body">
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات المريض </h4>
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="blood_type" class="form-label">اسم الطبيب المنفذ</label>
-                                                        <select id="blood_type" name="blood_type" class="form-select">
+                                                        <label for="exectingdoctor_name" class="form-label">اسم الطبيب
+                                                            المنفذ</label>
+                                                        <select id="exectingdoctor_name" name="exectingdoctor_name"
+                                                            class="form-select">
                                                             <option value="" selected disabled>اختر اسم الطبيب
                                                             </option>
-                                                            <option value="A+">ali</option>
-                                                            <option value="A-">mohamed</option>
-                                                            <option value="B+">khalid</option>
-
+                                                            @foreach ($doctors as $val)
+                                                                <option value="{{ $val->name }}">{{ $val->name }}
+                                                                </option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> اسم المريض </label>
-                                                            <input type="text" value="" id="name"
-                                                                class="form-control" placeholder="ادخل اسم المريض  "
-                                                                name="special">
+                                                            <input type="text" value="{{ $patient->name }}"
+                                                                id="name" class="form-control"
+                                                                placeholder="ادخل اسم المريض  " name="name">
 
                                                             @error('special')
-                                                                <small class="form-text text-danger">#</small>
+                                                                <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
 
                                                             {{-- <span class="text-danger"> </span> --}}
@@ -86,12 +90,12 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> رقم الجلسة </label>
-                                                            <input type="text" value="" id="room_number"
+                                                            <input type="text" value="" id="numbersession"
                                                                 class="form-control" placeholder="ادخل رقم الجلسة  "
-                                                                name="room_number">
+                                                                name="numbersession">
 
-                                                            @error('room_number')
-                                                                <small class="form-text text-danger">#</small>
+                                                            @error('numbersession')
+                                                                <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                             {{-- <span class="text-danger"> </span> --}}
                                                         </div>
@@ -99,22 +103,16 @@
 
                                                     <div class="col-md-6">
                                                         <label for="projectinput1"> اسم الجلسة </label>
-                                                        <input type="text" value="" id="room_number"
+                                                        <input type="text" value="" id="session_name"
                                                             class="form-control" placeholder="ادخل اسم الجلسة  "
-                                                            name="room_number">
+                                                            name="session_name">
 
-                                                        @error('room_number')
-                                                            <small class="form-text text-danger">#</small>
+                                                        @error('session_name')
+                                                            <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
                                                         {{-- <span class="text-danger"> </span> --}}
                                                     </div>
                                                 </div>
-
-
-
-
-
-
                                                 <div class="row">
                                                     <div class="col-12">
                                                         <div class="form-check">
@@ -127,26 +125,12 @@
                                                     </div>
                                                     <div class="col-12 mt-2" id="call_location_container"
                                                         style="display:none;">
-                                                        <label for="requested_by" class="form-label">مكان الاستدعاء</label>
-                                                        <input type="text" id="requested_by" name="requested_by"
+                                                        <label for="roomnumber" class="form-label">مكان الاستدعاء</label>
+                                                        <input type="text" id="roomnumber" name="roomnumber"
                                                             class="form-control" placeholder="ادخل مكان الاستدعاء">
                                                     </div>
                                                 </div>
 
-
-
-
-
-
-                                                {{-- <div class="row">
-
-                                                    <div class="col-md-12">
-                                                        <label for="amount" class="form-label">المبلغ  </label>
-                                                        <input type="text" id="amount" name="amount"
-                                                            class="form-control" placeholder="  المبلغ  ">
-                                                    </div>
-
-                                                </div> --}}
 
                                                 <div class="form-actions">
                                                     <button type="button" class="btn btn-warning mr-1"

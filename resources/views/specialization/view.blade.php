@@ -75,7 +75,7 @@
                                                     <tr>
                                                         <td>{{ $val->id }} </td>
                                                         <td>{{ $val->name }}</td>
-                                                        <td>5522</td>
+                                                        <td>{{$val->numbersession}}</td>
                                                         <td>{{ $val->price }}</td>
                                                         <td>
 

@@ -46,18 +46,18 @@
                                 <div class="card-body">
                                     <form class="form" action="{{ url('updatepatient/'.$patient->id) }}" method="POST">
                                         @csrf
-                                        @method('PUT')
+                                        {{-- @method('PUT') --}}
                                         <div class="form-body">
                                             <h4 class="form-section"><i class="ft-home"></i> بيانات المريض </h4>
 
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="referingdoctor_id"> اسم الطبيب المحول </label>
-                                                        <input type="text" id="referingdoctor_id" class="form-control"
+                                                        <label for="referingdoctor_name"> اسم الطبيب المحول </label>
+                                                        <input type="text" id="referingdoctor_name" class="form-control"
                                                             placeholder="ادخل اسم الطبيب المحول"
-                                                            name="referingdoctor_id" value="{{ old('referingdoctor_id', $patient->referingdoctor_id) }}">
-                                                        @error('referingdoctor_id')
+                                                            name="referingdoctor_name" value="{{ old('referingdoctor_name', $patient->referingdoctor_name) }}">
+                                                        @error('referingdoctor_name')
                                                             <small class="form-text text-danger">{{ $message }}</small>
                                                         @enderror
                                                     </div>
@@ -77,17 +77,13 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <label for="session_id"> التخصص</label>
-                                                    <select id="session_id" name="session_id" class="form-select" required>
-                                                        <option value="" disabled>اختر التخصص</option>
-                                                        @foreach ($sessions as $val)
-                                                            <option value="{{ $val->id }}"
-                                                                {{ $patient->session_id == $val->id ? 'selected' : '' }}>
-                                                                {{ $val->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
+                                               <div class="col-md-6">
+                                                    <label for="session_id" class="form-label"> التخصص</label>
+                                                    <input type="text" id="major" class="form-control"
+                                                            placeholder="ادخل عدد الجلسات" name="major" value="{{ old('major', $patient->major) }}">
+                                                            @error('major')
+                                                            <small class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
                                                 </div>
 
                                                 <div class="col-md-6">
