@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('roomnumber')->nullable();
             $table->string('sessionprice')->nullable();
             $table->string('persent')->nullable();
+            $table->string('major')->nullable();
             $table->timestamps();
         });
     }

@@ -33,6 +33,7 @@ class StorePatientRequest extends FormRequest
         'address' => 'max:500',
         'phone' => 'max:20',
         'dignosis' => 'max:1000',
+        'major' => 'max:255',
         ];
     }
 }

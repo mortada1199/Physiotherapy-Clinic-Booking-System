@@ -117,7 +117,7 @@
 
             <!-- الرئيسية -->
             <li class="nav-item active">
-                <a href="Repo">
+                <a href="{{url('Repo')}}">
                     <i class="la la-dashboard"></i>
                     <span class="menu-title">الرئيسية</span>
                 </a>
@@ -125,7 +125,7 @@
 
             <!-- الأطباء -->
             <li class="nav-item">
-                <a href="viewdoctor">
+                <a href="{{url('viewdoctor')}}">
                     <i class="la la-user-md"></i>
                     <span class="menu-title">الأطباء</span>
                     <span class="badge badge-info badge-pill float-right mr-2">
@@ -136,7 +136,7 @@
 
             <!-- الجلسات -->
             <li class="nav-item">
-                <a href="viewspetial">
+                <a href="{{url('viewspetial')}}">
                     <i class="la la-stethoscope"></i>
                     <span class="menu-title">الجلسة</span>
                     <span class="badge badge-info badge-pill float-right mr-2">
@@ -147,7 +147,7 @@
 
             <!-- المرضى -->
             <li class="nav-item">
-                <a href="viewpatient">
+                <a href="{{url('viewpatient')}}">
                     <i class="la la-wheelchair"></i>
                     <span class="menu-title">المرضى</span>
                     <span class="badge badge-info badge-pill float-right mr-2">

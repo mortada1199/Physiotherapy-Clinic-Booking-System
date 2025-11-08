@@ -181,7 +181,7 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #7b3dbf 0%, #b17fe6 100%);
+            background: linear-gradient(135deg, #41344e 0%, #b17fe6 100%);
             display: flex;
             justify-content: center;
             align-items: center;

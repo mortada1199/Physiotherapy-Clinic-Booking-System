@@ -75,25 +75,25 @@
                                                     @foreach ($patients as $val)
                                                         <tr>
                                                             <td>{{ $val->id }}</td>
-                                                            <td>{{ $val->name }}</td>
-                                                            <td>{{ $val->referingdoctor_name }}</td>
-                                                            <td>{{ $val->exectingdoctor_name }}</td>
+                                                            <td>{{ $val->name ?? 0}}</td>
+                                                            <td>{{ $val->referingdoctor_name ?? 0 }}</td>
+                                                            <td>{{ $val->exectingdoctor_name  ?? 0}}</td>
                                                             {{-- <td>{{ $val->address }}</td> --}}
-                                                            <td>{{ $val->phone }}</td>
+                                                            <td>{{ $val->phone ?? 0}}</td>
                                                             <td>
                                                                 <div class="btn-group" role="group">
-                                                                    <a href="{{ url('deletespetial', $val->id) }}"
+                                                                    <a href="{{ url('deletepatient', $val->id) }}"
                                                                         class="btn btn-outline-danger btn-sm"
                                                                         onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
                                                                         <i class="la la-trash"></i> حذف
                                                                     </a>
 
-                                                                    <a href="{{ url('editdoctor', $val->id) }}"
+                                                                    <a href="{{ url('editpatient', $val->id) }}"
                                                                         class="btn btn-outline-primary btn-sm">
                                                                         <i class="la la-edit"></i> تعديل
                                                                     </a>
 
-                                                                    <a href="{{ url('calldoctor') }}"
+                                                                    <a href="{{ url('calldoctor', $val->id) }}"
                                                                         class="btn btn-outline-success btn-sm">
                                                                         <i class="la la-plus"></i> إضافة جلسة
                                                                     </a>

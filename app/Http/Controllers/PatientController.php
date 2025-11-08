@@ -13,45 +13,40 @@ class PatientController extends Controller
 
     public function add()
     {
-        $doctors = Doctor::select('id', 'name')->get();
-        $sessions = SessionDoctor::select('id', 'name')->get();
-        return view('patients.create', compact('doctors', 'sessions'));
+        // $doctors = Doctor::select('id', 'name')->get();
+        // $sessions = SessionDoctor::select('id', 'name')->get();
+        return view('patients.create');
     }
 
 
-   public function store(StorePatientRequest $request)
-{
-    $referingdoctor = Doctor::find($request->referingdoctor_id);
-    $exectingdoctor = Doctor::find($request->exectingdoctor_id);
-    $session = SessionDoctor::find($request->session_id);
-
-    //insert
-    $patient = Patient::create([
-        'session_name'          => $session->name,
-        'sessionprice'          => $session->price,
-        'referingdoctor_name'   => $referingdoctor->name,
-        'exectingdoctor_name'   => $exectingdoctor->name,
-        'persent'               => $exectingdoctor->persent,
-        'name'                  => $request->name,
-        'date'                  => $request->date,
-        'numbersession'         => $request->numbersession,
-        'address'               => $request->address,
-        'phone'                 => $request->phone,
-        'dignosis'              => $request->dignosis,
-    ]);
-
-    if ($patient) {
-        return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
-    } else {
-        return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
+    public function store(StorePatientRequest $request)
+    {
+      
+       
+        $session = SessionDoctor::where('numbersession',$request['numbersession'])->first();
+        $patient = Patient::create([
+            'referingdoctor_name' => $request['referingdoctor_name'],
+            'name' => $request['name'],
+            'major' => $request['major'],
+            'numbersession' => $request['numbersession'],
+            'address' => $request['address'],
+            'phone' => $request['phone'],
+            'dignosis' => $request['dignosis'],
+            'session_name' => $request['session_name'],
+            'sessionprice' => $session['price'],
+            'countsession' => $request['countsession'],
+        ]);
+        if ($patient) {
+            return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
+        } else {
+            return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
+        }
     }
-}
 
 
 
     public function getalldata()
     {
-  
         $patients = Patient::all();
         return view('patients.view', compact('patients'));
     }
@@ -75,5 +70,75 @@ class PatientController extends Controller
         return redirect()
             ->back()
             ->with(['success' => 'تم الحذف بنجاح']);
+    }
+
+
+    public function edit($patient_id)
+    {
+        $patient = Patient::findOrFail($patient_id);
+        return view('patients.edit', compact('patient'));
+    }
+
+    /**
+     * Update the specified doctor in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $patient = Patient::findOrFail($id);
+
+        $patient->update([
+            'referingdoctor_name'   => $request->referingdoctor_name ?? $patient->referingdoctor_name,
+            'name' => $request->name ?? $patient->name,
+            'major' => $request->major ?? $patient->major,
+            'numbersession' => $request->numbersession ?? $patient->numbersession,
+            'address' => $request->address ?? $patient->address,
+            'phone' => $request->phone ?? $patient->phone,
+            'dignosis' => $request->dignosis ?? $patient->dignosis,
+            'numbersession' => $request->numbersession ?? $patient->numbersession,
+            'session_name' => $request->session_name ?? $patient->session_name,
+        ]);
+
+        return redirect('/viewpatient')->with(['success' => 'تم التحديث بنجاح']);
+    }
+
+
+
+
+    public function addsession($patient_id)
+    {
+        $doctors = Doctor::select('id', 'name')->get();
+        $sessions = SessionDoctor::select('id', 'name')->get();
+        $patient = Patient::findOrFail($patient_id);
+        return view('callDoctor.create', compact('patient', 'doctors', 'sessions'));
+    }
+
+
+    public function sessionstore(StorePatientRequest $request, $id)
+    {
+        $patient = Patient::findOrFail($id);
+        $doctor = Doctor::where('name', $request['exectingdoctor_name'])->first();
+
+
+        // $patient = Patient::create([
+        $patient->update([
+            'exectingdoctor_name'   => $request->exectingdoctor_name ?? $patient->exectingdoctor_name,
+            'name' => $request->name ?? $patient->name,
+            'numbersession' => $request->numbersession ?? $patient->numbersession,
+            'session_name' => $request->session_name ?? $patient->session_name,
+            'roomnumber' => $request->roomnumber ?? $patient->roomnumber,
+            'persent' => $doctor['persent'] ?? $patient->persent,
+            'referingdoctor_name'  => $request->referingdoctor_name ?? $patient->referingdoctor_name,
+            'dignosis' => $request->dignosis ?? $patient->dignosis,
+            'countsession' => $request->countsession ?? $patient->countsession,
+            'address' => $request->address ?? $patient->address,
+            'phone' => $request->phone ?? $patient->phone,
+            'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
+            'major' => $request->major ?? $patient->major
+        ]);
+        if ($patient) {
+            return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
+        } else {
+            return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
+        }
     }
 }

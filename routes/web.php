@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
@@ -19,29 +20,37 @@ Route::middleware(['authcheck'])->group(function () {
     Route::get('/dashboard', fn() => view('layouts.dashbord'));
 
     // Doctor routes
-    Route::get('/adddoctor', fn() => view('doctor.create'));
-    Route::post('storedoctor', [DoctorController::class, 'store']);
-    Route::get('viewdoctor', [DoctorController::class, 'getalldata']);
-    Route::post('updatedoctor/{id}', [DoctorController::class, 'update']);
-    Route::get('editdoctor/{doctorr_id}', [DoctorController::class, 'edit']);
-    Route::get('doctordelete/{doctorr_id}', [DoctorController::class, 'delete']);
+    Route::get('/adddoctor', fn() => view('doctor.create'))->name('adddoctor');
+    Route::post('storedoctor', [DoctorController::class, 'store'])->name('storedoctor');
+    Route::get('viewdoctor', [DoctorController::class, 'getalldata'])->name('viewdoctor');
+    Route::post('updatedoctor/{id}', [DoctorController::class, 'update'])->name('updatedoctor');
+    Route::get('editdoctor/{doctorr_id}', [DoctorController::class, 'edit'])->name('editdoctor');
+    Route::get('doctordelete/{doctorr_id}', [DoctorController::class, 'delete'])->name('doctordelete');
 
     // Specialization routes
-    Route::get('/addspecial', fn() => view('specialization.create'));
-    Route::post('storespetial', [SessionDoctorController::class, 'store']);
-    Route::get('viewspetial', [SessionDoctorController::class, 'getalldata']);
-    Route::post('updatespetial/{spetial_id}', [SessionDoctorController::class, 'update']);
-    Route::get('editspetial/{spetial_id}', [SessionDoctorController::class, 'edit']);
-    Route::get('deletespetial/{spetial_id}', [SessionDoctorController::class, 'delete']);
+    Route::get('/addspecial', fn() => view('specialization.create'))->name('addspecial');
+    Route::post('storespetial', [SessionDoctorController::class, 'store'])->name('storespetial');
+    Route::get('viewspetial', [SessionDoctorController::class, 'getalldata'])->name('viewspetial');
+    Route::post('updatespetial/{spetial_id}', [SessionDoctorController::class, 'update'])->name('updatespetial');
+    Route::get('editspetial/{spetial_id}', [SessionDoctorController::class, 'edit'])->name('editspetial');
+    Route::get('deletespetial/{spetial_id}', [SessionDoctorController::class, 'delete'])->name('deletespetial');
 
     // Patient routes
-    Route::get('addpatient', [PatientController::class, 'add']);
-    Route::post('storepatient', [PatientController::class, 'store']);
-    Route::get('viewpatient', [PatientController::class, 'getalldata']);
-    Route::get('deletepatient/{id}', [PatientController::class, 'delete']);
-
+    Route::get('addpatient', [PatientController::class, 'add'])->name('addpatient');
+    Route::post('storepatient', [PatientController::class, 'store'])->name('storepatient');
+    Route::get('viewpatient', [PatientController::class, 'getalldata'])->name('viewpatient');
+    Route::get('deletepatient/{id}', [PatientController::class, 'delete'])->name('deletepatient');
+    Route::post('updatepatient/{id}', [PatientController::class, 'update'])->name('updatepatient');
+    Route::get('editpatient/{id}', [PatientController::class, 'edit'])->name('editpatient');
     // Call doctor
-    Route::get('/calldoctor', fn() => view('callDoctor.create'));
+    Route::get('calldoctor/{id}', [PatientController::class, 'addsession'])->name('calldoctor');
+
+    Route::post('updatesession/{id}', [PatientController::class, 'sessionstore'])->name('updatesession');
+
+
+    // Route::get('/calldoctor', fn() => view('callDoctor.create'));
+
+
 
     // Report
     Route::get('/Repo', fn() => view('home'));
@@ -52,7 +61,3 @@ Route::middleware(['authcheck'])->group(function () {
 // Route::get('/dashboard', function () {
 //     return view('layouts.dashbord');
 // });
-
-
-
-
