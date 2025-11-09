@@ -69,4 +69,11 @@ class DoctorController extends Controller
 
         return redirect()->back()->with(['successd' => 'تم الحذف بنجاح']);
     }
+
+
+    public function show($id)
+    {
+        $doctor = Doctor::findOrFail($id);
+        return view('doctor.show', compact('doctor'));
+    }
 }

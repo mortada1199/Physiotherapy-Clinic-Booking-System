@@ -146,4 +146,11 @@ class PatientController extends Controller
             return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
         }
     }
+
+
+      public function show($id)
+    {
+        $patient = Patient::findOrFail($id);
+        return view('patients.show', compact('patient'));
+    }
 }

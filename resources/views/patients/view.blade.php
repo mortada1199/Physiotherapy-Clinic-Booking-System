@@ -97,6 +97,11 @@
                                                                         class="btn btn-outline-success btn-sm">
                                                                         <i class="la la-plus"></i> إضافة جلسة
                                                                     </a>
+
+                                                                       <a href="{{ route('showpatients', $val->id) }}"
+                                                                    class="btn btn-info btn-sm">
+                                                                    <i class="la la-eye"></i> عرض الكل
+                                                                </a>
                                                                 </div>
                                                             </td>
                                                         </tr>
