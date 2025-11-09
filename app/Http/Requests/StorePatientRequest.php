@@ -22,18 +22,20 @@ class StorePatientRequest extends FormRequest
     public function rules(): array
     {
         return [
-        'session_name' => 'max:255',
-        'sessionprice' => '',
-        'referingdoctor_name' => 'max:255',
-        'exectingdoctor_name' => 'max:255',
-        'persent' => '',
-        'name' => 'max:255',
-        'date' => '',
-        'numbersession' => '',
-        'address' => 'max:500',
-        'phone' => 'max:20',
-        'dignosis' => 'max:1000',
-        'major' => 'max:255',
+            'session_name' => 'max:255',
+            'sessionprice' => '',
+            'referingdoctor_name' => 'max:255',
+            'exectingdoctor_name' => 'max:255',
+            'persent' => '',
+            'name' => 'max:255',
+            'date' => '',
+            'numbersession' => '',
+            'address' => 'max:500',
+            'phone' => 'max:20',
+            'dignosis' => 'max:1000',
+            'major' => 'max:255',
+
+
         ];
     }
 }

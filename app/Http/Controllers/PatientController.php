@@ -21,9 +21,9 @@ class PatientController extends Controller
 
     public function store(StorePatientRequest $request)
     {
-      
-       
-        $session = SessionDoctor::where('numbersession',$request['numbersession'])->first();
+
+
+        $session = SessionDoctor::where('numbersession', $request['numbersession'])->first();
         $patient = Patient::create([
             'referingdoctor_name' => $request['referingdoctor_name'],
             'name' => $request['name'],
@@ -34,7 +34,9 @@ class PatientController extends Controller
             'dignosis' => $request['dignosis'],
             'session_name' => $request['session_name'],
             'sessionprice' => $session['price'],
-            'countsession' => $request['countsession'],
+            'totalsession' => $request['countsession'],
+            'excutedsession' => 0,
+
         ]);
         if ($patient) {
             return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
@@ -94,8 +96,9 @@ class PatientController extends Controller
             'address' => $request->address ?? $patient->address,
             'phone' => $request->phone ?? $patient->phone,
             'dignosis' => $request->dignosis ?? $patient->dignosis,
-            'numbersession' => $request->numbersession ?? $patient->numbersession,
+            'totalsession' => $request->totalsession ?? $patient->totalsession,
             'session_name' => $request->session_name ?? $patient->session_name,
+            'excutedsession' => $patient->excutedsession ?? 0,
         ]);
 
         return redirect('/viewpatient')->with(['success' => 'تم التحديث بنجاح']);
@@ -109,6 +112,7 @@ class PatientController extends Controller
         $doctors = Doctor::select('id', 'name')->get();
         $sessions = SessionDoctor::select('id', 'name')->get();
         $patient = Patient::findOrFail($patient_id);
+
         return view('callDoctor.create', compact('patient', 'doctors', 'sessions'));
     }
 
@@ -129,11 +133,12 @@ class PatientController extends Controller
             'persent' => $doctor['persent'] ?? $patient->persent,
             'referingdoctor_name'  => $request->referingdoctor_name ?? $patient->referingdoctor_name,
             'dignosis' => $request->dignosis ?? $patient->dignosis,
-            'countsession' => $request->countsession ?? $patient->countsession,
+            'totalsession' =>  $patient->totalsession ?? 0,
             'address' => $request->address ?? $patient->address,
             'phone' => $request->phone ?? $patient->phone,
             'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
-            'major' => $request->major ?? $patient->major
+            'major' => $request->major ?? $patient->major,
+            'excutedsession' => $patient->excutedsession + 1,
         ]);
         if ($patient) {
             return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
