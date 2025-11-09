@@ -71,8 +71,8 @@
                                 class="ft-menu font-large-1"></i></a></li>
                     <li class="nav-item">
                         <a class="navbar-brand" href="">
-                            <img class="brand-logo" alt="admin logo" src="/admin/images/logo/one.jpeg">
-                            <h3 class="brand-text"> Hospital </h3>
+                            <!--img class="brand-logo" alt="admin logo" src="/admin/images/logo/one.jpeg"-->
+                            <h4 class="brand-text"> المركز الدولي للعلاج الطبيعي والتأهيل  </h4>
                         </a>
                     </li>
                     <li class="nav-item d-md-none">

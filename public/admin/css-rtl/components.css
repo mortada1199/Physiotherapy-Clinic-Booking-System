@@ -11,7 +11,7 @@ html body.fixed-navbar {
   padding-top : 5rem;
 }
 html body a {
-  color : #1E9FF2;
+  color : #334aa2;
 }
 html body a:hover {
   color : #0C84D1;
@@ -273,7 +273,7 @@ footer.footer-dark {
   font-weight : 500;
 }
 .main-menu.menu-light .navigation li a {
-  color : #6B6F82;
+  color : #091770;
   -webkit-transition : all 0.2s ease;
      -moz-transition : all 0.2s ease;
        -o-transition : all 0.2s ease;
@@ -311,7 +311,7 @@ footer.footer-dark {
 .main-menu.menu-light .navigation > li.open > a {
   color : #545766;
   background : whitesmoke;
-  border-left : 4px solid #1E9FF2;
+  border-left : 4px solid #334aa2;
 }
 .main-menu.menu-light .navigation > li.open .hover > a {
   -webkit-transform : translateX(4px);
@@ -506,7 +506,7 @@ footer.footer-dark {
 .main-menu.menu-dark .navigation > li.open > a {
   color : #C3C3C3;
   background : #23262F;
-  border-left : 4px solid #1E9FF2;
+  border-left : 4px solid #334aa2;
 }
 .main-menu.menu-dark .navigation > li.open .hover > a {
   -webkit-transform : translateX(4px);
@@ -4873,7 +4873,7 @@ tr.shown td.details-control {
   padding : 0.5rem 0.75rem;
   margin-right : -1px;
   line-height : 1.6;
-  color : #1E9FF2;
+  color : #334aa2;
   text-decoration : none;
   background-color : #FFFFFF;
   border : none;
@@ -4882,10 +4882,10 @@ tr.shown td.details-control {
   background-color : #F5F5F5 !important;
 }
 .datepaginator .pagination li a.dp-today, .datepaginator-sm .pagination li a.dp-today, .datepaginator-lg .pagination li a.dp-today {
-  background-color : #1E9FF2 !important;
+  background-color : #334aa2 !important;
 }
 .datepaginator .pagination li a.dp-selected, .datepaginator-sm .pagination li a.dp-selected, .datepaginator-lg .pagination li a.dp-selected {
-  background-color : #1E9FF2 !important;
+  background-color : #334aa2 !important;
 }
 .datepaginator .pagination li a .dp-divider, .datepaginator-sm .pagination li a .dp-divider, .datepaginator-lg .pagination li a .dp-divider {
   border-right : 2px solid #DDDDDD !important;
