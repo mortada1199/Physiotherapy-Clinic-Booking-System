@@ -23,8 +23,26 @@ class StoreSpecialRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|unique:session_doctors,name',
-            'price' => 'required',
-            'numbersession' => 'required',
+            'price' => 'required|numeric',
+            'numbersession' => 'required|integer',
+        ];
+    }
+
+    /**
+     * رسائل الأخطاء باللغة العربية
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'الرجاء إدخال اسم التخصص.',
+            'name.max' => 'اسم التخصص يجب ألا يتجاوز 255 حرفاً.',
+            'name.unique' => 'هذا التخصص مسجل مسبقاً.',
+
+            'price.required' => 'الرجاء إدخال سعر الجلسة.',
+            'price.numeric' => 'سعر الجلسة يجب أن يكون رقماً.',
+
+            'numbersession.required' => 'الرجاء إدخال عدد الجلسات.',
+            'numbersession.integer' => 'عدد الجلسات يجب أن يكون رقماً صحيحاً.',
         ];
     }
 }
