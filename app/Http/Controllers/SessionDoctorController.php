@@ -17,9 +17,9 @@ class SessionDoctorController extends Controller
         //insert
         $sessions =  SessionDoctor::create($request->validated());
         if ($sessions) {
-            return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
+            return redirect('/viewspetial')->with(['success' => 'تم الاضافة بنجاح']);
         } else {
-            return redirect()->back()->with(['error' => 'هناك خطا ما يرجى المحاولة لاحقا']);
+            return redirect('/viewspetial')->with(['error' => 'هناك خطا ما يرجى المحاولة لاحقا']);
         }
     }
 

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('dignosis')->nullable();  //تشخيص
             $table->string('session_name')->nullable();
-            $table->string('countsession')->nullable();
+            $table->string('totalsession')->nullable();
+            $table->string('excutedsession')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('exectingdoctor_name')->nullable();

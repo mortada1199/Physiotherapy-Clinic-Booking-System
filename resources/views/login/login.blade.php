@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ar" dir="rtl">
 
@@ -19,9 +18,9 @@
         }
 
         .login-card {
-            background: #fff;
+            background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             width: 380px;
             padding: 40px 35px;
             text-align: center;
@@ -36,7 +35,7 @@
             right: -60px;
             width: 150px;
             height: 150px;
-            background: rgba(123, 61, 191, 0.1);
+            background: rgba(100, 116, 139, 0.1);
             border-radius: 50%;
         }
 
@@ -81,6 +80,7 @@
             font-family: 'Cairo', sans-serif;
             direction: rtl;
             transition: all 0.3s ease;
+            background-color: #f8fafc;
         }
 
         input:focus {
@@ -90,7 +90,6 @@
         }
 
         button {
-
             padding: 12px;
             background: #314ca0;
             border: none;
@@ -100,18 +99,42 @@
             font-weight: 700;
             cursor: pointer;
             transition: 0.3s ease;
-            box-shadow: 0 4px 12px rgba(123, 61, 191, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
         }
 
         button:hover {
+<<<<<<< HEAD
             background: #4d5b99;
             box-shadow: 0 6px 20px rgba(77, 91, 153, 0.4);
+=======
+            background: #2563eb;
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+>>>>>>> df0b5129048aecbb12dd9347696cb74e378e5d5c
         }
 
         .footer-text {
             margin-top: 20px;
             font-size: 13px;
-            color: #777;
+            color: #64748b;
+        }
+
+        /* رسائل التنبيه */
+        .alert {
+            width: 380px;
+            margin: 10px auto;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .alert-danger {
+            background-color: #fee2e2;
+            color: #b91c1c;
         }
     </style>
 </head>
@@ -119,26 +142,25 @@
 <body>
 
     @if (Session::has('success'))
-        <div class="alert alert-success text-center" role="alert">
+        <div class="alert alert-success text-center">
             {{ Session::get('success') }}
         </div>
     @endif
 
     @if (Session::has('error'))
-        <div class="alert alert-danger text-center" role="alert">
+        <div class="alert alert-danger text-center">
             {{ Session::get('error') }}
         </div>
     @endif
 
-
     <div class="login-card">
         <div class="logo">
-            <img src="/admin/images/logo/one.jpeg" alt="شعار الموقع">
+            <img src="{{ asset('admin/images/logo/one.jpeg') }}" alt="شعار الموقع">
         </div>
 
         <h2>تسجيل الدخول إلى النظام</h2>
 
-        <form action="check" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('check') }}" method="POST">
             @csrf
             <label for="username">اسم المستخدم</label>
             <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم">
@@ -151,6 +173,7 @@
 
         <div class="footer-text">© 2025 جميع الحقوق محفوظة</div>
     </div>
+
 </body>
 
 </html>

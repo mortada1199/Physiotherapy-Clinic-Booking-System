@@ -83,6 +83,12 @@
                                                                     onclick="return confirm('هل أنت متأكد من حذف هذا الطبيب؟');">
                                                                     <i class="la la-trash"></i> حذف
                                                                 </a>
+
+                                                                <a href="{{ route('show', $val->id) }}"
+                                                                    class="btn btn-info btn-sm">
+                                                                    <i class="la la-eye"></i> عرض الكل
+                                                                </a>
+
                                                             </div>
                                                         </td>
 

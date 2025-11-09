@@ -26,6 +26,7 @@ Route::middleware(['authcheck'])->group(function () {
     Route::post('updatedoctor/{id}', [DoctorController::class, 'update'])->name('updatedoctor');
     Route::get('editdoctor/{doctorr_id}', [DoctorController::class, 'edit'])->name('editdoctor');
     Route::get('doctordelete/{doctorr_id}', [DoctorController::class, 'delete'])->name('doctordelete');
+    Route::get('/doctors/{id}', [DoctorController::class, 'show'])->name('show');
 
     // Specialization routes
     Route::get('/addspecial', fn() => view('specialization.create'))->name('addspecial');
@@ -42,6 +43,7 @@ Route::middleware(['authcheck'])->group(function () {
     Route::get('deletepatient/{id}', [PatientController::class, 'delete'])->name('deletepatient');
     Route::post('updatepatient/{id}', [PatientController::class, 'update'])->name('updatepatient');
     Route::get('editpatient/{id}', [PatientController::class, 'edit'])->name('editpatient');
+    Route::get('/patient/{id}', [PatientController::class, 'show'])->name('showpatients');
     // Call doctor
     Route::get('calldoctor/{id}', [PatientController::class, 'addsession'])->name('calldoctor');
 

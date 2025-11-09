@@ -30,4 +30,22 @@ class StoreDoctorRequest extends FormRequest
             'email' => 'required|email|unique:doctors',
         ];
     }
+
+    /**
+     * رسائل الأخطاء باللغة العربية
+     */
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'الرجاء إدخال اسم الطبيب.',
+            'experience.required' => 'الرجاء إدخال سنوات الخبرة.',
+            'address.required' => 'الرجاء إدخال عنوان الطبيب.',
+            'phone.required' => 'الرجاء إدخال رقم الهاتف.',
+            'phone.unique' => 'رقم الهاتف مسجل مسبقاً.',
+            'persent.required' => 'الرجاء إدخال نسبة الطبيب.',
+            'email.required' => 'الرجاء إدخال البريد الإلكتروني.',
+            'email.email' => 'الرجاء إدخال بريد إلكتروني صحيح.',
+            'email.unique' => 'البريد الإلكتروني مسجل مسبقاً.',
+        ];
+    }
 }
