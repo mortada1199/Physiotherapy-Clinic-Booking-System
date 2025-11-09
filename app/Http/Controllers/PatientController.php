@@ -37,9 +37,9 @@ class PatientController extends Controller
             'countsession' => $request['countsession'],
         ]);
         if ($patient) {
-            return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
+            return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
         } else {
-            return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
+            return redirect('/viewpatient')->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
         }
     }
 

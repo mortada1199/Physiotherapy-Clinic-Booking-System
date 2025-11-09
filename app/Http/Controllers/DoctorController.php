@@ -16,10 +16,10 @@ class DoctorController extends Controller
         $doctor = Doctor::create($request->validated());
 
         if ($doctor) {
-            return redirect()->back()->with(['success' => 'تم الإضافة بنجاح']);
+            return redirect('/viewdoctor')->with(['success' => 'تم الإضافة بنجاح']);
         }
 
-        return redirect()->back()->with(['error' => 'حدث خطأ، يرجى المحاولة لاحقاً']);
+        return redirect('/viewdoctor')->with(['error' => 'حدث خطأ، يرجى المحاولة لاحقاً']);
     }
 
     /**
