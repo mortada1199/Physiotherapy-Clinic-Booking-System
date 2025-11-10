@@ -25,7 +25,7 @@ class StorePatientRequest extends FormRequest
             'session_name' => 'max:255',
             'sessionprice' => 'nullable|numeric',
             'referingdoctor_name' => 'max:255',
-            'exectingdoctor_name' => 'max:255',
+            'exectingdoctor_name' => 'required|max:255',
             'persent' => 'nullable|numeric',
             'name' => 'required|max:255',
             'date' => 'nullable|date',
