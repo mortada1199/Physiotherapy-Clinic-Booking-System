@@ -497,8 +497,8 @@ input:focus ~ .bg-primary {
 }
 
 .btn-primary.btn-lighten-1 {
-  border-color : #535BE2 !important;
-  background-color : #7D84EB !important;
+  border-color : #354ca1 !important;
+  background-color : #354ca1 !important;
 }
 .btn-primary.btn-lighten-1:hover {
   border-color : #535BE2 !important;
@@ -596,18 +596,18 @@ input:focus ~ .bg-primary {
         }
       } */
 .btn-primary {
-  border-color : #535BE2 !important;
-  background-color : #666EE8 !important;
+  border-color : #354ca1 !important;
+  background-color : #354ca1 !important;
   color : #FFFFFF;
 }
 .btn-primary:hover {
-  border-color : #5E66E5 !important;
-  background-color : #7D84EB !important;
+  border-color : #6c6f99 !important;
+  background-color : #6c6f99 !important;
   color : #FFFFFF !important;
 }
 .btn-primary:focus, .btn-primary:active {
-  border-color : #535BE2 !important;
-  background-color : #4951DE !important;
+  border-color : #2a4091 !important;
+  background-color : #2a4091 !important;
   color : #FFFFFF !important;
 }
 .btn-primary.btn-glow {
@@ -616,9 +616,9 @@ input:focus ~ .bg-primary {
 }
 
 .btn-outline-primary {
-  border-color : #666EE8;
+  border-color : #354ca1;
   background-color : transparent;
-  color : #666EE8;
+  color : #354ca1;
 }
 .btn-outline-primary:hover {
   background-color : #666EE8;
@@ -2443,11 +2443,11 @@ input:focus ~ .bg-info {
 }
 
 .info {
-  color : #1E9FF2 !important;
+  color : #334aa2 !important;
 }
 
 .bg-info {
-  background-color : #1E9FF2 !important;
+  background-color : #334aa3 !important;
 }
 .bg-info .card-header, .bg-info .card-footer {
   background-color : transparent;
@@ -2458,11 +2458,11 @@ input:focus ~ .bg-info {
 }
 
 .selectboxit.selectboxit-btn.bg-info {
-  background-color : #1E9FF2 !important;
+  background-color : #334aa2 !important;
 }
 
 .alert-info {
-  border-color : #1E9FF2 !important;
+  border-color : #334aa2 !important;
   background-color : #62BCF6 !important;
   color : #053858 !important;
 }
@@ -2471,11 +2471,11 @@ input:focus ~ .bg-info {
 }
 
 .border-info {
-  border-color : #1E9FF2;
+  border-color : #334aa2;
 }
 
 .overlay-info {
-  background : #1E9FF2;
+  background : #334aa2;
   /* The Fallback */
   background : rgba(30, 159, 242, 0.8);
 }
@@ -2491,7 +2491,7 @@ input:focus ~ .bg-info {
       } */
 .btn-info {
   border-color : #168DEE !important;
-  background-color : #1E9FF2 !important;
+  background-color : #334aa2 !important;
   color : #FFFFFF;
 }
 .btn-info:hover {
@@ -2510,12 +2510,12 @@ input:focus ~ .bg-info {
 }
 
 .btn-outline-info {
-  border-color : #1E9FF2;
+  border-color : #334aa2;
   background-color : transparent;
-  color : #1E9FF2;
+  color : #334aa2;
 }
 .btn-outline-info:hover {
-  background-color : #1E9FF2;
+  background-color : #334aa2;
   color : #FFFFFF !important;
 }
 .btn-outline-info.btn-glow {
@@ -2524,7 +2524,7 @@ input:focus ~ .bg-info {
 }
 
 input[type='checkbox'].bg-info + .custom-control-label:before, input[type='radio'].bg-info + .custom-control-label:before {
-  background-color : #1E9FF2 !important;
+  background-color : #334aa2 !important;
 }
 
 /* .custom-control-label{
@@ -2533,28 +2533,28 @@ input[type='checkbox'].bg-info + .custom-control-label:before, input[type='radio
         }
       } */
 input:focus ~ .bg-info {
-  -webkit-box-shadow : 0 0 0 0.075rem #FFFFFF, 0 0 0 0.21rem #1E9FF2 !important;
-          box-shadow : 0 0 0 0.075rem #FFFFFF, 0 0 0 0.21rem #1E9FF2 !important;
+  -webkit-box-shadow : 0 0 0 0.075rem #FFFFFF, 0 0 0 0.21rem #334aa2 !important;
+          box-shadow : 0 0 0 0.075rem #FFFFFF, 0 0 0 0.21rem #334aa2 !important;
 }
 
 .border-info {
-  border : 1px solid #1E9FF2 !important;
+  border : 1px solid #334aa2 !important;
 }
 
 .border-top-info {
-  border-top : 1px solid #1E9FF2;
+  border-top : 1px solid #334aa2;
 }
 
 .border-bottom-info {
-  border-bottom : 1px solid #1E9FF2;
+  border-bottom : 1px solid #334aa2;
 }
 
 .border-left-info {
-  border-right : 1px solid #1E9FF2;
+  border-right : 1px solid #334aa2;
 }
 
 .border-right-info {
-  border-left : 1px solid #1E9FF2;
+  border-left : 1px solid #334aa2;
 }
 
 .info.darken-1 {

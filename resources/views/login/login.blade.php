@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+            background: linear-gradient(135deg, #334aa2 0%, #cdd4f1 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,11 +42,11 @@
         .logo {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
+            border-radius: 20%;
             overflow: hidden;
             margin: 0 auto 25px;
-            border: 3px solid #5b6a82;
-            box-shadow: 0 4px 12px rgba(91, 106, 130, 0.2);
+            /*border: 3px solid #7b3dbf;
+            box-shadow: 0 4px 12px rgba(123, 61, 191, 0.2);*/
         }
 
         .logo img {
@@ -56,7 +56,7 @@
         }
 
         h2 {
-            color: #334155;
+            color: #334aa2;
             margin-bottom: 25px;
             font-size: 22px;
             font-weight: 700;
@@ -65,7 +65,7 @@
         label {
             display: block;
             text-align: right;
-            color: #475569;
+            color: #334aa2;
             margin-bottom: 8px;
             font-weight: 600;
         }
@@ -75,7 +75,7 @@
             width: 100%;
             padding: 12px;
             margin-bottom: 18px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #334aa2;
             border-radius: 10px;
             font-family: 'Cairo', sans-serif;
             direction: rtl;
@@ -85,14 +85,13 @@
 
         input:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
-            background-color: #ffffff;
+            border-color: #334aa2;
+            box-shadow: 0 0 6px rgba(51, 74, 162, 0.3);
         }
 
         button {
             padding: 12px;
-            background: #3b82f6;
+            background: #314ca0;
             border: none;
             border-radius: 10px;
             color: white;
@@ -104,8 +103,13 @@
         }
 
         button:hover {
+<<<<<<< HEAD
+            background: #4d5b99;
+            box-shadow: 0 6px 20px rgba(77, 91, 153, 0.4);
+=======
             background: #2563eb;
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+>>>>>>> df0b5129048aecbb12dd9347696cb74e378e5d5c
         }
 
         .footer-text {
