@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePatientRequest extends FormRequest
+class StoreCallPatientRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class StorePatientRequest extends FormRequest
             'session_name' => 'max:255',
             'sessionprice' => 'nullable|numeric',
             'referingdoctor_name' => 'max:255',
-            'exectingdoctor_name' => 'max:255',
+            'exectingdoctor_name' => 'required|max:255',
             'persent' => 'nullable|numeric',
             'name' => 'required|max:255',
             'date' => 'nullable|date',
@@ -51,7 +51,7 @@ class StorePatientRequest extends FormRequest
 
             'referingdoctor_name.max' => 'اسم الطبيب المحول يجب ألا يتجاوز 255 حرفاً.',
             'exectingdoctor_name.max' => 'اسم الطبيب المنفذ يجب ألا يتجاوز 255 حرفاً.',
-
+            'exectingdoctor_name.required' => 'الرجاء إدخال اسم الطبيب.',
             'persent.numeric' => 'نسبة الطبيب يجب أن تكون رقماً.',
 
             'date.date' => 'الرجاء إدخال تاريخ صحيح.',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCallPatientRequest;
 use App\Http\Requests\StorePatientRequest;
 use App\Models\Doctor;
 use App\Models\Patient;
@@ -14,8 +15,10 @@ class PatientController extends Controller
     public function add()
     {
         // $doctors = Doctor::select('id', 'name')->get();
-        // $sessions = SessionDoctor::select('id', 'name')->get();
-        return view('patients.create');
+         $sessions = SessionDoctor::select('id', 'name')->get();
+      // $sessions = SessionDoctor::all()->toArray();
+
+        return view('patients.create', compact('sessions'));
     }
 
 
@@ -23,12 +26,12 @@ class PatientController extends Controller
     {
 
 
-        $session = SessionDoctor::where('numbersession', $request['numbersession'])->first();
+        $session = SessionDoctor::where('name', $request['session_name'])->first();
         $patient = Patient::create([
             'referingdoctor_name' => $request['referingdoctor_name'],
             'name' => $request['name'],
             'major' => $request['major'],
-            'numbersession' => $request['numbersession'],
+            'numbersession' => $session['numbersession'],
             'address' => $request['address'],
             'phone' => $request['phone'],
             'dignosis' => $request['dignosis'],
@@ -117,7 +120,7 @@ class PatientController extends Controller
     }
 
 
-    public function sessionstore(StorePatientRequest $request, $id)
+    public function sessionstore(StoreCallPatientRequest $request, $id)
     {
         $patient = Patient::findOrFail($id);
         $doctor = Doctor::where('name', $request['exectingdoctor_name'])->first();
@@ -141,14 +144,14 @@ class PatientController extends Controller
             'excutedsession' => $patient->excutedsession + 1,
         ]);
         if ($patient) {
-            return redirect()->back()->with(['success' => 'تم الاضافة بنجاح']);
+            return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
         } else {
             return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
         }
     }
 
 
-      public function show($id)
+    public function show($id)
     {
         $patient = Patient::findOrFail($id);
         return view('patients.show', compact('patient'));
