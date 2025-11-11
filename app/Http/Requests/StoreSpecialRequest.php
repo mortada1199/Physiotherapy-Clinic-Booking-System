@@ -23,8 +23,9 @@ class StoreSpecialRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|unique:session_doctors,name',
-            'price' => 'required|numeric',
+            'price' => 'required',
             'numbersession' => 'required|integer',
+            'persent' => 'required',
         ];
     }
 

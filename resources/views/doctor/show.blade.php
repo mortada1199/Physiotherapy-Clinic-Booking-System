@@ -56,10 +56,10 @@
                                             <th>العنوان</th>
                                             <td>{{ $doctor->address ?? 'غير محدد' }}</td>
                                         </tr>
-                                        <tr>
+                                        {{-- <tr>
                                             <th> النسبة</th>
                                             <td>{{ $doctor->persent }}</td>
-                                        </tr>
+                                        </tr> --}}
                                     </tbody>
                                 </table>
 

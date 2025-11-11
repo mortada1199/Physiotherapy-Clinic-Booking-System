@@ -51,6 +51,7 @@ class SessionDoctorController extends Controller
                 'name' => $request->name ?? $sessions->name,
                 'price' => $request->price ?? $sessions->price,
                 'numbersession' => $request->numbersession ?? $sessions->numbersession,
+                'persent' => $request->persent ?? $sessions->persent,
 
             ]);
             return redirect('/viewspetial')->with(['success' => 'تم التحديث بنجاح']);

@@ -55,7 +55,7 @@
                                                     {{-- <th>سنوات الخبرة</th> --}}
                                                     <th>العنوان</th>
                                                     <th>رقم الهاتف</th>
-                                                    <th>النسبة</th>
+                                                    {{-- <th>النسبة</th> --}}
                                                     {{-- <th>البريد الالكتروني</th> --}}
                                                     <th>الإجراءات</th>
                                                 </tr>
@@ -68,7 +68,7 @@
                                                         {{-- <td>{{ $val->experience }}</td> --}}
                                                         <td>{{ $val->address }}</td>
                                                         <td>{{ $val->phone }}</td>
-                                                        <td>{{ $val->persent }}</td>
+                                                        {{-- <td>{{ $val->persent }}</td> --}}
                                                         {{-- <td>{{ $val->email }}</td> --}}
                                                         <td>
                                                             <div class="btn-group" role="group"

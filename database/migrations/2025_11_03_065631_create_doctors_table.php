@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('experience');
             $table->string('address');
             $table->string('phone')->unique();
-            $table->string('persent');
             $table->string('email')->unique();  
             $table->timestamps();
         });

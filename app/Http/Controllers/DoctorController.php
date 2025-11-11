@@ -52,7 +52,7 @@ class DoctorController extends Controller
             'experience' => $request->experience ?? $doctor->experience,
             'address'    => $request->address ?? $doctor->address,
             'phone'      => $request->phone ?? $doctor->phone,
-            'persent'    => $request->persent ?? $doctor->persent,
+          //  'persent'    => $request->persent ?? $doctor->persent,
             'email'      => $request->email ?? $doctor->email,
         ]);
 

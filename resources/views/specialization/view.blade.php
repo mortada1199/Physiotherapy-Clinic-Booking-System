@@ -66,6 +66,7 @@
                                                     <th> الجلسة</th>
                                                     <th> رقم الجلسة</th>
                                                     <th> المبلغ</th>
+                                                    <th>النسبة</th>
                                                     <th>الإجراءات</th>
                                                 </tr>
                                             </thead>
@@ -77,6 +78,7 @@
                                                         <td>{{ $val->name }}</td>
                                                         <td>{{$val->numbersession}}</td>
                                                         <td>{{ $val->price }}</td>
+                                                        <td>{{ $val->persent }}</td>
                                                         <td>
 
 

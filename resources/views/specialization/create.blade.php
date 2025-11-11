@@ -97,8 +97,19 @@
                                                         </div>
                                                     </div>
 
-
-                                                </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="persent">نسبة استحقاق الطبيب</label>
+                                                            <input type="text" id="persent" name="persent"
+                                                                class="form-control" placeholder="ادخل نسبة الطبيب"
+                                                                value="{{ old('persent') }}">
+                                                            @error('persent')
+                                                                <small
+                                                                    class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                              
 
                                             </div>
 

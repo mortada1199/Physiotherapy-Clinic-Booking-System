@@ -83,13 +83,13 @@
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                {{-- <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>نسبة استحقاق الطبيب %</label>
                                                         <input type="text" name="persent" class="form-control" value="{{ old('persent', $doctors->persent) }}" placeholder="ادخل نسبة الطبيب">
                                                         @error('persent')<small class="form-text text-danger">{{ $message }}</small>@enderror
                                                     </div>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="col-md-6">
                                                     <div class="form-group">

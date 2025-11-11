@@ -26,7 +26,7 @@ class StoreDoctorRequest extends FormRequest
             'experience' => 'required',
             'address' => 'required',
             'phone' => 'required|unique:doctors',
-            'persent' => 'required',
+           // 'persent' => 'required',
             'email' => 'required|email|unique:doctors',
         ];
     }
