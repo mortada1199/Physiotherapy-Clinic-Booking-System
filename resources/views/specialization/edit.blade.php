@@ -97,7 +97,7 @@
                                                             <label for="persent">نسبة استحقاق الطبيب</label>
                                                             <input type="text" id="persent" name="persent"
                                                                 class="form-control" placeholder="ادخل نسبة الطبيب"
-                                                                value="{{ old('persent') }}">
+                                                                value="{{ old('price', $sessions->persent) }}">
                                                             @error('persent')
                                                                 <small
                                                                     class="form-text text-danger">{{ $message }}</small>

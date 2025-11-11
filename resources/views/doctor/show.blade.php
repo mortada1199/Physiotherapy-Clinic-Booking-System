@@ -64,7 +64,7 @@
                                 </table>
 
                                 <div class="text-center mt-4">
-                                    <a href="{{ url('/doctors') }}" class="btn btn-secondary">
+                                    <a href="{{ url('/viewdoctor') }}" class="btn btn-secondary">
                                         <i class="la la-arrow-left"></i> رجوع
                                     </a>
                                     <a href="{{ url('editdoctor/' . $doctor->id) }}" class="btn btn-primary">
