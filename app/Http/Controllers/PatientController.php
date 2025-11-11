@@ -15,8 +15,8 @@ class PatientController extends Controller
     public function add()
     {
         // $doctors = Doctor::select('id', 'name')->get();
-         $sessions = SessionDoctor::select('id', 'name')->get();
-      // $sessions = SessionDoctor::all()->toArray();
+        $sessions = SessionDoctor::select('id', 'name')->get();
+        // $sessions = SessionDoctor::all()->toArray();
 
         return view('patients.create', compact('sessions'));
     }
@@ -123,10 +123,12 @@ class PatientController extends Controller
     public function sessionstore(StoreCallPatientRequest $request, $id)
     {
         $patient = Patient::findOrFail($id);
+        $latestPatient = Patient::where('name', $patient->name)->latest()->first();
+
         // $doctor = Doctor::where('name', $request['exectingdoctor_name'])->first();
         $session = SessionDoctor::where('name', $request['session_name'])->first();
 
-        
+
 
         // $patient = Patient::create([
         $patient->create([
@@ -143,7 +145,7 @@ class PatientController extends Controller
             'phone' => $request->phone ?? $patient->phone,
             'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
             'major' => $request->major ?? $patient->major,
-            'excutedsession' => $patient->excutedsession + 1,
+            'excutedsession' => $latestPatient->excutedsession + 1,
         ]);
         if ($patient) {
             return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
