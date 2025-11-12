@@ -68,13 +68,13 @@
                                                     <th> الجلسة</th>
                                                     <th> سعر الجلسة</th>
                                                     <th>التاريخ </th>
-                                                   
+                                                   <th> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($allHistory as $val)
                                                     <tr>
-                                                        <td>{{ $val->id }}</td>
+                                                        <td>{{ $val->patientnumber }}</td>
                                                         <td>{{ $val->name ?? 0 }}</td>
                                                         <td>{{ $val->exectingdoctor_name ?? 0 }}</td>
                                                         <td>{{ $val->session_name ?? 0 }}</td>

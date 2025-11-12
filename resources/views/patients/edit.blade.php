@@ -91,11 +91,11 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="numbersession"> عدد الجلسات </label>
-                                                            <input type="text" id="numbersession" class="form-control"
-                                                                placeholder="ادخل عدد الجلسات" name="numbersession"
-                                                                value="{{ old('numbersession', $patient->numbersession) }}">
-                                                            @error('numbersession')
+                                                            <label for="totalsession"> عدد الجلسات </label>
+                                                            <input type="text" id="totalsession" class="form-control"
+                                                                placeholder="ادخل عدد الجلسات" name="totalsession"
+                                                                value="{{ old('totalsession', $patient->totalsession) }}">
+                                                            @error('totalsession')
                                                                 <small
                                                                     class="form-text text-danger">{{ $message }}</small>
                                                             @enderror

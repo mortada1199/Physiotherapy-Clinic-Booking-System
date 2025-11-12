@@ -36,6 +36,11 @@
 
                                     <table class="table table-bordered table-striped">
                                         <tbody>
+
+                                            <tr>
+                                                <th>رقم المريض</th>
+                                                <td>{{ $patient->patientnumber }}</td>
+                                            </tr>
                                             <tr>
                                                 <th>الاسم المريض</th>
                                                 <td>{{ $patient->name }}</td>

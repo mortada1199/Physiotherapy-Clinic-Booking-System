@@ -75,7 +75,7 @@
                                                 <tbody>
                                                     @foreach ($patients as $val)
                                                         <tr>
-                                                            <td>{{ $val->id }}</td>
+                                                            <td>{{ $val->patientnumber }}</td>
                                                             <td>{{ $val->name ?? 0}}</td>
                                                             <td>{{ $val->referingdoctor_name ?? 0 }}</td>
                                                             <td>{{ $val->exectingdoctor_name  ?? 0}}</td>
@@ -85,29 +85,29 @@
                                                             <td>
                                                                 <div class="btn-group" role="group">
                                                                     <a href="{{ url('deletepatient', $val->id) }}"
-                                                                        class="btn btn-outline-danger btn-sm" title="حذف"
+                                                                        class="btn  btn-sm" title="حذف"
                                                                         onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
-                                                                        <i class="la la-trash"></i> 
+                                                                        <i class="la la-trash danger"></i> 
                                                                     </a>
 
                                                                     <a href="{{ url('editpatient', $val->id) }}"
-                                                                        class="btn btn-outline-primary btn-sm" title="تعديل">
-                                                                        <i class="la la-edit"></i> 
+                                                                        class="btn  btn-sm" title="تعديل">
+                                                                        <i class="la la-edit success"></i> 
                                                                     </a>
  
                                                                     <a href="{{ url('calldoctor', $val->id) }}"
-                                                                        class="btn btn-outline-success btn-sm" title="اضافة جلسة">
-                                                                        <i class="la la-plus"></i>  
+                                                                        class="btn  btn-sm" title="اضافة جلسة">
+                                                                        <i class="la la-plus primary"></i>  
                                                                     </a>
 
                                                                        <a href="{{ route('showpatients', $val->id) }}"
-                                                                    class="btn btn-info btn-sm" title="عرض">
-                                                                    <i class="la la-eye"></i>  
+                                                                    class="btn  btn-sm" title="عرض">
+                                                                    <i class="la la-eye secondary"></i>  
                                                                 </a>
 
                                                                 <a href="{{ route('patienthistory', $val->name) }}"
-                                                                    class="btn btn-info btn-sm" title="الجلسات السابقة">
-                                                                    <i class="la la-eye"></i>  
+                                                                    class="btn  btn-sm" title="الجلسات السابقة">
+                                                                    <i class="la la-history dark"></i>  
                                                                 </a>
 
                                                                 </div>
