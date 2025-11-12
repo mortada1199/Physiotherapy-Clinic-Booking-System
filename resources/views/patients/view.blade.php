@@ -85,22 +85,22 @@
                                                                     <a href="{{ url('deletepatient', $val->id) }}"
                                                                         class="btn btn-outline-danger btn-sm"
                                                                         onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
-                                                                        <i class="la la-trash"></i> حذف
+                                                                        <i class="la la-trash"></i> 
                                                                     </a>
 
                                                                     <a href="{{ url('editpatient', $val->id) }}"
                                                                         class="btn btn-outline-primary btn-sm">
-                                                                        <i class="la la-edit"></i> تعديل
+                                                                        <i class="la la-edit"></i> 
                                                                     </a>
 
                                                                     <a href="{{ url('calldoctor', $val->id) }}"
                                                                         class="btn btn-outline-success btn-sm">
-                                                                        <i class="la la-plus"></i> إضافة جلسة
+                                                                        <i class="la la-plus"></i>  
                                                                     </a>
 
                                                                        <a href="{{ route('showpatients', $val->id) }}"
                                                                     class="btn btn-info btn-sm">
-                                                                    <i class="la la-eye"></i> عرض الكل
+                                                                    <i class="la la-eye"></i>  
                                                                 </a>
                                                                 </div>
                                                             </td>

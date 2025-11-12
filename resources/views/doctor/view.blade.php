@@ -75,18 +75,18 @@
                                                                 aria-label="Basic example">
                                                                 <a href="{{ url('editdoctor', $val->id) }}"
                                                                     class="btn btn-outline-primary btn-sm" title="تعديل">
-                                                                    <i class="la la-edit"></i> تعديل
+                                                                    <i class="la la-edit"></i> 
                                                                 </a>
 
                                                                 <a href="{{ url('doctordelete', $val->id) }}"
                                                                     class="btn btn-outline-danger btn-sm" title="حذف"
                                                                     onclick="return confirm('هل أنت متأكد من حذف هذا الطبيب؟');">
-                                                                    <i class="la la-trash"></i> حذف
+                                                                    <i class="la la-trash"></i> 
                                                                 </a>
 
                                                                 <a href="{{ route('show', $val->id) }}"
                                                                     class="btn btn-info btn-sm">
-                                                                    <i class="la la-eye"></i> عرض الكل
+                                                                    <i class="la la-eye"></i>  
                                                                 </a>
 
                                                             </div>
