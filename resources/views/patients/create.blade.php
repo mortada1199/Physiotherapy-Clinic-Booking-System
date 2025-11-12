@@ -160,8 +160,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="type"> تصنيف المريض </label>
-                                                            <select id="type" name="type"
-                                                                class="form-control">
+                                                            <select id="type" name="type" class="form-control">
                                                                 <option value="" selected disabled> اختر تصنيف المريض
                                                                 </option>
 
@@ -178,33 +177,47 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
-
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-12">
-                                                        <label for="dignosis" class="form-label"> التشخيص <span
-                                                                class="text-danger">*</span></label>
-                                                        <textarea id="dignosis" name="dignosis" class="form-control" rows="3" required
-                                                            placeholder="اشرح التشخيص باختصار">{{ old('dignosis') }}</textarea>
-                                                        @error('dignosis')
-                                                            <small class="form-text text-danger">{{ $message }}</small>
-                                                        @enderror
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="age"> العمر </label>
+                                                            <input type="text" id="age" class="form-control"
+                                                                placeholder="ادخل عنوان المريض" name="age"
+                                                                value="{{ old('age') }}">
+                                                            @error('age')
+                                                                <small
+                                                                    class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="form-actions mt-3">
-                                                    <button type="button" class="btn btn-warning mr-1"
-                                                        onclick="history.back();">
-                                                        <i class="ft-x"></i> تراجع
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary">
-                                                        <i class="la la-check-square-o"></i> حفظ
-                                                    </button>
-                                                </div>
 
-                                            </div>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <label for="dignosis" class="form-label"> التشخيص <span
+                                                                    class="text-danger">*</span></label>
+                                                            <textarea id="dignosis" name="dignosis" class="form-control" rows="3" required
+                                                                placeholder="اشرح التشخيص باختصار">{{ old('dignosis') }}</textarea>
+                                                            @error('dignosis')
+                                                                <small
+                                                                    class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-actions mt-3">
+                                                        <button type="button" class="btn btn-warning mr-1"
+                                                            onclick="history.back();">
+                                                            <i class="ft-x"></i> تراجع
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="la la-check-square-o"></i> حفظ
+                                                        </button>
+                                                    </div>
+
+                                                </div>
                                         </form>
                                     </div>
                                 </div>

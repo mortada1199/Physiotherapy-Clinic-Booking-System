@@ -68,6 +68,7 @@
                                                         <th>اسم الطبيب المنفذ</th>
                                                         {{-- <th>العنوان</th> --}}
                                                         <th>رقم الهاتف</th>
+                                                        <th>التاريخ </th> 
                                                         <th>الإجراءات</th>
                                                     </tr>
                                                 </thead>
@@ -80,6 +81,7 @@
                                                             <td>{{ $val->exectingdoctor_name  ?? 0}}</td>
                                                             {{-- <td>{{ $val->address }}</td> --}}
                                                             <td>{{ $val->phone ?? 0}}</td>
+                                                              <td>{{ $val->created_at->format('Y-m-d'); }}</td> 
                                                             <td>
                                                                 <div class="btn-group" role="group">
                                                                     <a href="{{ url('deletepatient', $val->id) }}"

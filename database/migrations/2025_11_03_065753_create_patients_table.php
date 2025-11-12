@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('persent')->nullable();
             $table->string('major')->nullable();
             $table->string('type')->nullable();
+            $table->string('age')->nullable();
             $table->timestamps();
         });
     }

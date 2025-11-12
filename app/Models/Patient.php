@@ -22,6 +22,7 @@ class Patient extends Model
         'persent',
         'major',
         'type',
+        'age',
     ];
 
     

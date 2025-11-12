@@ -40,6 +40,7 @@ class PatientController extends Controller
             'totalsession' => $request['countsession'],
             'excutedsession' => 0,
             'type' => $request['type'],
+            'age' => $request['age'],
 
         ]);
         if ($patient) {

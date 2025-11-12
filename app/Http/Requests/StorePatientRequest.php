@@ -35,6 +35,7 @@ class StorePatientRequest extends FormRequest
             'dignosis' => 'max:1000',
             'major' => 'max:255',
             'type' => 'required|max:50',
+            'age' => 'required',
         ];
     }
 
@@ -46,7 +47,9 @@ class StorePatientRequest extends FormRequest
         return [
             'name.required' => 'الرجاء إدخال اسم المريض.',
             'name.max' => 'اسم المريض يجب ألا يتجاوز 255 حرفاً.',
-
+            'type.required' => 'الرجاء إدخال نوع المريض.',
+            'type.max' => 'نوع المريض يجب ألا يتجاوز 50 حرفاً.',
+            'age.required' => 'الرجاء إدخال عمر المريض.',
             'session_name.max' => 'اسم الجلسة يجب ألا يتجاوز 255 حرفاً.',
             'sessionprice.numeric' => 'سعر الجلسة يجب أن يكون رقماً.',
 
