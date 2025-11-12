@@ -83,23 +83,23 @@
                                                             <td>
                                                                 <div class="btn-group" role="group">
                                                                     <a href="{{ url('deletepatient', $val->id) }}"
-                                                                        class="btn btn-outline-danger btn-sm"
+                                                                        class="btn btn-outline-danger btn-sm" title="حذف"
                                                                         onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
                                                                         <i class="la la-trash"></i> 
                                                                     </a>
 
                                                                     <a href="{{ url('editpatient', $val->id) }}"
-                                                                        class="btn btn-outline-primary btn-sm">
+                                                                        class="btn btn-outline-primary btn-sm" title="تعديل">
                                                                         <i class="la la-edit"></i> 
                                                                     </a>
 
                                                                     <a href="{{ url('calldoctor', $val->id) }}"
-                                                                        class="btn btn-outline-success btn-sm">
+                                                                        class="btn btn-outline-success btn-sm" title="اضافة جلسة">
                                                                         <i class="la la-plus"></i>  
                                                                     </a>
 
                                                                        <a href="{{ route('showpatients', $val->id) }}"
-                                                                    class="btn btn-info btn-sm">
+                                                                    class="btn btn-info btn-sm" title="عرض">
                                                                     <i class="la la-eye"></i>  
                                                                 </a>
                                                                 </div>

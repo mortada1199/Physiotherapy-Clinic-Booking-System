@@ -85,7 +85,7 @@
                                                                 </a>
 
                                                                 <a href="{{ route('show', $val->id) }}"
-                                                                    class="btn btn-info btn-sm">
+                                                                    class="btn btn-info btn-sm" title="عرض"> 
                                                                     <i class="la la-eye"></i>  
                                                                 </a>
 
