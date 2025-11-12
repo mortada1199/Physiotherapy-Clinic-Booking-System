@@ -103,13 +103,8 @@
         }
 
         button:hover {
-<<<<<<< HEAD
-            background: #4d5b99;
-            box-shadow: 0 6px 20px rgba(77, 91, 153, 0.4);
-=======
             background: #2563eb;
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
->>>>>>> df0b5129048aecbb12dd9347696cb74e378e5d5c
         }
 
         .footer-text {
