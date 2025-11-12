@@ -149,6 +149,10 @@ class PatientController extends Controller
                 'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
                 'major' => $request->major ?? $patient->major,
                 'excutedsession' => $latestPatient->excutedsession + 1,
+                'type' => $request->type ?? $patient->type,
+                'age'   => $request->age ?? $patient->age,
+                'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
+
             ]);
             if ($patient) {
                 return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
@@ -172,6 +176,9 @@ class PatientController extends Controller
                 'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
                 'major' => $request->major ?? $patient->major,
                 'excutedsession' => $latestPatient->excutedsession + 1,
+                'type' => $request->type ?? $patient->type,
+                'age'   => $request->age ?? $patient->age,
+                'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
             ]);
             if ($patient) {
                 return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);

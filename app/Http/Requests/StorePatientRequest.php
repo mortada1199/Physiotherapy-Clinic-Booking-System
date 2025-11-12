@@ -36,7 +36,7 @@ class StorePatientRequest extends FormRequest
             'major' => 'max:255',
             'type' => 'required|max:50',
             'age' => 'required',
-            'patientnumber' => 'required',
+            'patientnumber' => 'required|unique:patients,patientnumber',
         ];
     }
 
