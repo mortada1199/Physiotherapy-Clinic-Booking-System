@@ -37,7 +37,7 @@ Route::middleware(['authcheck'])->group(function () {
     Route::get('deletespetial/{spetial_id}', [SessionDoctorController::class, 'delete'])->name('deletespetial');
 
     // Patient routes
-    Route::get('addpatient/{id}', [PatientController::class, 'add'])->name('addpatient');
+    Route::get('addpatient', [PatientController::class, 'add'])->name('addpatient');
     Route::post('storepatient', [PatientController::class, 'store'])->name('storepatient');
     Route::get('viewpatient', [PatientController::class, 'getalldata'])->name('viewpatient');
     Route::get('deletepatient/{id}', [PatientController::class, 'delete'])->name('deletepatient');
