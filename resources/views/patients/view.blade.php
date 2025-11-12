@@ -104,6 +104,12 @@
                                                                     class="btn btn-info btn-sm" title="عرض">
                                                                     <i class="la la-eye"></i>  
                                                                 </a>
+
+                                                                <a href="{{ route('patienthistory', $val->name) }}"
+                                                                    class="btn btn-info btn-sm" title="الجلسات السابقة">
+                                                                    <i class="la la-eye"></i>  
+                                                                </a>
+
                                                                 </div>
                                                             </td>
                                                         </tr>

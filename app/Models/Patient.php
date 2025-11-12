@@ -23,8 +23,9 @@ class Patient extends Model
         'major',
         'type',
         'age',
+        'patientnumber',
     ];
 
-    
+   
 
 }

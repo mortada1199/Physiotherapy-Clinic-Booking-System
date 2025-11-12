@@ -193,31 +193,44 @@
                                                         </div>
                                                     </div>
 
-
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <label for="dignosis" class="form-label"> التشخيص <span
-                                                                    class="text-danger">*</span></label>
-                                                            <textarea id="dignosis" name="dignosis" class="form-control" rows="3" required
-                                                                placeholder="اشرح التشخيص باختصار">{{ old('dignosis') }}</textarea>
-                                                            @error('dignosis')
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="patientnumber"> رقم المريض </label>
+                                                            <input type="text" id="patientnumber" class="form-control"
+                                                                placeholder="ادخل رقم المريض" name="patientnumber"
+                                                                value="{{ old('patientnumber') }}">
+                                                            @error('patientnumber')
                                                                 <small
                                                                     class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
                                                     </div>
 
-                                                    <div class="form-actions mt-3">
-                                                        <button type="button" class="btn btn-warning mr-1"
-                                                            onclick="history.back();">
-                                                            <i class="ft-x"></i> تراجع
-                                                        </button>
-                                                        <button type="submit" class="btn btn-primary">
-                                                            <i class="la la-check-square-o"></i> حفظ
-                                                        </button>
-                                                    </div>
-
                                                 </div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label for="dignosis" class="form-label"> التشخيص <span
+                                                                class="text-danger">*</span></label>
+                                                        <textarea id="dignosis" name="dignosis" class="form-control" rows="3" required
+                                                            placeholder="اشرح التشخيص باختصار">{{ old('dignosis') }}</textarea>
+                                                        @error('dignosis')
+                                                            <small class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-actions mt-3">
+                                                    <button type="button" class="btn btn-warning mr-1"
+                                                        onclick="history.back();">
+                                                        <i class="ft-x"></i> تراجع
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary">
+                                                        <i class="la la-check-square-o"></i> حفظ
+                                                    </button>
+                                                </div>
+
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

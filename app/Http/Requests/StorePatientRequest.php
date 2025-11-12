@@ -36,6 +36,7 @@ class StorePatientRequest extends FormRequest
             'major' => 'max:255',
             'type' => 'required|max:50',
             'age' => 'required',
+            'patientnumber' => 'required',
         ];
     }
 
@@ -45,6 +46,7 @@ class StorePatientRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'patientnumber.required' => 'الرجاء إدخال رقم المريض.',
             'name.required' => 'الرجاء إدخال اسم المريض.',
             'name.max' => 'اسم المريض يجب ألا يتجاوز 255 حرفاً.',
             'type.required' => 'الرجاء إدخال نوع المريض.',

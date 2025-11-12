@@ -46,11 +46,10 @@ Route::middleware(['authcheck'])->group(function () {
     Route::get('/patient/{id}', [PatientController::class, 'show'])->name('showpatients');
     // Call doctor
     Route::get('calldoctor/{id}', [PatientController::class, 'addsession'])->name('calldoctor');
-
     Route::post('updatesession/{id}', [PatientController::class, 'sessionstore'])->name('updatesession');
+    //patient history
+    Route::get('patienthistory/{id}', [PatientController::class, 'patienthistory'])->name('patienthistory');
 
-
-    // Route::get('/calldoctor', fn() => view('callDoctor.create'));
 
 
 
