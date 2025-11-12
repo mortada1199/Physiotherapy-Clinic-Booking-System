@@ -92,7 +92,7 @@
                                                                         class="btn btn-outline-primary btn-sm" title="تعديل">
                                                                         <i class="la la-edit"></i> 
                                                                     </a>
-
+ 
                                                                     <a href="{{ url('calldoctor', $val->id) }}"
                                                                         class="btn btn-outline-success btn-sm" title="اضافة جلسة">
                                                                         <i class="la la-plus"></i>  
