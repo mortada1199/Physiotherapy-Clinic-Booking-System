@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('sessionprice')->nullable();
             $table->string('persent')->nullable();
             $table->string('major')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

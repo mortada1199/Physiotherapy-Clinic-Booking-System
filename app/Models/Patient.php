@@ -21,6 +21,7 @@ class Patient extends Model
         'sessionprice',
         'persent',
         'major',
+        'type',
     ];
 
     

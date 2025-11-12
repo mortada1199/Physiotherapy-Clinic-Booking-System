@@ -34,6 +34,7 @@ class StorePatientRequest extends FormRequest
             'phone' => 'max:20',
             'dignosis' => 'max:1000',
             'major' => 'max:255',
+            'type' => 'required|max:50',
         ];
     }
 

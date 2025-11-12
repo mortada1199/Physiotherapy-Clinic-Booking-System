@@ -133,18 +133,7 @@
 
                                                 <div class="row">
 
-                                                    {{-- <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> رقم الجلسة </label>
-                                                            <input type="text" value="" id="numbersession"
-                                                                class="form-control" placeholder="ادخل رقم الجلسة  "
-                                                                name="numbersession">
 
-                                                            @error('numbersession')
-                                                                <small class="form-text text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                        </div>
-                                                    </div> --}}
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -166,6 +155,30 @@
                                                             @enderror
                                                         </div>
                                                     </div>
+
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="type"> تصنيف المريض </label>
+                                                            <select id="type" name="type"
+                                                                class="form-control">
+                                                                <option value="" selected disabled> اختر تصنيف المريض
+                                                                </option>
+
+                                                                <option value="تامين">تامين
+                                                                </option>
+
+                                                                <option value="عادي">عادي
+                                                                </option>
+                                                            </select>
+
+                                                            @error('type')
+                                                                <small
+                                                                    class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
 

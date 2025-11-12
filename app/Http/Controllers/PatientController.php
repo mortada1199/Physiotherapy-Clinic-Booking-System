@@ -39,6 +39,7 @@ class PatientController extends Controller
             'sessionprice' => $session['price'],
             'totalsession' => $request['countsession'],
             'excutedsession' => 0,
+            'type' => $request['type'],
 
         ]);
         if ($patient) {
