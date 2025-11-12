@@ -35,7 +35,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                {{-- 
+                                {{--
                                 <div class="card-header d-flex justify-content-between align-items-center">
                                     <h4 class="card-title mb-0">بيانات المرضى</h4>
                                     <a href="{{ url('addpatient') }}" class="btn btn-primary btn-glow px-3">
@@ -67,6 +67,7 @@
                                                     <th>اسم الطبيب المنفذ</th>
                                                     <th> الجلسة</th>
                                                     <th> سعر الجلسة</th>
+                                                    <th>مكان الاستدعاء</th>
                                                     <th>التاريخ </th>
                                                    <th> </th>
                                                 </tr>
@@ -79,9 +80,10 @@
                                                         <td>{{ $val->exectingdoctor_name ?? 0 }}</td>
                                                         <td>{{ $val->session_name ?? 0 }}</td>
                                                         <td>{{ $val->sessionprice ?? 0 }}</td>
+                                                        <td>{{ $val->roomnumber ?? 0 }}</td>
                                                         <td>{{ $val->created_at->format('Y-m-d') }}</td>
                                                         <td>
-                                                            
+
 
                                                         </td>
                                                     </tr>
