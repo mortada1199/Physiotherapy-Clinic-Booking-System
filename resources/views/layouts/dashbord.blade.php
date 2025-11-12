@@ -57,8 +57,7 @@
     </style>
 </head>
 
-<body class="vertical-layout vertical-menu 2-columns" data-open="click" data-menu="vertical-menu"
-    data-col="2-columns">
+<body class="vertical-layout vertical-menu 2-columns" data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
     <!-- HEADER -->
     <nav
@@ -72,7 +71,7 @@
                     <li class="nav-item">
                         <a class="navbar-brand" href="">
                             <!--img class="brand-logo" alt="admin logo" src="/admin/images/logo/one.jpeg"-->
-                            <h4 class="brand-text"> المركز الدولي للعلاج الطبيعي والتأهيل  </h4>
+                            <h4 class="brand-text"> المركز الدولي للعلاج الطبيعي والتأهيل </h4>
                         </a>
                     </li>
                     <li class="nav-item d-md-none">
@@ -85,14 +84,16 @@
                 <div class="collapse navbar-collapse" id="navbar-mobile">
                     <ul class="nav navbar-nav mr-auto float-left">
                         <li class="nav-item d-none d-md-block">
-                            <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a>
+                            <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
+                                    class="ft-menu"></i></a>
                         </li>
                         <li class="nav-item d-none d-md-block"><a class="nav-link nav-link-expand" href="#"><i
                                     class="ficon ft-maximize"></i></a></li>
                     </ul>
                     <ul class="nav navbar-nav float-right">
                         <li class="dropdown dropdown-user nav-item">
-                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#"
+                                data-toggle="dropdown">
                                 <span class="avatar avatar-online">
                                     <img class="brand-logo" style="height:40px;" src="/admin/images/logo/one.jpeg"
                                         alt="Livestock"></span>
@@ -111,68 +112,68 @@
     <!-- END HEADER -->
 
     <!-- SIDEBAR -->
-   <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
-    <div class="main-menu-content">
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="main-menu-content">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-            <!-- الرئيسية -->
-            <li class="nav-item active">
-                <a href="{{url('Repo')}}">
-                    <i class="la la-dashboard"></i>
-                    <span class="menu-title">الرئيسية</span>
-                </a>
-            </li>
+                <!-- الرئيسية -->
+                <li class="nav-item active">
+                    <a href="{{ url('Repo') }}">
+                        <i class="la la-dashboard"></i>
+                        <span class="menu-title">الرئيسية</span>
+                    </a>
+                </li>
 
-            <!-- الأطباء -->
-            <li class="nav-item">
-                <a href="{{url('viewdoctor')}}">
-                    <i class="la la-user-md"></i>
-                    <span class="menu-title">الأطباء</span>
-                    <span class="badge badge-info badge-pill float-right mr-2">
-                        {{ App\Models\Doctor::count() ?? 0}}
-                    </span>
-                </a>
-            </li>
+                <!-- الأطباء -->
+                <li class="nav-item">
+                    <a href="{{ url('viewdoctor') }}">
+                        <i class="la la-user-md"></i>
+                        <span class="menu-title">الأطباء</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">
+                            {{ App\Models\Doctor::count() ?? 0 }}
+                        </span>
+                    </a>
+                </li>
 
-            <!-- الجلسات -->
-            <li class="nav-item">
-                <a href="{{url('viewspetial')}}">
-                    <i class="la la-stethoscope"></i>
-                    <span class="menu-title">الجلسة</span>
-                    <span class="badge badge-info badge-pill float-right mr-2">
-                        {{ App\Models\SessionDoctor::count() ?? 0 }}
-                    </span>
-                </a>
-            </li>
+                <!-- الجلسات -->
+                <li class="nav-item">
+                    <a href="{{ url('viewspetial') }}">
+                        <i class="la la-stethoscope"></i>
+                        <span class="menu-title">الجلسة</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">
+                            {{ App\Models\SessionDoctor::count() ?? 0 }}
+                        </span>
+                    </a>
+                </li>
 
-            <!-- المرضى -->
-            <li class="nav-item">
-                <a href="{{url('viewpatient')}}">
-                    <i class="la la-wheelchair"></i>
-                    <span class="menu-title">المرضى</span>
-                    <span class="badge badge-info badge-pill float-right mr-2">
-                        {{ App\Models\Patient::count() ?? 0 }}
-                    </span>
-                </a>
-            </li>
+                <!-- المرضى -->
+                <li class="nav-item">
+                    <a href="{{ url('viewpatient') }}">
+                        <i class="la la-wheelchair"></i>
+                        <span class="menu-title">المرضى</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">
+                            {{ App\Models\Patient::select('patientnumber','name')->distinct()->count() ?? 0 }}
+                        </span>
+                    </a>
+                </li>
 
-            <!-- التقارير -->
-            <li class="nav-item">
-                <a href="#">
-                    <i class="la la-bar-chart"></i>
-                    <span class="menu-title">عرض التقارير</span>
-                    <span class="badge badge-info badge-pill float-right mr-2">1</span>
-                </a>
-                <ul class="menu-content">
-                    <li>
-                        <a class="menu-item" href="#">عرض الكل</a>
-                    </li>
-                </ul>
-            </li>
+                <!-- التقارير -->
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="la la-bar-chart"></i>
+                        <span class="menu-title">عرض التقارير</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">1</span>
+                    </a>
+                    <ul class="menu-content">
+                        <li>
+                            <a class="menu-item" href="#">عرض الكل</a>
+                        </li>
+                    </ul>
+                </li>
 
-        </ul>
+            </ul>
+        </div>
     </div>
-</div>
 
 
     <!-- MAIN CONTENT -->
@@ -183,8 +184,8 @@
     <!-- FOOTER -->
     <footer class="footer footer-static footer-light navbar-border navbar-shadow">
         <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
-            <span class="float-md-left d-block d-md-inline-block">Copyright &copy; {{ date('Y') }} <a href=""
-                    target="_blank">###</a> </span>
+            <span class="float-md-left d-block d-md-inline-block">Copyright &copy; {{ date('Y') }} <a
+                    href="" target="_blank">###</a> </span>
             <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block"> done <i
                     class="ft-heart pink"></i></span>
         </p>
@@ -193,7 +194,8 @@
     <!-- JS VENDOR -->
     <script src="{{ asset('admin/vendors/js/vendors.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('admin/vendors/js/tables/datatable/dataTables.buttons.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('admin/vendors/js/tables/datatable/dataTables.buttons.min.js') }}" type="text/javascript">
+    </script>
     <script src="{{ asset('admin/vendors/js/forms/toggle/bootstrap-switch.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/vendors/js/forms/toggle/bootstrap-checkbox.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('admin/vendors/js/forms/toggle/switchery.min.js') }}" type="text/javascript"></script>
@@ -222,7 +224,7 @@
 
     <!-- DataTable Arabic Translation & TimeDropper Init -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.datatable').DataTable({
                 "language": {
                     "sProcessing": "جارٍ التحميل...",
@@ -240,7 +242,9 @@
                     }
                 },
                 "pageLength": 10,
-                "order": [[0, "asc"]]
+                "order": [
+                    [0, "asc"]
+                ]
             });
 
             for (let i = 1; i <= 14; i++) {
