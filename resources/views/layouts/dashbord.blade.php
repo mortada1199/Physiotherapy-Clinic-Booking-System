@@ -166,7 +166,7 @@
                     </a>
                     <ul class="menu-content">
                         <li>
-                            <a class="menu-item" href="#">عرض الكل</a>
+                            <a class="menu-item" href="{{ url('doctorreport') }}">عرض التقارير المالية للطبيب</a>
                         </li>
                     </ul>
                 </li>

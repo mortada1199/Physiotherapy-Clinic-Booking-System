@@ -5,7 +5,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SessionDoctorController;
 use App\Http\Controllers\LoginController;
-
+use App\Http\Controllers\ReportControll;
 
 // تسجيل الدخول
 Route::get('/login', [LoginController::class, 'showLogin']);
@@ -56,6 +56,11 @@ Route::middleware(['authcheck'])->group(function () {
     // Report
     Route::get('/Repo', fn() => view('home'));
 });
+
+//doctorreport routes
+Route::get('/doctorreport', [ReportControll::class, 'index'])->name('doctorreport');
+Route::post('/doctreports', [ReportControll::class, 'filter'])->name('doctreports');
+
 
 
 // //dashboard route
