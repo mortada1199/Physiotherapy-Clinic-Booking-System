@@ -108,6 +108,8 @@ class PatientController extends Controller
             'type' => $request->type ?? $patient->type,
             'age' => $request->age ?? $patient->age,
             'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
+            'sessionprice' =>  $patient->sessionprice ?? 0,
+
         ]);
 
         return redirect('/viewpatient')->with(['success' => 'تم التحديث بنجاح']);
@@ -130,8 +132,11 @@ class PatientController extends Controller
     {
         $patient = Patient::findOrFail($id);
         $latestPatient = Patient::where('name', $patient->name)->latest()->first();
-
         $session = SessionDoctor::where('name', $request['session_name'])->first();
+
+        $sessionPrice = 50;
+        $doctorPercent = 10;
+        $doctorShare = ($doctorPercent / 100) * $sessionPrice;
 
         if ($patient->exectingdoctor_name == null) {
             $patient->update([
@@ -152,6 +157,7 @@ class PatientController extends Controller
                 'type' => $request->type ?? $patient->type,
                 'age'   => $request->age ?? $patient->age,
                 'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
+                'doctorfate' =>  ($session['persent']/100)*$patient->sessionprice ,//calculate doctor fate
 
             ]);
             if ($patient) {
@@ -179,6 +185,8 @@ class PatientController extends Controller
                 'type' => $request->type ?? $patient->type,
                 'age'   => $request->age ?? $patient->age,
                 'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
+                'doctorfate' =>  ($session['persent']/100)*$patient->sessionprice ,//calculate doctor fate
+
             ]);
             if ($patient) {
                 return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);

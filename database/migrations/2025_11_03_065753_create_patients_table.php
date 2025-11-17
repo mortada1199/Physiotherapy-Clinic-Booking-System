@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('age')->nullable();
             $table->string('patientnumber')->nullable();
+            $table->string('doctorfate')->nullable();
             $table->timestamps();
         });
     }
