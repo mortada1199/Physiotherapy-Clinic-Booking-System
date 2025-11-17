@@ -28,7 +28,7 @@
                                     <h4 class="card-title mb-0">بيانات الاطباء</h4>
                                     <a href="{{ url('addspecial') }}" class="btn btn-primary btn-glow px-3">
                                         <i class="la la-plus"></i> إضافة جلسة
-                                    </a>    
+                                    </a>
                                 </div> --}}
 
                                 <div class="card-header">
@@ -62,9 +62,9 @@
                                         <table class="table display nowrap table-striped scroll-horizontal table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th> #</th>
-                                                    <th> الجلسة</th>
+
                                                     <th> رقم الجلسة</th>
+                                                    <th> الجلسة</th>
                                                     <th> المبلغ</th>
                                                     <th>النسبة</th>
                                                     <th>الإجراءات</th>
@@ -74,9 +74,8 @@
                                             <tbody>
                                                 @foreach ($sessions as $val)
                                                     <tr>
-                                                        <td>{{ $val->id }} </td>
+                                                        <td>{{ $val->numbersession }}</td>
                                                         <td>{{ $val->name }}</td>
-                                                        <td>{{$val->numbersession}}</td>
                                                         <td>{{ $val->price }}</td>
                                                         <td>{{ $val->persent }}</td>
                                                         <td>
@@ -86,14 +85,14 @@
                                                             <div class="btn-group" role="group"
                                                                 aria-label="Basic example">
                                                                 <a href="{{ url('editspetial', $val->id) }}"
-                                                                    class="btn btn-outline-primary btn-sm" title="تعديل">
-                                                                    <i class="la la-edit"></i> 
+                                                                    class="btn btn-outline-success btn-sm" title="تعديل">
+                                                                    <i class="la la-edit"></i>
                                                                 </a>
 
                                                                 <a href="{{ url('deletespetial', $val->id) }}"
                                                                     class="btn btn-outline-danger btn-sm" title="حذف"
                                                                     onclick="return confirm('هل أنت متأكد من حذف هذا الطبيب؟');">
-                                                                    <i class="la la-trash"></i> 
+                                                                    <i class="la la-trash"></i>
                                                                 </a>
                                                             </div>
 

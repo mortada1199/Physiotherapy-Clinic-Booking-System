@@ -57,69 +57,74 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
-                                        <table class="table display nowrap table-striped scroll-horizontal table-bordered" >
+                                        <table class="table display nowrap table-striped scroll-horizontal table-bordered">
 
-                                            
-                                                <thead>
+
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>اسم المريض</th>
+                                                    <th>رقم الهاتف</th>
+
+                                                    <th> الطبيب المحول</th>
+                                                    <th> الطبيب المنفذ</th>
+                                                    {{-- <th>العنوان</th> --}}
+                                                    <th>التاريخ </th>
+                                                    <th>الإجراءات</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($patients as $val)
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>الاسم</th>
-                                                        <th>اسم الطبيب المحول</th>
-                                                        <th>اسم الطبيب المنفذ</th>
-                                                        {{-- <th>العنوان</th> --}}
-                                                        <th>رقم الهاتف</th>
-                                                        <th>التاريخ </th> 
-                                                        <th>الإجراءات</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($patients as $val)
-                                                        <tr>
-                                                            <td>{{ $val->patientnumber }}</td>
-                                                            <td>{{ $val->name ?? 0}}</td>
-                                                            <td>{{ $val->referingdoctor_name ?? 0 }}</td>
-                                                            <td>{{ $val->exectingdoctor_name  ?? 0}}</td>
-                                                            {{-- <td>{{ $val->address }}</td> --}}
-                                                            <td>{{ $val->phone ?? 0}}</td>
-                                                              <td>{{ $val->created_at->format('Y-m-d'); }}</td> 
-                                                            <td>
-                                                                <div class="btn-group" role="group">
-                                                                    <a href="{{ url('deletepatient', $val->id) }}"
-                                                                        class="btn  btn-sm" title="حذف"
-                                                                        onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
-                                                                        <i class="la la-trash danger"></i> 
-                                                                    </a>
+                                                        <td>{{ $val->patientnumber }}</td>
+                                                        <td>{{ $val->name ?? 0 }}</td>
+                                                        <td>{{ $val->phone ?? 0 }}</td>
 
-                                                                    <a href="{{ url('editpatient', $val->id) }}"
-                                                                        class="btn  btn-sm" title="تعديل">
-                                                                        <i class="la la-edit success"></i> 
-                                                                    </a>
- 
-                                                                    <a href="{{ url('calldoctor', $val->id) }}"
-                                                                        class="btn  btn-sm" title="اضافة جلسة">
-                                                                        <i class="la la-plus primary"></i>  
-                                                                    </a>
+                                                        <td>{{ $val->referingdoctor_name ?? 0 }}</td>
+                                                        <td>{{ $val->exectingdoctor_name ?? 0 }}</td>
+                                                        {{-- <td>{{ $val->address }}</td> --}}
+                                                        <td>{{ $val->created_at->format('Y-m-d') }}</td>
+                                                        <td>
+                                                            <div class="btn-group" role="group">
+                                                                <a href="{{ url('deletepatient', $val->id) }}"
+                                                                    class="btn btn-outline-danger  btn-sm" title="حذف"
+                                                                    onclick="return confirm('هل أنت متأكد من حذف هذا المريض؟');">
+                                                                    <i class="la la-trash "></i>
+                                                                </a>
 
-                                                                       <a href="{{ route('showpatients', $val->id) }}"
-                                                                    class="btn  btn-sm" title="عرض">
-                                                                    <i class="la la-eye secondary"></i>  
+                                                                <a href="{{ url('editpatient', $val->id) }}"
+                                                                    class="btn btn-outline-success  btn-sm" title="تعديل">
+                                                                    <i class="la la-edit "></i>
+                                                                </a>
+
+                                                                <a href="{{ url('calldoctor', $val->id) }}"
+                                                                    class="btn btn-outline-primary  btn-sm"
+                                                                    title="اضافة جلسة">
+                                                                    <i class="la la-plus "></i>
+                                                                </a>
+
+                                                                <a href="{{ route('showpatients', $val->id) }}"
+                                                                    class="btn btn-outline-secondary  btn-sm"
+                                                                    title="عرض">
+                                                                    <i class="la la-eye "></i>
                                                                 </a>
 
                                                                 <a href="{{ route('patienthistory', $val->name) }}"
-                                                                    class="btn  btn-sm" title="الجلسات السابقة">
-                                                                    <i class="la la-history dark"></i>  
+                                                                    class="btn btn-outline-dark  btn-sm"
+                                                                    title="الجلسات السابقة">
+                                                                    <i class="la la-history "></i>
                                                                 </a>
 
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
 
-                                            <div class="justify-content-center d-flex">
+                                        <div class="justify-content-center d-flex">
 
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

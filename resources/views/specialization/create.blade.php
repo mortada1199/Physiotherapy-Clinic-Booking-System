@@ -54,6 +54,17 @@
                                                 <h4 class="form-section"><i class="ft-home"></i> بيانات الجلسة</h4>
 
                                                 <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="numbersession">رقم الجلسة</label>
+                                                            <input type="text" id="numbersession" name="numbersession"
+                                                                class="form-control" placeholder="ادخل رقم الجلسة"
+                                                                value="{{ old('numbersessioncount') }}">
+                                                            @error('numbersession')
+                                                                <small class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
                                                     <!-- اسم الجلسة -->
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -67,23 +78,13 @@
                                                         </div>
                                                     </div>
 
-                                                    <!-- المبلغ -->
+                                                    <!-- رمز الجلسة -->
 
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="numbersession">رقم الجلسة</label>
-                                                            <input type="text" id="numbersession" name="numbersession"
-                                                                class="form-control" placeholder="ادخل رقم الجلسة"
-                                                                value="{{ old('numbersessioncount') }}">
-                                                            @error('numbersession')
-                                                                <small class="form-text text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
+
                                                 </div>
 
                                                 <div class="row">
-                                                    <!-- رقم الجلسة -->
+                                                    <!-- المبلغ -->
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -109,7 +110,7 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-                                              
+
 
                                             </div>
 

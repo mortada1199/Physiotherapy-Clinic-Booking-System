@@ -54,12 +54,11 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="referingdoctor_name"> اسم الطبيب المحول </label>
-                                                            <input type="text" id="referingdoctor_name"
-                                                                class="form-control" placeholder="ادخل اسم الطبيب المحول"
-                                                                name="referingdoctor_name"
-                                                                value="{{ old('referingdoctor_name') }}">
-                                                            @error('referingdoctor_name')
+                                                            <label for="patientnumber"> رقم المريض </label>
+                                                            <input type="text" id="patientnumber" class="form-control"
+                                                                placeholder="ادخل رقم المريض" name="patientnumber"
+                                                                value="{{ old('patientnumber') }}">
+                                                            @error('patientnumber')
                                                                 <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
@@ -80,30 +79,17 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="session_id" class="form-label"> التخصص</label>
-                                                        <input type="text" id="major" class="form-control"
-                                                            placeholder="ادخل عدد الجلسات" name="major"
-                                                            value="{{ old('major') }}">
-                                                        @error('major')
-                                                            <small class="form-text text-danger">{{ $message }}</small>
-                                                        @enderror
-                                                    </div>
-
-                                                    <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="countsession"> عدد الجلسات </label>
-                                                            <input type="text" id="countsession" class="form-control"
-                                                                placeholder="ادخل عدد الجلسات" name="countsession"
-                                                                value="{{ old('countsession') }}">
-                                                            @error('countsession')
-                                                                <small
-                                                                    class="form-text text-danger">{{ $message }}</small>
+                                                            <label for="age"> العمر </label>
+                                                            <input type="text" id="age" class="form-control"
+                                                                placeholder="ادخل عمر المريض" name="age"
+                                                                value="{{ old('age') }}">
+                                                            @error('age')
+                                                                <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="address"> العنوان </label>
@@ -117,6 +103,11 @@
                                                         </div>
                                                     </div>
 
+                                                </div>
+
+                                                <div class="row">
+
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="phone"> رقم الهاتف </label>
@@ -124,6 +115,26 @@
                                                                 placeholder="ادخل رقم الهاتف" name="phone"
                                                                 value="{{ old('phone') }}">
                                                             @error('phone')
+                                                                <small
+                                                                    class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+ <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="type"> تصنيف المريض </label>
+                                                            <select id="type" name="type" class="form-control">
+                                                                <option value="" selected disabled> اختر تصنيف المريض
+                                                                </option>
+
+                                                                <option value="تامين">تامين
+                                                                </option>
+
+                                                                <option value="عادي">عادي
+                                                                </option>
+                                                            </select>
+
+                                                            @error('type')
                                                                 <small
                                                                     class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
@@ -156,54 +167,44 @@
                                                         </div>
                                                     </div>
 
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="type"> تصنيف المريض </label>
-                                                            <select id="type" name="type" class="form-control">
-                                                                <option value="" selected disabled> اختر تصنيف المريض
-                                                                </option>
-
-                                                                <option value="تامين">تامين
-                                                                </option>
-
-                                                                <option value="عادي">عادي
-                                                                </option>
-                                                            </select>
-
-                                                            @error('type')
+                                                            <label for="countsession"> عدد الجلسات </label>
+                                                            <input type="text" id="countsession" class="form-control"
+                                                                placeholder="ادخل عدد الجلسات" name="countsession"
+                                                                value="{{ old('countsession') }}">
+                                                            @error('countsession')
                                                                 <small
                                                                     class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
                                                     </div>
+
                                                 </div>
 
                                                 <div class="row">
+
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="age"> العمر </label>
-                                                            <input type="text" id="age" class="form-control"
-                                                                placeholder="ادخل عنوان المريض" name="age"
-                                                                value="{{ old('age') }}">
-                                                            @error('age')
+                                                            <label for="referingdoctor_name"> اسم الطبيب المحول </label>
+                                                            <input type="text" id="referingdoctor_name"
+                                                                class="form-control" placeholder="ادخل اسم الطبيب المحول"
+                                                                name="referingdoctor_name"
+                                                                value="{{ old('referingdoctor_name') }}">
+                                                            @error('referingdoctor_name')
                                                                 <small
                                                                     class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="patientnumber"> رقم المريض </label>
-                                                            <input type="text" id="patientnumber" class="form-control"
-                                                                placeholder="ادخل رقم المريض" name="patientnumber"
-                                                                value="{{ old('patientnumber') }}">
-                                                            @error('patientnumber')
-                                                                <small
-                                                                    class="form-text text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                        </div>
+                                                        <label for="session_id" class="form-label"> التخصص</label>
+                                                        <input type="text" id="major" class="form-control"
+                                                            placeholder="التخصص التابعة له الحالة" name="major"
+                                                            value="{{ old('major') }}">
+                                                        @error('major')
+                                                            <small class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
                                                     </div>
 
                                                 </div>

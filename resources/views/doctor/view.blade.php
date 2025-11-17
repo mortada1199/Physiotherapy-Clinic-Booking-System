@@ -53,8 +53,9 @@
                                                     <th>#</th>
                                                     <th>الاسم</th>
                                                     {{-- <th>سنوات الخبرة</th> --}}
-                                                    <th>العنوان</th>
                                                     <th>رقم الهاتف</th>
+                                                    <th>العنوان</th>
+
                                                     {{-- <th>النسبة</th> --}}
                                                     {{-- <th>البريد الالكتروني</th> --}}
                                                     <th>الإجراءات</th>
@@ -66,27 +67,28 @@
                                                         <td>{{ $val->id }}</td>
                                                         <td>{{ $val->name }}</td>
                                                         {{-- <td>{{ $val->experience }}</td> --}}
-                                                        <td>{{ $val->address }}</td>
                                                         <td>{{ $val->phone }}</td>
+                                                        <td>{{ $val->address }}</td>
+
                                                         {{-- <td>{{ $val->persent }}</td> --}}
                                                         {{-- <td>{{ $val->email }}</td> --}}
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                 aria-label="Basic example">
                                                                 <a href="{{ url('editdoctor', $val->id) }}"
-                                                                    class="btn btn-outline-primary btn-sm" title="تعديل">
-                                                                    <i class="la la-edit"></i> 
+                                                                    class="btn btn-outline-success btn-sm" title="تعديل">
+                                                                    <i class="la la-edit"></i>
                                                                 </a>
 
                                                                 <a href="{{ url('doctordelete', $val->id) }}"
                                                                     class="btn btn-outline-danger btn-sm" title="حذف"
                                                                     onclick="return confirm('هل أنت متأكد من حذف هذا الطبيب؟');">
-                                                                    <i class="la la-trash"></i> 
+                                                                    <i class="la la-trash"></i>
                                                                 </a>
 
                                                                 <a href="{{ route('show', $val->id) }}"
-                                                                    class="btn btn-info btn-sm" title="عرض"> 
-                                                                    <i class="la la-eye"></i>  
+                                                                    class="btn btn-outline-info btn-sm" title="عرض">
+                                                                    <i class="la la-eye"></i>
                                                                 </a>
 
                                                             </div>

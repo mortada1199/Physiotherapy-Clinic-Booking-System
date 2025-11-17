@@ -40,21 +40,23 @@
                                             <th>الاسم الكامل</th>
                                             <td>{{ $doctor->name }}</td>
                                         </tr>
-                                        <tr>
-                                            <th>سنوات الخبرة </th>
-                                            <td>{{ $doctor->experience }}</td>
-                                        </tr>
+
                                         <tr>
                                             <th>رقم الهاتف</th>
                                             <td>{{ $doctor->phone }}</td>
                                         </tr>
                                         <tr>
+                                            <th>العنوان</th>
+                                            <td>{{ $doctor->address ?? 'غير محدد' }}</td>
+                                        </tr>
+                                        <tr>
                                             <th>البريد الإلكتروني</th>
                                             <td>{{ $doctor->email }}</td>
                                         </tr>
+
                                         <tr>
-                                            <th>العنوان</th>
-                                            <td>{{ $doctor->address ?? 'غير محدد' }}</td>
+                                            <th>سنوات الخبرة </th>
+                                            <td>{{ $doctor->experience }}</td>
                                         </tr>
                                         {{-- <tr>
                                             <th> النسبة</th>

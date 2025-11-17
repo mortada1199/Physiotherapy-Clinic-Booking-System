@@ -77,23 +77,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="exectingdoctor_name" class="form-label">اسم الطبيب
-                                                            المنفذ</label>
-                                                        <select id="exectingdoctor_name" name="exectingdoctor_name"
-                                                            class="form-select">
-                                                            <option value="" selected disabled>اختر اسم الطبيب
-                                                            </option>
-                                                            @foreach ($doctors as $val)
-                                                                <option value="{{ $val->name }}">{{ $val->name }}
-                                                                </option>
-                                                            @endforeach
-                                                            
-                                                        </select>
-                                                         @error('exectingdoctor_name')
-                                                                <small class="form-text text-danger">{{ $message }}</small>
-                                                            @enderror
-                                                    </div>
+
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -132,6 +116,23 @@
                                                                 <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="exectingdoctor_name" class="form-label">اسم الطبيب
+                                                            المنفذ</label>
+                                                        <select id="exectingdoctor_name" name="exectingdoctor_name"
+                                                            class="form-select">
+                                                            <option value="" selected disabled>اختر اسم الطبيب
+                                                            </option>
+                                                            @foreach ($doctors as $val)
+                                                                <option value="{{ $val->name }}">{{ $val->name }}
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select>
+                                                         @error('exectingdoctor_name')
+                                                                <small class="form-text text-danger">{{ $message }}</small>
+                                                            @enderror
                                                     </div>
                                                 </div>
 
