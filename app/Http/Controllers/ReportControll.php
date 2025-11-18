@@ -7,6 +7,7 @@ use App\Models\Patient;
 use App\Models\SessionDoctor;
 use Illuminate\Http\Request;
 
+
 class ReportControll extends Controller
 {
     public function index()
@@ -23,23 +24,19 @@ class ReportControll extends Controller
             'doctor_id' => 'required',
         ]);
 
+        $selectedDoctor = Doctor::find($request->doctor_id);
         $doctors = Doctor::all();
 
-
-
-
-        $sessions = Patient::whereBetween('created_at', [$request->from, $request->to])
-            ->where('excutedsession', $request->doctor_id)
-            ->get();
-
+      
+          $sessions = Patient::whereDate('created_at', '>=', $request->from)
+                   ->whereDate('created_at', '<=', $request->to)
+                   ->where('exectingdoctor_name', $selectedDoctor->name)
+                   ->get();
+    
 
         $totalSessions = $sessions->count();
-
         $totalAmount = $sessions->sum('doctorfate');
-
-
-
-        $selectedDoctor = Doctor::find($request->doctor_id);
+       
 
         return view('report.doctorreport', compact('doctors', 'sessions', 'totalSessions', 'totalAmount', 'selectedDoctor'));
     }
