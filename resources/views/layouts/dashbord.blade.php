@@ -152,7 +152,7 @@
                         <i class="la la-wheelchair"></i>
                         <span class="menu-title">المرضى</span>
                         <span class="badge badge-info badge-pill float-right mr-2">
-                            {{ App\Models\Patient::select('patientnumber','name')->distinct()->count() ?? 0 }}
+                            {{ App\Models\Patient::select('patientnumber', 'name')->distinct()->count() ?? 0 }}
                         </span>
                     </a>
                 </li>
@@ -168,6 +168,12 @@
                         <li>
                             <a class="menu-item" href="{{ url('doctorreport') }}">عرض التقارير المالية للطبيب</a>
                         </li>
+
+                        <li>
+                            <a class="menu-item" href="{{ url('reportsessions') }}"> تقرير جلسات المرضى</a>
+                        </li>
+
+
                     </ul>
                 </li>
 

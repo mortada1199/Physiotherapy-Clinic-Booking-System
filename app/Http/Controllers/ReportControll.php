@@ -40,4 +40,19 @@ class ReportControll extends Controller
 
         return view('report.doctorreport', compact('doctors', 'sessions', 'totalSessions', 'totalAmount', 'selectedDoctor'));
     }
+
+    public function sessionsReport(Request $request)
+    {
+        // فلترة حسب التاريخ لو تم ارسالها من الفورم
+        $query = Patient::query();
+
+        if ($request->has('from') && $request->has('to')) {
+            $query->whereDate('created_at', '>=', $request->from)
+                  ->whereDate('created_at', '<=', $request->to);
+        }
+
+        $sessions = $query->get();
+
+        return view('report.sessions', compact('sessions'));
+    }
 }
