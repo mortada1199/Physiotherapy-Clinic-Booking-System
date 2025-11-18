@@ -120,15 +120,15 @@
                                                         <div class="form-group">
                                                             <label for="type"> تصنيف المريض </label>
                                                             <select id="type" name="type" class="form-control">
-                                                                <option value="{{ old('type', $patient->type) }}" selected
-                                                                    disabled> اختر تصنيف المريض
-                                                                </option>
-
-                                                                <option value="تامين">تامين
-                                                                </option>
-
-                                                                <option value="عادي">عادي
-                                                                </option>
+                                                                <option value="" disabled
+                                                                    {{ old('type', $patient->type) ? '' : 'selected' }}>
+                                                                    اختر تصنيف المريض</option>
+                                                                <option value="تامين"
+                                                                    {{ old('type', $patient->type) == 'تامين' ? 'selected' : '' }}>
+                                                                    تامين</option>
+                                                                <option value="عادي"
+                                                                    {{ old('type', $patient->type) == 'عادي' ? 'selected' : '' }}>
+                                                                    عادي</option>
                                                             </select>
 
                                                             @error('type')
