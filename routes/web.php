@@ -61,6 +61,7 @@ Route::middleware(['authcheck'])->group(function () {
 Route::get('/doctorreport', [ReportControll::class, 'index'])->name('doctorreport');
 Route::post('/doctreports', [ReportControll::class, 'filter'])->name('doctreports');
 Route::get('/reportsessions', [ReportControll::class, 'sessionsReport'])->name('reportsessions');
+Route::get('/reportfinance', [ReportControll::class, 'financeReport'])->name('reportfinance');
 
 
 

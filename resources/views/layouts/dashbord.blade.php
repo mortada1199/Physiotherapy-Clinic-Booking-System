@@ -162,7 +162,7 @@
                     <a href="#">
                         <i class="la la-bar-chart"></i>
                         <span class="menu-title">عرض التقارير</span>
-                        <span class="badge badge-info badge-pill float-right mr-2">1</span>
+                        <span class="badge badge-info badge-pill float-right mr-2">-</span>
                     </a>
                     <ul class="menu-content">
                         <li>
@@ -172,7 +172,9 @@
                         <li>
                             <a class="menu-item" href="{{ url('reportsessions') }}"> تقرير جلسات المرضى</a>
                         </li>
-
+                        <li>
+                            <a class="menu-item" href="{{ url('reportfinance') }}"> التقارير المالية</a>
+                        </li>
 
                     </ul>
                 </li>
