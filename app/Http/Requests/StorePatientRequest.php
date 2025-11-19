@@ -31,7 +31,7 @@ class StorePatientRequest extends FormRequest
             'date' => 'nullable|date',
             'numbersession' => 'nullable|integer',
             'address' => 'max:500',
-            'phone' => 'max:20',
+            'phone' => 'regex:/^(?:\+249|0)9\d{8}$/',
             'dignosis' => 'max:1000',
             'major' => 'max:255',
             'type' => 'required|max:50',
