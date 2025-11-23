@@ -77,20 +77,19 @@
                                                 </div>
 
                                                 <div class="row">
-
-
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">اسم المريض</label>
                                                             <input type="text" value="{{ $patientt->name }}"
                                                                 id="name" class="form-control" name="name"
                                                                 placeholder="ادخل اسم المريض">
-                                                                 @error('name')
+                                                            @error('name')
                                                                 <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
@@ -98,7 +97,6 @@
                                                             <input type="text" value="{{ $patientt->session_name }}"
                                                                 id="session_name" class="form-control"
                                                                 placeholder="ادخل رقم الجلسة" name="session_name" readonly>
-
                                                             @error('session_name')
                                                                 <small class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
@@ -111,12 +109,13 @@
                                                             <input type="text" value="{{ $patientt->sessionprice }}"
                                                                 id="sessionprice" class="form-control"
                                                                 placeholder="ادخل رقم الجلسة" name="sessionprice" readonly>
-
                                                             @error('sessionprice')
-                                                                <small class="form-text text-danger">{{ $message }}</small>
+                                                                <small
+                                                                    class="form-text text-danger">{{ $message }}</small>
                                                             @enderror
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <label for="exectingdoctor_name" class="form-label">اسم الطبيب
                                                             المنفذ</label>
@@ -128,11 +127,10 @@
                                                                 <option value="{{ $val->name }}">{{ $val->name }}
                                                                 </option>
                                                             @endforeach
-
                                                         </select>
-                                                         @error('exectingdoctor_name')
-                                                                <small class="form-text text-danger">{{ $message }}</small>
-                                                            @enderror
+                                                        @error('exectingdoctor_name')
+                                                            <small class="form-text text-danger">{{ $message }}</small>
+                                                        @enderror
                                                     </div>
                                                 </div>
 
@@ -153,7 +151,6 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="form-actions mt-3">
                                                     <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
@@ -166,6 +163,17 @@
                                                             <i class="la la-check-square-o"></i> حفظ
                                                         </button>
                                                     @endif
+
+                                                    {{-- زر رفع التقرير ومكان رفع الصورة --}}
+                                                    <div id="reportSection" style="display:none; margin-top:10px;">
+                                                        <label for="reportFile" class="form-label fw-bold">رفع تقرير
+                                                            الجلسة</label>
+                                                        <input type="file" id="reportFile" name="reportFile"
+                                                            accept="image/*" class="form-control mb-2">
+                                                        <button type="submit" class="btn btn-success">
+                                                            <i class="la la-upload"></i> رفع التقرير
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
@@ -217,14 +225,16 @@
             const total = parseInt(document.getElementById('totalSession').textContent);
             const executed = parseInt(document.getElementById('executedSession').textContent);
             const saveBtn = document.getElementById('saveButton');
+            const reportSection = document.getElementById('reportSection');
 
             checkbox.addEventListener('change', function() {
                 locationField.style.display = checkbox.checked ? 'block' : 'none';
             });
 
-            // إخفاء الزر إذا تساوى العددان
-            if (total === executed && saveBtn) {
-                saveBtn.style.display = 'none';
+            // لو الجلسات المنفذة = الجلسات الكلية → أخفي زر الحفظ واظهر زر رفع التقرير
+            if (total === executed) {
+                if (saveBtn) saveBtn.style.display = 'none';
+                if (reportSection) reportSection.style.display = 'block';
             }
         });
     </script>
