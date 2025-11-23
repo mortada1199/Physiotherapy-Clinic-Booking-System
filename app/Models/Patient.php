@@ -24,7 +24,8 @@ class Patient extends Model
         'type',
         'age',
         'patientnumber',
-        'doctorfate',     
+        'doctorfate', 
+        'report_path',    
     ];
 
    

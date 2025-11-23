@@ -49,6 +49,7 @@ Route::middleware(['authcheck'])->group(function () {
     Route::post('updatesession/{id}', [PatientController::class, 'sessionstore'])->name('updatesession');
     //patient history
     Route::get('patienthistory/{id}', [PatientController::class, 'patienthistory'])->name('patienthistory');
+Route::post('/patient/{id}/upload-report', [PatientController::class, 'uploadReport'])->name('patient.uploadReport');
 
 
 

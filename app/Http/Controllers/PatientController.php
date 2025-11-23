@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCallPatientRequest;
 use App\Http\Requests\StorePatientRequest;
 use App\Models\Doctor;
 use App\Models\Patient;
+use App\Models\ReportPath;
 use App\Models\SessionDoctor;
 use Illuminate\Http\Request;
 
@@ -138,67 +139,73 @@ class PatientController extends Controller
         $latestPatient = Patient::where('name', $patient->name)->latest()->first();
         $session = SessionDoctor::where('name', $request['session_name'])->first();
 
-        $sessionPrice = 50;
-        $doctorPercent = 10;
-        $doctorShare = ($doctorPercent / 100) * $sessionPrice;
+        $doctorFate = ($session['persent'] / 100) * $patient->sessionprice;
 
+        // إذا اكتملت الجلسات، نرفع التقرير فقط
+        if (($patient->excutedsession ?? 0) >= ($patient->totalsession ?? 0)) {
+            if ($request->hasFile('reportFile')) {
+                $file = $request->file('reportFile');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('reports'), $filename);
+                $path = 'reports/' . $filename;
+
+                ReportPath::create([
+                    'report_path' => $path,
+                    'patientname' => $patient->name,
+                ]);
+            }
+
+            return redirect('/viewpatient')->with(['success' => 'تم رفع التقرير بنجاح ✅']);
+        }
+
+        // إذا الجلسات لم تكتمل، نحدث أو ننشئ المريض
         if ($patient->exectingdoctor_name == null) {
             $patient->update([
-                'exectingdoctor_name'   => $request->exectingdoctor_name ?? $patient->exectingdoctor_name,
+                'exectingdoctor_name' => $request->exectingdoctor_name ?? $patient->exectingdoctor_name,
                 'name' => $request->name ?? $patient->name,
                 'numbersession' => $request->numbersession ?? $patient->numbersession,
                 'session_name' => $request->session_name ?? $patient->session_name,
                 'roomnumber' => $request->roomnumber ?? $patient->roomnumber,
                 'persent' => $session['persent'] ?? $patient->persent,
-                'referingdoctor_name'  => $request->referingdoctor_name ?? $patient->referingdoctor_name,
+                'referingdoctor_name' => $request->referingdoctor_name ?? $patient->referingdoctor_name,
                 'dignosis' => $request->dignosis ?? $patient->dignosis,
-                'totalsession' =>  $patient->totalsession ?? 0,
+                'totalsession' => $patient->totalsession ?? 0,
                 'address' => $request->address ?? $patient->address,
                 'phone' => $request->phone ?? $patient->phone,
                 'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
                 'major' => $request->major ?? $patient->major,
                 'excutedsession' => $latestPatient->excutedsession + 1,
                 'type' => $request->type ?? $patient->type,
-                'age'   => $request->age ?? $patient->age,
+                'age' => $request->age ?? $patient->age,
                 'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
-                'doctorfate' =>  ($session['persent']/100)*$patient->sessionprice ,//calculate doctor fate
-
+                'doctorfate' => $doctorFate,
             ]);
-            if ($patient) {
-                return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
-            } else {
-                return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
-            }
         } else {
-
-            $patient->create([
-                'exectingdoctor_name'   => $request->exectingdoctor_name ?? $patient->exectingdoctor_name,
+            Patient::create([
+                'exectingdoctor_name' => $request->exectingdoctor_name ?? $patient->exectingdoctor_name,
                 'name' => $request->name ?? $patient->name,
                 'numbersession' => $request->numbersession ?? $patient->numbersession,
                 'session_name' => $request->session_name ?? $patient->session_name,
                 'roomnumber' => $request->roomnumber ?? $patient->roomnumber,
                 'persent' => $session['persent'] ?? $patient->persent,
-                'referingdoctor_name'  => $request->referingdoctor_name ?? $patient->referingdoctor_name,
+                'referingdoctor_name' => $request->referingdoctor_name ?? $patient->referingdoctor_name,
                 'dignosis' => $request->dignosis ?? $patient->dignosis,
-                'totalsession' =>  $patient->totalsession ?? 0,
+                'totalsession' => $patient->totalsession ?? 0,
                 'address' => $request->address ?? $patient->address,
                 'phone' => $request->phone ?? $patient->phone,
                 'sessionprice' => $request->sessionprice ?? $patient->sessionprice,
                 'major' => $request->major ?? $patient->major,
                 'excutedsession' => $latestPatient->excutedsession + 1,
                 'type' => $request->type ?? $patient->type,
-                'age'   => $request->age ?? $patient->age,
+                'age' => $request->age ?? $patient->age,
                 'patientnumber' => $request->patientnumber ?? $patient->patientnumber,
-                'doctorfate' =>  ($session['persent']/100)*$patient->sessionprice ,//calculate doctor fate
-
+                'doctorfate' => $doctorFate,
             ]);
-            if ($patient) {
-                return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح']);
-            } else {
-                return redirect()->back()->with(['error' => 'هناك خطأ ما يرجى المحاولة لاحقاً']);
-            }
         }
+
+        return redirect('/viewpatient')->with(['success' => 'تم الاضافة بنجاح ✅']);
     }
+
 
 
     public function show($id)
