@@ -123,8 +123,12 @@ class PatientController extends Controller
         $doctors = Doctor::select('id', 'name')->get();
         $sessions = SessionDoctor::select('id', 'name')->get();
         $patient = Patient::findOrFail($patient_id);
+        $patientt = Patient::where('name', $patient->name)->latest()->first();
 
-        return view('callDoctor.create', compact('patient', 'doctors', 'sessions'));
+
+
+
+        return view('callDoctor.create', compact('patientt', 'doctors', 'sessions'));
     }
 
 

@@ -42,7 +42,7 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                        <form action="{{ url('updatesession', $patient->id) }}" method="POST"
+                                        <form action="{{ url('updatesession', $patientt->id) }}" method="POST"
                                             enctype="multipart/form-data">
                                             @csrf
 
@@ -58,7 +58,7 @@
                                                             <div class="card-content">
                                                                 <h6 class="fw-bold mb-1">إجمالي الجلسات</h6>
                                                                 <h3 id="totalSession" class="fw-bold mb-0">
-                                                                    {{ $patient->totalsession ?? 0 }}</h3>
+                                                                    {{ $patientt->totalsession ?? 0 }}</h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -70,7 +70,7 @@
                                                             <div class="card-content">
                                                                 <h6 class="fw-bold mb-1">الجلسات المنفذة</h6>
                                                                 <h3 id="executedSession" class="fw-bold mb-0">
-                                                                    {{ $patient->excutedsession ?? 0 }}</h3>
+                                                                    {{ $patientt->excutedsession ?? 0 }}</h3>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -82,7 +82,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1">اسم المريض</label>
-                                                            <input type="text" value="{{ $patient->name }}"
+                                                            <input type="text" value="{{ $patientt->name }}"
                                                                 id="name" class="form-control" name="name"
                                                                 placeholder="ادخل اسم المريض">
                                                                  @error('name')
@@ -95,7 +95,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> اسم الجلسة </label>
-                                                            <input type="text" value="{{ $patient->session_name }}"
+                                                            <input type="text" value="{{ $patientt->session_name }}"
                                                                 id="session_name" class="form-control"
                                                                 placeholder="ادخل رقم الجلسة" name="session_name" readonly>
 
@@ -108,7 +108,7 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> سعر الجلسة </label>
-                                                            <input type="text" value="{{ $patient->sessionprice }}"
+                                                            <input type="text" value="{{ $patientt->sessionprice }}"
                                                                 id="sessionprice" class="form-control"
                                                                 placeholder="ادخل رقم الجلسة" name="sessionprice" readonly>
 
@@ -161,7 +161,7 @@
                                                     </button>
 
                                                     {{-- زر الحفظ --}}
-                                                    @if (($patient->totalsession ?? 0) > ($patient->excutedsession ?? 0))
+                                                    @if (($patientt->totalsession ?? 0) > ($patientt->excutedsession ?? 0))
                                                         <button id="saveButton" type="submit" class="btn btn-primary">
                                                             <i class="la la-check-square-o"></i> حفظ
                                                         </button>
