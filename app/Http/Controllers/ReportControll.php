@@ -43,6 +43,11 @@ class ReportControll extends Controller
 
     public function sessionsReport(Request $request)
     {
+
+        // $request->validate([
+        //     'from' => 'required|date',
+        //     'to' => 'required|date',
+        // ]);
         // فلترة حسب التاريخ لو تم ارسالها من الفورم
         $query = Patient::query();
 
@@ -58,6 +63,9 @@ class ReportControll extends Controller
 
     public function financeReport(Request $request)
     {
+
+
+
         $query = Patient::query();
 
         if ($request->has('from') && $request->has('to')) {
@@ -65,14 +73,18 @@ class ReportControll extends Controller
                 ->whereDate('created_at', '<=', $request->to);
         }
 
+        // $executedSessions = Patient::where('name', $patient->name)->latest()->first();
+
+
         // جلب كل المرضى ضمن الفترة
         $sessions = $query->get();
 
         // حساب مجموع الإيرادات
-        $totalRevenue = $sessions->sum(function ($session) {
-            return $session->excutedsession * $session->sessionprice;
-        });
+        $totalRevenue = $sessions->sum('sessionprice') ;
+        $executedSessions =  $sessions->sum('excutedsession');
+        $totalSessions =  $sessions->sum('totalsession');
+        $netRevenue = $sessions->sum('sessionprice') - $sessions->sum('doctorfate');
 
-        return view('report.finance', compact('sessions', 'totalRevenue'));
+        return view('report.finance', compact('sessions', 'totalRevenue', 'executedSessions', 'totalSessions', 'netRevenue'));
     }
 }

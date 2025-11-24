@@ -58,29 +58,32 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- <table class="table table-bordered">// --}}
-                    <table class="table display nowrap table-striped scroll-horizontal table-bordered">
-
-                        <thead class="table-secondary text-center">
-                            <tr>
-                                <th>#</th>
-                                <th>تاريخ الجلسة</th>
-                                <th>اسم المريض</th>
-                                <th>المبلغ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($sessions as $index => $session)
-                                <tr>
-                                    <td>{{ $index + 1 }}</td>
-                                    <td>{{ $session->created_at->format('Y-m-d') }}</td>
-                                    <td>{{ $session->name }}</td>
-                                    <td>{{ number_format($session->sessionprice, 2) }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                        
+                        {{-- <table class="table table-bordered">// --}}
+                            <table class="table display nowrap table-striped scroll-horizontal table-bordered">
+                                
+                                <thead class="table-secondary  text-center">
+                                    <tr >
+                                        <th>#</th>                
+                                        <th>تاريخ الجلسة</th>
+                                        <th>اسم المريض</th>
+                                         <th>نوع  الجلسة</th>
+                                        <th>المبلغ</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    @foreach ($sessions as $index => $session)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>{{ $session->created_at->format('Y-m-d') }}</td>
+                                        <td>{{ $session->name }}</td>
+                                        <td>{{ $session->session_name }}</td>
+                                        <td>{{ number_format($session->sessionprice, 2) }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                    
                 </div>
             @endisset
         </div>

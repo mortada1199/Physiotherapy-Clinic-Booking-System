@@ -27,23 +27,29 @@
                 <table class="table display nowrap table-striped scroll-horizontal table-bordered">
                     <thead>
                         <tr>
+                            <th> #</th>
                             <th>رقم المريض</th>
                             <th>اسم المريض</th>
-                            <th>عدد الجلسات</th>
-                            <th>التاريخ</th>
-                            <th>تكلفة الجلسة</th>
-                            <th>إجمالي المبلغ</th>
+                            <th>الطبيب المحول</th>
+                            <th>الطبيب المنفذ</th>
+                            <th>نوع الجلسة</th>
+                            <th> نظرة</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($sessions as $session)
                             <tr>
+                                <td>{{ $session->id }}</td>
                                 <td>{{ $session->patientnumber }}</td>
                                 <td>{{ $session->name }}</td>
-                                <td>{{ $session->excutedsession }}/{{ $session->totalsession }}</td>
-                                <td>{{ $session->created_at->format('Y-m-d') }}</td>
-                                <td>{{ number_format($session->sessionprice) }}</td>
-                                <td>{{ number_format($session->excutedsession * $session->sessionprice) }}</td>
+                                <td>{{ $session->referingdoctor_name }}</td>
+                                <td>{{ $session->exectingdoctor_name }}</td>
+                                <td>{{ $session->type }}</td>
+                                <td><a href="{{ route('patienthistory', $session->name) }}" class="btn btn-outline-dark  btn-sm"
+                                        title="الجلسات السابقة">
+                                        <i class="la la-history "></i>
+                                    </a></td>
                             </tr>
                         @endforeach
                     </tbody>
