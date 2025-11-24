@@ -44,10 +44,7 @@ class ReportControll extends Controller
     public function sessionsReport(Request $request)
     {
 
-        // $request->validate([
-        //     'from' => 'required|date',
-        //     'to' => 'required|date',
-        // ]);
+      
         // فلترة حسب التاريخ لو تم ارسالها من الفورم
         $query = Patient::query();
 
@@ -56,7 +53,7 @@ class ReportControll extends Controller
                 ->whereDate('created_at', '<=', $request->to);
         }
 
-        $sessions = $query->get();
+        $sessions = $query->get()->unique('name')->values();
 
         return view('report.sessions', compact('sessions'));
     }
