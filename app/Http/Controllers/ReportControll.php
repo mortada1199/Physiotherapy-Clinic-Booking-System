@@ -73,16 +73,21 @@ class ReportControll extends Controller
                 ->whereDate('created_at', '<=', $request->to);
         }
 
-        // $executedSessions = Patient::where('name', $patient->name)->latest()->first();
+        $executedSessionss = Patient::orderBy('created_at', 'desc')
+            ->get()
+            ->unique('name')
+            ->values();
 
+        $executedSessions =  $executedSessionss->sum('excutedsession');
+
+        $totalSessions =  $executedSessionss->sum('totalsession');
 
         // جلب كل المرضى ضمن الفترة
         $sessions = $query->get();
 
         // حساب مجموع الإيرادات
-        $totalRevenue = $sessions->sum('sessionprice') ;
-        $executedSessions =  $sessions->sum('excutedsession');
-        $totalSessions =  $sessions->sum('totalsession');
+        $totalRevenue = $sessions->sum('sessionprice');
+
         $netRevenue = $sessions->sum('sessionprice') - $sessions->sum('doctorfate');
 
         return view('report.finance', compact('sessions', 'totalRevenue', 'executedSessions', 'totalSessions', 'netRevenue'));
