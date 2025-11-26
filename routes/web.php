@@ -8,7 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ReportControll;
 
 // تسجيل الدخول
-Route::get('/login', [LoginController::class, 'showLogin']);
+Route::get('/', [LoginController::class, 'showLogin']);
 Route::post('/check', [LoginController::class, 'check']);
 Route::get('/logout', [LoginController::class, 'logout']);
 

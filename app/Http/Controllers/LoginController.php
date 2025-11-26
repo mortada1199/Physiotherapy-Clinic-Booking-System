@@ -37,6 +37,6 @@ class LoginController extends Controller
     public function logout()
     {
         session()->forget('LoggedUser');
-        return redirect('/login')->with('success', 'تم تسجيل الخروج');
+        return redirect('/')->with('success', 'تم تسجيل الخروج');
     }
 }
