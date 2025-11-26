@@ -16,10 +16,12 @@
                 <form method="GET" action="{{ route('reportfinance') }}" class="mb-4">
                     <div class="row justify-content-center">
                         <div class="col-md-3 col-sm-6 mb-2">
-                            <input type="date" name="from" class="form-control text-center" value="{{ request('from') }}">
+                            <input type="date" name="from" class="form-control text-center"
+                                value="{{ request('from') }}">
                         </div>
                         <div class="col-md-3 col-sm-6 mb-2">
-                            <input type="date" name="to" class="form-control text-center" value="{{ request('to') }}">
+                            <input type="date" name="to" class="form-control text-center"
+                                value="{{ request('to') }}">
                         </div>
                         <div class="col-md-2 col-sm-6 mb-2">
                             <button type="submit" class="btn btn-primary w-100">
@@ -75,7 +77,7 @@
 
                     <!-- جدول التفاصيل -->
                     <div class="table-responsive">
-                <table class="table display nowrap table-striped scroll-horizontal table-bordered">
+                        <table class="table datatable">
                             <thead class="table-dark">
                                 <tr>
                                     <th>#</th>
@@ -83,7 +85,7 @@
                                     <th>اسم المريض</th>
                                     <th>اسم الجلسة</th>
                                     <th>سعر الجلسة (SDG)</th>
-                                
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -94,7 +96,7 @@
                                         <td>{{ $session->name }}</td>
                                         <td>{{ $session->session_name }}</td>
                                         <td>{{ number_format($session->sessionprice, 2) }}</td>
-                                       
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -126,7 +128,8 @@
             font-weight: 700;
         }
 
-        table th, table td {
+        table th,
+        table td {
             vertical-align: middle !important;
         }
     </style>

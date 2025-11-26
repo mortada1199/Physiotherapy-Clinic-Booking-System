@@ -57,8 +57,7 @@
 
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
-                                        <table class="table display nowrap table-striped scroll-horizontal table-bordered">
-
+                                        <table class="table datatable">
 
                                             <thead>
                                                 <tr>
@@ -69,7 +68,7 @@
                                                     <th> سعر الجلسة</th>
                                                     <th>مكان الاستدعاء</th>
                                                     <th>التاريخ </th>
-                                                   <th> </th>
+                                                    <th> </th>
                                                 </tr>
                                             </thead>
                                             <tbody>

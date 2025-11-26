@@ -24,7 +24,7 @@
                     </div>
                 </form>
 
-                <table class="table display nowrap table-striped scroll-horizontal table-bordered">
+                <table class="table datatable">
                     <thead>
                         <tr>
                             <th> #</th>
@@ -46,8 +46,8 @@
                                 <td>{{ $session->referingdoctor_name }}</td>
                                 <td>{{ $session->exectingdoctor_name }}</td>
                                 <td>{{ $session->type }}</td>
-                                <td><a href="{{ route('patienthistory', $session->name) }}" class="btn btn-outline-dark  btn-sm"
-                                        title="الجلسات السابقة">
+                                <td><a href="{{ route('patienthistory', $session->name) }}"
+                                        class="btn btn-outline-dark  btn-sm" title="الجلسات السابقة">
                                         <i class="la la-history "></i>
                                     </a></td>
                             </tr>

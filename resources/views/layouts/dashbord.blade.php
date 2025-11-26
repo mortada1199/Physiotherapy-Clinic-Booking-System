@@ -230,27 +230,15 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-    <!-- DataTable Arabic Translation & TimeDropper Init -->
+    <!-- ✅ DataTable Arabic Translation (official file only added) -->
     <script>
         $(document).ready(function() {
             $('.datatable').DataTable({
-                "language": {
-                    "sProcessing": "جارٍ التحميل...",
-                    "sLengthMenu": "أظهر _MENU_ مدخلات",
-                    "sZeroRecords": "لم يعثر على أية سجلات",
-                    "sInfo": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-                    "sInfoEmpty": "يعرض 0 إلى 0 من أصل 0 سجل",
-                    "sInfoFiltered": "(منتقاة من مجموع _MAX_ مدخل)",
-                    "sSearch": "بحث:",
-                    "oPaginate": {
-                        "sFirst": "الأول",
-                        "sPrevious": "السابق",
-                        "sNext": "التالي",
-                        "sLast": "الأخير"
-                    }
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/ar.json"
                 },
-                "pageLength": 10,
-                "order": [
+                pageLength: 10,
+                order: [
                     [0, "asc"]
                 ]
             });
